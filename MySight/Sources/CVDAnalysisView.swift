@@ -17,8 +17,11 @@ struct CVDAnalysisView: View {
     private let viewModel: CVDAnalysisViewModel
 
     init(_ viewModel: CVDAnalysisViewModel) {
+        let confusionLine = viewModel.loadNext(confusionLine: nil,
+                                               severity: 0.0)!
+
         self.viewModel = viewModel
-        self._confusionLine = State<ConfusionLine>(wrappedValue: viewModel.loadNext(confusionLine: nil, severity: 0.0)!)
+        self._confusionLine = State<ConfusionLine>(wrappedValue: confusionLine)
     }
     
     var body: some View {

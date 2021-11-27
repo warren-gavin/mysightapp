@@ -52,6 +52,7 @@ struct ContentView: View {
                         .padding(.bottom, 24.0)
                         .padding(.horizontal, 24.0)
                         .opacity(showControls ? 1.0 : 0.0)
+                        .frame(maxWidth: 1000, alignment: .center)
                         .onTapGesture {}
                 }
             }
@@ -75,11 +76,28 @@ struct ContentView: View {
 struct Background: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
-            content
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 24))
+            return AnyView (
+                content.background(.ultraThinMaterial,
+                                   in: RoundedRectangle(cornerRadius: 24))
+            )
         } else {
-            content
-                .background(Color.background)
+            struct Blur: UIViewRepresentable {
+                var style: UIBlurEffect.Style = .systemUltraThinMaterial
+
+                func makeUIView(context: Context) -> UIVisualEffectView {
+                    return UIVisualEffectView(effect: UIBlurEffect(style: style))
+                }
+
+                func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+                    uiView.effect = UIBlurEffect(style: style)
+                }
+            }
+
+            return AnyView(
+                content
+                    .background(Blur())
+                    .cornerRadius(24)
+            )
         }
     }
 }
