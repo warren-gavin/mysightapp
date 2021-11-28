@@ -1,6 +1,6 @@
 //
 //  MySightApp.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 07/11/2021.
 //

@@ -1,6 +1,6 @@
 //
 //  CVDProfileManager.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 19/11/2021.
 //

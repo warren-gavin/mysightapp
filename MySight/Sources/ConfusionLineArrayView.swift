@@ -1,6 +1,6 @@
 //
 //  ConfusionLineArrayView.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 12/11/2021.
 //

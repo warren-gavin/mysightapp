@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 18/11/2021.
 //

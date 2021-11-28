@@ -1,6 +1,6 @@
 //
 //  Color+Assets.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 23/11/2021.
 //

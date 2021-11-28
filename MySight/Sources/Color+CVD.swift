@@ -1,6 +1,6 @@
 //
 //  Color+CVD.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 14/11/2021.
 //
