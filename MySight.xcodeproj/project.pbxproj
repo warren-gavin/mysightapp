@@ -16,7 +16,7 @@
 		806F8EB62751647C00990F58 /* View+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9D2751647C00990F58 /* View+Image.swift */; };
 		806F8EB72751647C00990F58 /* ConfusionLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9E2751647C00990F58 /* ConfusionLineView.swift */; };
 		806F8EB82751647C00990F58 /* CVDCameraSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9F2751647C00990F58 /* CVDCameraSimulationView.swift */; };
-		806F8EB92751647C00990F58 /* MySightPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA02751647C00990F58 /* MySightPOCApp.swift */; };
+		806F8EB92751647C00990F58 /* MySightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA02751647C00990F58 /* MySightApp.swift */; };
 		806F8EBA2751647C00990F58 /* Color+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA12751647C00990F58 /* Color+Assets.swift */; };
 		806F8EBB2751647C00990F58 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA22751647C00990F58 /* UIColor+Hex.swift */; };
 		806F8EBC2751647C00990F58 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA32751647C00990F58 /* Color+Hex.swift */; };
@@ -48,7 +48,7 @@
 		806F8E9D2751647C00990F58 /* View+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Image.swift"; sourceTree = "<group>"; };
 		806F8E9E2751647C00990F58 /* ConfusionLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfusionLineView.swift; sourceTree = "<group>"; };
 		806F8E9F2751647C00990F58 /* CVDCameraSimulationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDCameraSimulationView.swift; sourceTree = "<group>"; };
-		806F8EA02751647C00990F58 /* MySightPOCApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySightPOCApp.swift; sourceTree = "<group>"; };
+		806F8EA02751647C00990F58 /* MySightApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySightApp.swift; sourceTree = "<group>"; };
 		806F8EA12751647C00990F58 /* Color+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Assets.swift"; sourceTree = "<group>"; };
 		806F8EA22751647C00990F58 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		806F8EA32751647C00990F58 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 				806F8EA82751647C00990F58 /* CVDProfileManager.swift */,
 				806F8EA92751647C00990F58 /* ImagePicker.swift */,
 				806F8EB12751647C00990F58 /* ImageView.swift */,
-				806F8EA02751647C00990F58 /* MySightPOCApp.swift */,
+				806F8EA02751647C00990F58 /* MySightApp.swift */,
 				806F8EA22751647C00990F58 /* UIColor+Hex.swift */,
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
@@ -322,7 +322,7 @@
 				806F8EC82751647C00990F58 /* ConfusionLine.swift in Sources */,
 				806F8EBE2751647C00990F58 /* CVD.swift in Sources */,
 				806F8EC72751647C00990F58 /* CVDImageSimulationView.swift in Sources */,
-				806F8EB92751647C00990F58 /* MySightPOCApp.swift in Sources */,
+				806F8EB92751647C00990F58 /* MySightApp.swift in Sources */,
 				806F8EC02751647C00990F58 /* CVDAnalysisViewModel.swift in Sources */,
 				806F8EBC2751647C00990F58 /* Color+Hex.swift in Sources */,
 				806F8EC32751647C00990F58 /* ConfusionLineArrayView.swift in Sources */,
