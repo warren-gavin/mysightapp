@@ -8,13 +8,27 @@
 import SwiftUI
 
 class CVDProfileManager: ObservableObject {
-    var allProfiles: [CVDProfile] {
-        CVDProfile.standardProfiles + UserDefaults.standard.savedProfiles()
+    private let userDefaults: UserDefaults
+
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+    }
+
+    var standardProfiles: [CVDProfile] {
+        CVDProfile.standardProfiles
+    }
+
+    var savedProfiles: [CVDProfile] {
+        userDefaults.savedProfiles()
+    }
+
+    var savedProfilesExist: Bool {
+        !userDefaults.savedProfiles().isEmpty
     }
 
     @Published var activeProfile: CVDProfile = UserDefaults.standard.activeProfile {
         didSet {
-            UserDefaults.standard.activeProfile = activeProfile
+            userDefaults.activeProfile = activeProfile
         }
     }
 }
@@ -23,7 +37,11 @@ class CVDProfileManager: ObservableObject {
 extension CVDProfileManager {
     func save(profile: CVDProfile) {
         activeProfile = profile
-        UserDefaults.standard.save(profile: profile)
+        userDefaults.save(profile: profile)
+    }
+
+    func remove(profile: CVDProfile) {
+        userDefaults.remove(profile: profile)
     }
 }
 

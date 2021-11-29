@@ -41,23 +41,29 @@ struct ContentView: View {
 
                     Spacer()
 
-                    ControlPanelView(frame: proxy.frame(in: .local),
-                                     cvd: $cvd,
-                                     severity: $severity,
-                                     addNewProfile: $addNewProfile,
-                                     loadImage: $loadImage)
-                        .padding(.horizontal, 20.0)
-                        .padding(.vertical, 20.0)
-                        .backgroundStyle()
-                        .padding(.bottom, 24.0)
-                        .padding(.horizontal, 24.0)
-                        .opacity(showControls ? 1.0 : 0.0)
-                        .frame(maxWidth: 1000, alignment: .center)
-                        .onTapGesture {}
+                    if showControls {
+                        HStack(spacing: 0) {
+                            Spacer(minLength: spacerMinLength(in: proxy.frame(in: .local)))
+
+                            ControlPanelView(frame: proxy.frame(in: .local),
+                                         cvd: $cvd,
+                                         severity: $severity,
+                                         addNewProfile: $addNewProfile,
+                                         loadImage: $loadImage)
+                            .padding(.vertical, 20.0)
+                            .backgroundStyle()
+                            .padding(.bottom, 24.0)
+                            .padding(.horizontal, 24.0)
+                            .frame(maxWidth: 1000, alignment: .center)
+                            .onTapGesture {}
+                        }
+                    }
                 }
             }
             .onTapGesture {
-                showControls.toggle()
+                withAnimation {
+                    showControls.toggle()
+                }
             }
         }
         .sheet(isPresented: $addNewProfile, onDismiss: nil) {
@@ -73,31 +79,35 @@ struct ContentView: View {
     }
 }
 
+private extension ContentView {
+    func spacerMinLength(in frame: CGRect) -> CGFloat {
+        frame.width > 400 ? 400 : 0
+    }
+}
+
 struct Background: ViewModifier {
+    struct Blur: UIViewRepresentable {
+        var style: UIBlurEffect.Style = .systemUltraThinMaterial
+
+        func makeUIView(context: Context) -> UIVisualEffectView {
+            return UIVisualEffectView(effect: UIBlurEffect(style: style))
+        }
+
+        func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+            uiView.effect = UIBlurEffect(style: style)
+        }
+    }
+
+    @ViewBuilder
     func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
-            return AnyView (
-                content.background(.ultraThinMaterial,
-                                   in: RoundedRectangle(cornerRadius: 24))
-            )
-        } else {
-            struct Blur: UIViewRepresentable {
-                var style: UIBlurEffect.Style = .systemUltraThinMaterial
-
-                func makeUIView(context: Context) -> UIVisualEffectView {
-                    return UIVisualEffectView(effect: UIBlurEffect(style: style))
-                }
-
-                func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-                    uiView.effect = UIBlurEffect(style: style)
-                }
-            }
-
-            return AnyView(
-                content
-                    .background(Blur())
-                    .cornerRadius(24)
-            )
+            content.background(.ultraThinMaterial,
+                               in: RoundedRectangle(cornerRadius: 24))
+        }
+        else {
+            content
+                .background(Blur())
+                .cornerRadius(24)
         }
     }
 }

@@ -27,6 +27,19 @@ extension CVD {
         }
     }
 
+    var accessibilityAbbreviation: LocalizedStringKey {
+        switch self {
+        case .deutan:
+            return "D"
+
+        case .protan:
+            return "P"
+
+        case .tritan:
+            return "T"
+        }
+    }
+
     var dichromatName: LocalizedStringKey {
         switch self {
         case .deutan:
