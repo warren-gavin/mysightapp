@@ -8,7 +8,7 @@
 import UIKit
 
 struct ShareSheet {
-    let items: [Any]
+    let items: [UIImage]
 
     func show() {
         let activityVC = UIActivityViewController(activityItems: items,

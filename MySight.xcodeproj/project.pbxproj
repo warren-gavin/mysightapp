@@ -65,7 +65,6 @@
 		806F8EAB2751647C00990F58 /* Color+CVD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+CVD.swift"; sourceTree = "<group>"; };
 		806F8EAC2751647C00990F58 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		806F8EAD2751647C00990F58 /* CVDAnalysisModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDAnalysisModel.swift; sourceTree = "<group>"; };
-		806F8EAE2751647C00990F58 /* CVDImageSimulationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDImageSimulationView.swift; sourceTree = "<group>"; };
 		806F8EAF2751647C00990F58 /* ConfusionLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfusionLine.swift; sourceTree = "<group>"; };
 		806F8EB02751647C00990F58 /* CVDProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDProfile.swift; sourceTree = "<group>"; };
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
@@ -158,17 +157,16 @@
 				806F8EA62751647C00990F58 /* CVDAnalysisView.swift */,
 				806F8EA72751647C00990F58 /* CVDAnalysisViewModel.swift */,
 				806F8E9F2751647C00990F58 /* CVDCameraSimulationView.swift */,
-				806F8EAE2751647C00990F58 /* CVDImageSimulationView.swift */,
 				806F8EB02751647C00990F58 /* CVDProfile.swift */,
 				806F8EA82751647C00990F58 /* CVDProfileManager.swift */,
 				806F8EA92751647C00990F58 /* ImagePicker.swift */,
 				806F8EB12751647C00990F58 /* ImageView.swift */,
 				806F8EA02751647C00990F58 /* MySightApp.swift */,
+				800BAA0B27556EBD0092A478 /* ShareSheet.swift */,
 				800BAA07275544A50092A478 /* Stacker.swift */,
 				806F8EA22751647C00990F58 /* UIColor+Hex.swift */,
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
-				800BAA0B27556EBD0092A478 /* ShareSheet.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

@@ -28,7 +28,7 @@ struct ImageView: View {
                             shareSheet.show()
                         } label: {
                             Image(systemName: "square.and.arrow.up")
-                                .font(.system(size: 24.0))
+                                .iconStyle()
                         }
 
                         Spacer()
@@ -37,7 +37,7 @@ struct ImageView: View {
                             self.image = nil
                         } label: {
                             Image(systemName: "xmark.circle")
-                                .font(.system(size: 24.0))
+                                .iconStyle()
                         }
                     }
                     .padding(.top, 54)
@@ -78,8 +78,9 @@ private extension ImageView {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(image: .constant(nil),
+        ImageView(image: .constant(UIImage(named: "preview-image-view")),
                   cvd: .constant(.deutan),
                   severity: .constant(1.0))
+            .edgesIgnoringSafeArea(.all)
     }
 }

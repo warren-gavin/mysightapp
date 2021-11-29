@@ -130,7 +130,7 @@ private extension ControlPanelView {
                                 deleteProfile = true
                             } label: {
                                 Image(systemName: "xmark.circle")
-                                    .font(Font.title2.weight(.light))
+                                    .iconStyle()
                             }
                             .alert(isPresented: $deleteProfile) {
                                 Alert(title: Text("Delete setting?"),
