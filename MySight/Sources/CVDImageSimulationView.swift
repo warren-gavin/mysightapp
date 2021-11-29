@@ -1,6 +1,6 @@
 //
 //  CVDImageSimulationView.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 20/11/2021.
 //

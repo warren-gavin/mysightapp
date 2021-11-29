@@ -1,6 +1,6 @@
 //
 //  CVDAnalysisViewModel.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 16/11/2021.
 //

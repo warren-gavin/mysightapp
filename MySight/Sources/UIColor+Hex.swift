@@ -1,6 +1,6 @@
 //
 //  UIColor+Hex.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 13/11/2021.
 //

@@ -1,6 +1,6 @@
 //
 //  UserDefaults+CVDProfile.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 18/11/2021.
 //
@@ -31,11 +31,7 @@ extension UserDefaults {
             }
 
             let allProfiles = savedProfiles() + CVDProfile.standardProfiles
-            if let match = allProfiles.first(where: { $0.name == profileName }) {
-                return match
-            }
-
-            return defaultProfile
+            return allProfiles.first { $0.name == profileName } ?? defaultProfile
         }
 
         set {
@@ -45,10 +41,24 @@ extension UserDefaults {
 
     func save(profile: CVDProfile) {
         var savedProfiles = savedProfiles()
+
+        savedProfiles.removeAll { element in
+            profile.name == element.name
+        }
+
         savedProfiles.append(profile)
 
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(savedProfiles) {
+            set(encoded, forKey: .profilesKeyPath)
+        }
+    }
+
+    func remove(profile: CVDProfile) {
+        let remainingProfiles = savedProfiles().filter { $0 != profile }
+
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(remainingProfiles) {
             set(encoded, forKey: .profilesKeyPath)
         }
     }

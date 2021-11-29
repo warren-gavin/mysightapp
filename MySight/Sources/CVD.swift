@@ -1,6 +1,6 @@
 //
 //  CVD.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 17/11/2021.
 //
@@ -24,6 +24,19 @@ extension CVD {
 
         case .tritan:
             return "Tritan"
+        }
+    }
+
+    var accessibilityAbbreviation: LocalizedStringKey {
+        switch self {
+        case .deutan:
+            return "D"
+
+        case .protan:
+            return "P"
+
+        case .tritan:
+            return "T"
         }
     }
 

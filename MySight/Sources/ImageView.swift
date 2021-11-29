@@ -1,6 +1,6 @@
 //
 //  ImageView.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 21/11/2021.
 //
@@ -35,7 +35,7 @@ struct ImageView: View {
                     CVDImageSimulationView(image: image,
                                            cvd: $cvd,
                                            severity: $severity)
-                        .padding(.top, 34)
+                        .padding(.top, 16)
 
                     Spacer()
                 }

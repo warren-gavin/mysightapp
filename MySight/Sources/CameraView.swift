@@ -1,6 +1,6 @@
 //
 //  CameraView.swift
-//  MySightPOC
+//  MySight
 //
 //  Created by Warren Gavin on 08/11/2021.
 //
