@@ -11,8 +11,6 @@ struct ControlPanelView: View {
     @EnvironmentObject var profileManager: CVDProfileManager
     @Environment(\.sizeCategory) var sizeCategory
 
-    let frame: CGRect
-
     @Binding var cvd: CVD
     @Binding var severity: Float
     @Binding var addNewProfile: Bool
@@ -56,6 +54,7 @@ private extension ControlPanelView {
         Group {
             Slider(value: $severity, in: 0.0 ... 1.0)
                 .frame(minWidth: 150)
+            
             actionButtons
         }
         .modifier(
@@ -90,6 +89,7 @@ private extension ControlPanelView {
                         severity = profile.severity
                         profileManager.activeProfile = profile
                     }
+                    .accessibilityLabel(profile.name)
                     .modifier(ProfileButton(profile: profile,
                                             activeProfile: profileManager.activeProfile))
 
@@ -130,7 +130,7 @@ private extension ControlPanelView {
                                 deleteProfile = true
                             } label: {
                                 Image(systemName: "xmark.circle")
-                                    .font(.title2)
+                                    .font(Font.title2.weight(.light))
                             }
                             .alert(isPresented: $deleteProfile) {
                                 Alert(title: Text("Delete setting?"),
@@ -203,33 +203,22 @@ struct ControlPanelView_Previews: PreviewProvider {
     static var previews: some View {
         let manager = CVDProfileManager()
         manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
-        manager.save(profile: CVDProfile(name: "Test 2", cvd: .deutan, severity: 0.7))
         manager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
         manager.activeProfile = CVDProfile.standardProfiles.first!
 
         return Group {
-            ControlPanelView(frame: CGRect(origin: .zero, size: CGSize(width: 500, height: 30)),
-                             cvd: .constant(.deutan),
-                             severity: .constant(1.0),
-                             addNewProfile: .constant(false),
-                             loadImage: .constant(false))
-                .preferredColorScheme(.light)
-                .previewLayout(.fixed(width: 500, height: 180))
-
-            ControlPanelView(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 30)),
-                             cvd: .constant(.deutan),
+            ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(1.0),
                              addNewProfile: .constant(false),
                              loadImage: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
-            ControlPanelView(frame: CGRect(origin: .zero, size: CGSize(width: 300, height: 30)),
-                             cvd: .constant(.deutan),
+            ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(1.0),
                              addNewProfile: .constant(false),
                              loadImage: .constant(false))
-                .preferredColorScheme(.dark)
+                .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
                 .environment(\.sizeCategory, .accessibilityLarge)
         }

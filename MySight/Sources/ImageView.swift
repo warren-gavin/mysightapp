@@ -19,7 +19,20 @@ struct ImageView: View {
 
                 VStack {
                     HStack {
+                        Button {
+                            guard let filteredImage = filteredImage else {
+                                return
+                            }
+
+                            let shareSheet = ShareSheet(items: [image, filteredImage])
+                            shareSheet.show()
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.system(size: 24.0))
+                        }
+
                         Spacer()
+
                         Button {
                             self.image = nil
                         } label: {
@@ -28,19 +41,38 @@ struct ImageView: View {
                         }
                     }
                     .padding(.top, 54)
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 20)
 
                     Spacer()
 
-                    CVDImageSimulationView(image: image,
-                                           cvd: $cvd,
-                                           severity: $severity)
+                    filteredImageView?
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .padding(.top, 16)
 
                     Spacer()
                 }
             }
         }
+    }
+}
+
+private extension ImageView {
+    var filteredImageView: Image? {
+        guard let filteredImage = filteredImage else {
+            return nil
+        }
+
+        return Image(uiImage: filteredImage)
+    }
+
+    var filteredImage: UIImage? {
+        guard let image = image else {
+            return nil
+        }
+
+        let filter = CVDFilter(cvd: cvd, severity: severity)
+        return filter.filteredImage(with: image)
     }
 }
 

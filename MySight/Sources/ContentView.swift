@@ -28,7 +28,7 @@ struct ContentView: View {
 
     var body: some View {
         GeometryReader { proxy in
-            ZStack {
+            ZStack(alignment: .bottom) {
                 if image == nil {
                     CVDCameraSimulationView(cvd: $cvd, severity: $severity)
                 }
@@ -39,17 +39,14 @@ struct ContentView: View {
                               severity: $severity)
                         .transition(.move(edge: .bottom))
 
-                    Spacer()
-
                     if showControls {
                         HStack(spacing: 0) {
                             Spacer(minLength: spacerMinLength(in: proxy.frame(in: .local)))
 
-                            ControlPanelView(frame: proxy.frame(in: .local),
-                                         cvd: $cvd,
-                                         severity: $severity,
-                                         addNewProfile: $addNewProfile,
-                                         loadImage: $loadImage)
+                            ControlPanelView(cvd: $cvd,
+                                             severity: $severity,
+                                             addNewProfile: $addNewProfile,
+                                             loadImage: $loadImage)
                             .padding(.vertical, 20.0)
                             .backgroundStyle()
                             .padding(.bottom, 24.0)
