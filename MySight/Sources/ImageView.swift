@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import ActivityView
 
 struct ImageView: View {
     @Binding var image: UIImage?
     @Binding var cvd: CVD
     @Binding var severity: Float
+
+    @State private var item: ActivityItem?
 
     var body: some View {
         if let image = image {
@@ -20,16 +23,14 @@ struct ImageView: View {
                 VStack {
                     HStack {
                         Button {
-                            guard let filteredImage = filteredImage else {
-                                return
+                            if let filteredImage = filteredImage {
+                                item = ActivityItem(items: image, filteredImage)
                             }
-
-                            let shareSheet = ShareSheet(items: [image, filteredImage])
-                            shareSheet.show()
                         } label: {
                             Image(systemName: "square.and.arrow.up")
                                 .iconStyle()
                         }
+                        .activitySheet($item)
 
                         Spacer()
 

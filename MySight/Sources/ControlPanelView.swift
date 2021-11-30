@@ -25,6 +25,7 @@ struct ControlPanelView: View {
             
             profileButtons
         }
+        .frame(maxWidth: 400)
         .fixedSize(horizontal: false, vertical: true)
     }
 }
@@ -53,7 +54,7 @@ private extension ControlPanelView {
     var actionControls: some View {
         Group {
             Slider(value: $severity, in: 0.0 ... 1.0)
-                .frame(minWidth: 150)
+                .frame(minWidth: 170)
             
             actionButtons
         }

@@ -51,17 +51,16 @@ struct ContentView: View {
                             .backgroundStyle()
                             .padding(.bottom, 24.0)
                             .padding(.horizontal, 24.0)
-                            .frame(maxWidth: 1000, alignment: .center)
                             .onTapGesture {}
                         }
                     }
                 }
             }
-//            .onTapGesture {
-//                withAnimation {
-//                    showControls.toggle()
-//                }
-//            }
+            .onTapGesture {
+                withAnimation {
+                    showControls.toggle()
+                }
+            }
         }
         .sheet(isPresented: $addNewProfile, onDismiss: nil) {
             CVDAnalysisView(CVDAnalysisViewModel(profileManager: profileManager))
@@ -78,7 +77,13 @@ struct ContentView: View {
 
 private extension ContentView {
     func spacerMinLength(in frame: CGRect) -> CGFloat {
-        frame.width > 400 ? 400 : 0
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            return 400
+
+        default:
+            return 0
+        }
     }
 }
 
@@ -118,9 +123,10 @@ extension View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
+        ForEach(PreviewDevice.allPhoneDevices, id: \.rawValue) {
             ContentView()
-                .preferredColorScheme($0)
+                .previewDevice($0)
+                .previewDisplayName($0.rawValue)
         }
     }
 }
