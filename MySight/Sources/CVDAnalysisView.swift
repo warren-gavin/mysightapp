@@ -26,31 +26,39 @@ struct CVDAnalysisView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text("Add a new CVD setting")
+                .padding(.top, 44)
+                .padding(.bottom, 16)
+                .font(Font.title.weight(.black))
+
             Text("Move the slider until you see a solid rectangle")
                 .font(.headline)
-                .padding(.top, 44)
                 .padding(.bottom, 8)
                 .opacity(textOpacity)
 
             Text("If you already see a rectangle, hit Next")
                 .font(.subheadline)
                 .opacity(textOpacity)
+                .padding(.bottom, 24)
 
             Spacer()
 
             HStack {
                 Spacer()
                 if !viewModel.analysisComplete {
-                    ConfusionLineView(confusionLine: confusionLine,
-                                      severity: $severity)
+                    VStack {
+                        ConfusionLineView(confusionLine: confusionLine,
+                                          severity: $severity)
+                        Slider(value: $severity, in: 0.0 ... 1.0)
+                            .padding(.top)
+                            .frame(maxWidth: 400)
+                    }
                 }
                 else {
                     analysisResultView
                 }
                 Spacer()
             }
-            Slider(value: $severity, in: 0.0 ... 1.0)
-                .padding(.top)
 
             Spacer()
 
@@ -112,6 +120,7 @@ private extension CVDAnalysisView {
                 .font(.largeTitle)
             Text(severityEstimate(severity: severity))
             TextField("Save as...", text: $newProfileName)
+                .padding(.top, 16)
         }
     }
 
