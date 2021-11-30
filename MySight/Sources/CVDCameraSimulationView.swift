@@ -16,12 +16,12 @@ struct CVDCameraSimulationView: View {
     var body: some View {
         GeometryReader { proxy in
             cameraView(frame: proxy.frame(in: .local))
-                .gesture(
-                    DragGesture(minimumDistance: 20, coordinateSpace: .local)
-                        .onEnded { _ in
-                            backCamera.toggle()
-                        }
-                )
+//                .gesture(
+//                    DragGesture(minimumDistance: 20, coordinateSpace: .local)
+//                        .onEnded { _ in
+//                            backCamera.toggle()
+//                        }
+//                )
         }
     }
 }

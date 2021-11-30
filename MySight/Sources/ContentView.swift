@@ -57,11 +57,11 @@ struct ContentView: View {
                     }
                 }
             }
-            .onTapGesture {
-                withAnimation {
-                    showControls.toggle()
-                }
-            }
+//            .onTapGesture {
+//                withAnimation {
+//                    showControls.toggle()
+//                }
+//            }
         }
         .sheet(isPresented: $addNewProfile, onDismiss: nil) {
             CVDAnalysisView(CVDAnalysisViewModel(profileManager: profileManager))
