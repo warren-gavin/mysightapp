@@ -31,6 +31,7 @@ struct ContentView: View {
             ZStack(alignment: .bottom) {
                 if image == nil {
                     CVDCameraSimulationView(cvd: $cvd, severity: $severity)
+                        .ignoresSafeArea()
                 }
 
                 VStack {
@@ -49,10 +50,11 @@ struct ContentView: View {
                                              loadImage: $loadImage)
                             .padding(.vertical, 20.0)
                             .backgroundStyle()
-                            .padding(.bottom, 24.0)
+                            .padding(.bottom, 8.0)
                             .padding(.horizontal, 24.0)
                             .onTapGesture {}
                         }
+                        .ignoresSafeArea()
                     }
                 }
             }
@@ -69,7 +71,6 @@ struct ContentView: View {
         .sheet(isPresented: $loadImage, onDismiss: nil) {
             ImagePicker(image: $image)
         }
-        .edgesIgnoringSafeArea(.all)
         .statusBar(hidden: !showControls)
         .environmentObject(profileManager)
     }
@@ -123,10 +124,15 @@ extension View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(PreviewDevice.allPhoneDevices, id: \.rawValue) {
-            ContentView()
-                .previewDevice($0)
-                .previewDisplayName($0.rawValue)
+        Group {
+            if #available(iOS 15.0, *) {
+                ContentView()
+                    .previewDevice(PreviewDevice(rawValue: PreviewDevice.PhoneDevices.twelveProMax.rawValue))
+                    .previewInterfaceOrientation(.landscapeRight)
+
+                ContentView()
+                    .previewDevice(PreviewDevice(rawValue: PreviewDevice.PhoneDevices.eight.rawValue))
+            }
         }
     }
 }

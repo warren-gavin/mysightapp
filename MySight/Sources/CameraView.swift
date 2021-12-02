@@ -18,6 +18,7 @@ struct CameraView: UIViewRepresentable {
     @Binding private var cvd: CVD
     @Binding private var severity: Float
     @Binding private var backCamera: Bool
+    @Binding private var enableCamera: Bool
     
     /// Initializer for the camera view
     ///
@@ -29,11 +30,13 @@ struct CameraView: UIViewRepresentable {
     init(frame: CGRect,
          simulating cvd: Binding<CVD>,
          severity: Binding<Float>,
-         backCamera: Binding<Bool>) {
+         backCamera: Binding<Bool>,
+         enableCamera: Binding<Bool>) {
         self.frame = frame
         self._cvd = cvd
         self._severity = severity
         self._backCamera = backCamera
+        self._enableCamera = enableCamera
     }
     
     func makeUIView(context: Context) -> UIView {
@@ -47,8 +50,11 @@ struct CameraView: UIViewRepresentable {
         let cameraView = (uiView as! CVDCameraUIView)
 
         cameraView.frame = frame
-        cameraView.translatesAutoresizingMaskIntoConstraints = false
-        cameraView.updateView(frame: frame, cvd: cvd, severity: severity, backCamera: backCamera)
+        cameraView.updateView(frame: frame,
+                              cvd: cvd,
+                              severity: severity,
+                              backCamera: backCamera,
+                              enableCamera: enableCamera)
     }
 }
 
@@ -118,7 +124,11 @@ private class CVDCameraUIView: UIView {
         }
     }
     
-    func updateView(frame: CGRect, cvd: CVD, severity: Float, backCamera: Bool) {
+    func updateView(frame: CGRect,
+                    cvd: CVD,
+                    severity: Float,
+                    backCamera: Bool,
+                    enableCamera: Bool) {
         metalView.frame = frame
         camera.videoOrientation = orientation
 
@@ -127,7 +137,10 @@ private class CVDCameraUIView: UIView {
         
         if isShowingBackCamera != backCamera {
             camera.switchCameraPosition()
+            camera.start()
             isShowingBackCamera = backCamera
         }
+
+        enableCamera ? camera.start() : camera.stop()
     }
 }

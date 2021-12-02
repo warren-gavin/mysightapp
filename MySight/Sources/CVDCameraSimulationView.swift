@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct CVDCameraSimulationView: View {
-    @State private var backCamera = true
-
     @Binding var cvd: CVD
     @Binding var severity: Float
 
+    @State private var backCamera = true
+    @State private var enableCamera = true
+
     var body: some View {
         GeometryReader { proxy in
-            cameraView(frame: proxy.frame(in: .local))
-//                .gesture(
-//                    DragGesture(minimumDistance: 20, coordinateSpace: .local)
-//                        .onEnded { _ in
-//                            backCamera.toggle()
-//                        }
-//                )
+            FlippingView(flip: $backCamera) {
+                cameraView(frame: proxy.frame(in: .local))
+            } onFlipping: {
+                if enableCamera {
+                    enableCamera = false
+                }
+            } onFlipEnded: {
+                enableCamera = true
+            }
         }
     }
 }
 
-extension CVDCameraSimulationView {
+private extension CVDCameraSimulationView {
     func cameraView(frame: CGRect) -> some View {
 #if targetEnvironment(simulator)
         switch cvd {
@@ -43,7 +46,8 @@ extension CVDCameraSimulationView {
         CameraView(frame: frame,
                    simulating: $cvd,
                    severity: $severity,
-                   backCamera: $backCamera)
+                   backCamera: $backCamera,
+                   enableCamera: $enableCamera)
 #endif
     }
 }
