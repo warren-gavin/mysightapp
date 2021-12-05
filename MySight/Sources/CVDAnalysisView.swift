@@ -108,11 +108,11 @@ private extension CVDAnalysisView {
         case 1.0...:
             diagnosis = cvd.dichromatName
 
-        case 0.01 ... 1.0:
+        case 0.09 ... 1.0:
             diagnosis = cvd.anomalousTrichromatName
 
         default:
-            diagnosis = "Nope!"
+            diagnosis = "Normal Colour Vision"
         }
 
         return VStack {
@@ -127,15 +127,14 @@ private extension CVDAnalysisView {
     func severityEstimate(severity: Float) -> String {
         switch severity {
         case 1.0...:
-            return String(format: NSLocalizedString("100%% dichromacy", comment: ""),
-                          severity * 100)
+            return String(format: NSLocalizedString("100%% dichromacy", comment: ""))
 
-        case 0.01 ... 1.0:
-            return String(format: NSLocalizedString("%.0f%% anomalous trichromacy", comment: ""),
-                          severity * 100)
+        case 0.09 ... 1.0:
+            return String(format: NSLocalizedString("%lld%% anomalous trichromacy", comment: ""),
+                          Int(severity * 100))
 
         default:
-            return "You're not really colorblind"
+            return " "
         }
     }
 }

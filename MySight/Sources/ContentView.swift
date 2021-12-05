@@ -31,6 +31,7 @@ struct ContentView: View {
             ZStack(alignment: .bottom) {
                 if image == nil {
                     CVDCameraSimulationView(cvd: $cvd, severity: $severity)
+                        .ignoresSafeArea()
                 }
 
                 VStack {
@@ -49,10 +50,11 @@ struct ContentView: View {
                                              loadImage: $loadImage)
                             .padding(.vertical, 20.0)
                             .backgroundStyle()
-                            .padding(.bottom, 24.0)
+                            .padding(.bottom, 8.0)
                             .padding(.horizontal, 24.0)
                             .onTapGesture {}
                         }
+                        .ignoresSafeArea()
                     }
                 }
             }
@@ -69,7 +71,6 @@ struct ContentView: View {
         .sheet(isPresented: $loadImage, onDismiss: nil) {
             ImagePicker(image: $image)
         }
-        .edgesIgnoringSafeArea(.all)
         .statusBar(hidden: !showControls)
         .environmentObject(profileManager)
     }
