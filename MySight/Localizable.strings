@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MySight
+
+  Created by Warren Gavin on 05/12/2021.
+  
+*/
+
+"100%% dichromacy" = "100%% dichromacy";
+"%lld%% anomalous trichromacy" = "%lld%% anomalous trichromacy";
+"100%% %@" = "100%% %@";
+"%lld%% %@" = "%lld%% %@";
+"Normal Colour Vision" = "Normal Colour Vision";
