@@ -16,7 +16,7 @@ struct ControlPanelView: View {
     @Binding var addNewProfile: Bool
     @Binding var loadImage: Bool
 
-    @State private var deleteProfile: Bool = false
+    @State private var deleteProfile: CVDProfile?
 
     var body: some View {
         VStack {
@@ -128,17 +128,20 @@ private extension ControlPanelView {
                                                     activeProfile: profileManager.activeProfile))
 
                             Button {
-                                deleteProfile = true
+                                deleteProfile = profile
                             } label: {
                                 Image(systemName: "xmark.circle")
                                     .iconStyle()
                             }
-                            .alert(isPresented: $deleteProfile) {
+                            .alert(item: $deleteProfile) { profileToDelete in
                                 Alert(title: Text("Delete setting?"),
                                       message: Text("Are you sure you want to delete this setting?"),
                                       primaryButton: .cancel(),
                                       secondaryButton: .destructive(Text("Delete"), action: {
-                                    profileManager.remove(profile: profile)
+                                    profileManager.remove(profile: profileToDelete)
+
+                                    cvd = profileManager.activeProfile.cvd
+                                    severity = profileManager.activeProfile.severity
                                 }))
                             }
 

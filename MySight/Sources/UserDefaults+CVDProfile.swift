@@ -54,13 +54,19 @@ extension UserDefaults {
         }
     }
 
-    func remove(profile: CVDProfile) {
+    func remove(profile: CVDProfile) -> Int? {
+        guard let idx = savedProfiles().firstIndex(of: profile) else {
+            return nil
+        }
+
         let remainingProfiles = savedProfiles().filter { $0 != profile }
 
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(remainingProfiles) {
             set(encoded, forKey: .profilesKeyPath)
         }
+
+        return idx
     }
 }
 
