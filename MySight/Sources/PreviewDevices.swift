@@ -8,27 +8,39 @@
 import SwiftUI
 
 extension PreviewDevice {
-    enum PhoneDevices: String, CaseIterable {
-        case eight = "iPhone 8"
-//        case eightPlus = "iPhone 8 Plus"
-//        case eleven = "iPhone 11"
-        case elevenPro = "iPhone 11 Pro"
-//        case elevenProMax = "iPhone 11 Pro Max"
-//        case twelve = "iPhone 12"
-//        case twelvePro = "iPhone 12 Pro"
-        case twelveProMax = "iPhone 12 Pro Max"
-//        case twelveMini = "iPhone 12 mini"
-//        case thirteen = "iPhone 13"
-//        case thirteenPro = "iPhone 13 Pro"
-//        case thirteenProMax = "iPhone 13 Pro Max"
-        case thirteenMini = "iPhone 13 mini"
-//        case se = "iPhone SE (2nd generation)"
-//        case touch = "iPod Touch (7th generation)"
-    }
+    static let eight = PreviewDevice(rawValue: "iPhone 8")
+    static let eightPlus = PreviewDevice(rawValue: "iPhone 8 Plus")
+    static let eleven = PreviewDevice(rawValue: "iPhone 11")
+    static let elevenPro = PreviewDevice(rawValue: "iPhone 11 Pro")
+    static let elevenProMax = PreviewDevice(rawValue: "iPhone 11 Pro Max")
+    static let twelve = PreviewDevice(rawValue: "iPhone 12")
+    static let twelvePro = PreviewDevice(rawValue: "iPhone 12 Pro")
+    static let twelveProMax = PreviewDevice(rawValue: "iPhone 12 Pro Max")
+    static let twelveMini = PreviewDevice(rawValue: "iPhone 12 mini")
+    static let thirteen = PreviewDevice(rawValue: "iPhone 13")
+    static let thirteenPro = PreviewDevice(rawValue: "iPhone 13 Pro")
+    static let thirteenProMax = PreviewDevice(rawValue: "iPhone 13 Pro Max")
+    static let thirteenMini = PreviewDevice(rawValue: "iPhone 13 mini")
+    static let se = PreviewDevice(rawValue: "iPhone SE (2nd generation)")
+    static let touch = PreviewDevice(rawValue: "iPod Touch (7th generation)")
 
     static var allPhoneDevices: [PreviewDevice] {
-        PhoneDevices.allCases.map {
-            PreviewDevice(rawValue: $0.rawValue)
-        }
+        [
+            .eight,
+            .eightPlus,
+            .eleven,
+            .elevenPro,
+            .elevenProMax,
+            .twelve,
+            .twelvePro,
+            .twelveProMax,
+            .twelveMini,
+            .thirteen,
+            .thirteenPro,
+            .thirteenProMax,
+            .thirteenMini,
+            .se,
+            .touch
+        ]
     }
 }

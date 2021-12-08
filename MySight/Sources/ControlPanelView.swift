@@ -15,22 +15,45 @@ struct ControlPanelView: View {
     @Binding var severity: Float
     @Binding var addNewProfile: Bool
     @Binding var loadImage: Bool
+    @Binding var show: Bool
 
     @State private var deleteProfile: CVDProfile?
 
     var body: some View {
         VStack {
-            actionControls
-                .padding(.horizontal, 20.0)
-            
-            profileButtons
+            HStack {
+                Spacer()
+                Text(description)
+                Spacer()
+            }
+            .padding(.horizontal, 20.0)
+
+            if show {
+                Group {
+                    actionControls
+                        .padding(.horizontal, 20.0)
+
+                    profileButtons
+                }.opacity(show ? 1 : 0)
+            }
         }
-        .frame(maxWidth: 400)
-        .fixedSize(horizontal: false, vertical: true)
+        .fixedSize(horizontal: true, vertical: true)
     }
 }
 
 private extension ControlPanelView {
+    var description: String {
+        if severity > 0.999 {
+            return cvd.dichromatName.localized
+        }
+
+        if severity < 0.01 {
+            return "Normal Colour Vision"
+        }
+
+        return "\(Int(severity * 100))% \(cvd.anomalousTrichromatName.localized)"
+    }
+
     var actionButtons: some View {
         HStack {
             Button {
@@ -199,14 +222,16 @@ struct ControlPanelView_Previews: PreviewProvider {
             ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(0.95),
                              addNewProfile: .constant(false),
-                             loadImage: .constant(false))
+                             loadImage: .constant(false),
+                             show: .constant(true))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
             ControlPanelView(cvd: .constant(.tritan),
                              severity: .constant(0.6),
                              addNewProfile: .constant(false),
-                             loadImage: .constant(false))
+                             loadImage: .constant(false),
+                             show: .constant(true))
                 .preferredColorScheme(.light)
                 .previewLayout(.sizeThatFits)
                 .environment(\.sizeCategory, .accessibilityLarge)

@@ -40,22 +40,21 @@ struct ContentView: View {
                               severity: $severity)
                         .transition(.move(edge: .bottom))
 
-                    if showControls {
-                        HStack(spacing: 0) {
-                            Spacer(minLength: spacerMinLength(in: proxy.frame(in: .local)))
+                    HStack(spacing: 0) {
+                        Spacer(minLength: spacerMinLength(in: proxy.frame(in: .local)))
 
-                            ControlPanelView(cvd: $cvd,
-                                             severity: $severity,
-                                             addNewProfile: $addNewProfile,
-                                             loadImage: $loadImage)
-                                .padding(.vertical, 20.0)
-                                .backgroundStyle()
-                                .padding(.bottom, 8.0)
-                                .padding(.horizontal, 24.0)
-                                .onTapGesture {}
-                        }
-                        .ignoresSafeArea()
+                        ControlPanelView(cvd: $cvd,
+                                         severity: $severity,
+                                         addNewProfile: $addNewProfile,
+                                         loadImage: $loadImage,
+                                         show: $showControls)
+                            .padding(.vertical, showControls ? 20.0 : 12.0)
+                            .backgroundStyle()
+                            .padding(.bottom, 8.0)
+                            .padding(.horizontal, showControls ? 24.0 : 12.0)
+                            .onTapGesture {}
                     }
+                    .ignoresSafeArea()
                 }
             }
             .onTapGesture {
@@ -81,7 +80,7 @@ private extension ContentView {
     func spacerMinLength(in frame: CGRect) -> CGFloat {
         switch UIDevice.current.orientation {
         case .landscapeLeft, .landscapeRight:
-            return 400
+            return showControls ? 400 : 200
 
         default:
             return 0

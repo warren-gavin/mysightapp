@@ -156,14 +156,13 @@ private extension String {
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach([
-            PreviewDevice.PhoneDevices.twelveProMax,
-//            PreviewDevice.PhoneDevices.eight,
+            PreviewDevice.twelveProMax,
+//            PreviewDevice.eight,
         ], id: \.rawValue) {
             ImageView(image: .constant(UIImage(named: "app-store-preview-1")),
                       cvd: .constant(.deutan),
                       severity: .constant(1.0))
-    //            .edgesIgnoringSafeArea(.all)
-                .previewDevice(PreviewDevice(rawValue: $0.rawValue))
+                .previewDevice($0)
         }
     }
 }
