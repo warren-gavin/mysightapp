@@ -10,18 +10,21 @@ import SwiftUI
 struct CVDAnalysisView: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @State private var severity: Float = 0.0
+    @Binding private var activeSeverity: Float
+
+    @State private var userEstimatedSeverity: Float = 0.0
     @State private var confusionLine: ConfusionLine
     @State private var newProfileName = ""
 
     private let viewModel: CVDAnalysisViewModel
 
-    init(_ viewModel: CVDAnalysisViewModel) {
+    init(_ viewModel: CVDAnalysisViewModel, severity: Binding<Float>) {
         let confusionLine = viewModel.loadNext(confusionLine: nil,
                                                severity: 0.0)!
 
         self.viewModel = viewModel
         self._confusionLine = State<ConfusionLine>(wrappedValue: confusionLine)
+        self._activeSeverity = severity
     }
     
     var body: some View {
@@ -48,8 +51,8 @@ struct CVDAnalysisView: View {
                 if !viewModel.analysisComplete {
                     VStack {
                         ConfusionLineView(confusionLine: confusionLine,
-                                          severity: $severity)
-                        Slider(value: $severity, in: 0.0 ... 1.0)
+                                          severity: $userEstimatedSeverity)
+                        Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
                             .padding(.top)
                             .frame(maxWidth: 400)
                     }
@@ -72,9 +75,9 @@ struct CVDAnalysisView: View {
                 if !viewModel.analysisComplete {
                     Button("Next") {
                         if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
-                                                                  severity: severity) {
+                                                                  severity: userEstimatedSeverity) {
                             self.confusionLine = confusionLine
-                            severity = 0.0
+                            userEstimatedSeverity = 0.0
                         }
                     }
                 }
@@ -83,7 +86,9 @@ struct CVDAnalysisView: View {
                         let (cvd, severity) = viewModel.probableCvdAndSeverity
                         viewModel.save(profile: CVDProfile(name: newProfileName,
                                                            cvd: cvd,
-                                                           severity: severity))
+                                                           severity: severity)) {
+                            activeSeverity = severity
+                        }
 
                         presentationMode.wrappedValue.dismiss()
                     }
@@ -142,7 +147,8 @@ private extension CVDAnalysisView {
 struct CVDAnalysisView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) {
-            CVDAnalysisView(CVDAnalysisViewModel(profileManager: CVDProfileManager()))
+            CVDAnalysisView(CVDAnalysisViewModel(profileManager: CVDProfileManager()),
+                            severity: .constant(1.0))
                 .padding(24)
                 .previewLayout(.sizeThatFits)
                 .preferredColorScheme($0)

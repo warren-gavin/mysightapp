@@ -34,9 +34,11 @@ class CVDProfileManager: ObservableObject {
 }
 
 extension CVDProfileManager {
-    func save(profile: CVDProfile) {
-        activeProfile = profile
-        userDefaults.save(profile: profile)
+    func save(profile: CVDProfile, onSaved: (() -> Void)? = nil) {
+        if userDefaults.save(profile: profile) {
+            activeProfile = profile
+            onSaved?()
+        }
     }
 
     func remove(profile: CVDProfile) {
@@ -45,11 +47,13 @@ extension CVDProfileManager {
         }
 
         let saved = savedProfiles
+        let defaultProfile = CVDProfile.standardProfiles[0]
+
         if saved.isEmpty {
-            activeProfile = CVDProfile.standardProfiles[0]
+            activeProfile = defaultProfile
         }
         else {
-            activeProfile = saved[min(saved.count - 1, idx)]
+            activeProfile = saved[safe: min(saved.count - 1, idx)] ?? defaultProfile
         }
     }
 }

@@ -48,11 +48,11 @@ struct ContentView: View {
                                              severity: $severity,
                                              addNewProfile: $addNewProfile,
                                              loadImage: $loadImage)
-                            .padding(.vertical, 20.0)
-                            .backgroundStyle()
-                            .padding(.bottom, 8.0)
-                            .padding(.horizontal, 24.0)
-                            .onTapGesture {}
+                                .padding(.vertical, 20.0)
+                                .backgroundStyle()
+                                .padding(.bottom, 8.0)
+                                .padding(.horizontal, 24.0)
+                                .onTapGesture {}
                         }
                         .ignoresSafeArea()
                     }
@@ -65,7 +65,8 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $addNewProfile, onDismiss: nil) {
-            CVDAnalysisView(CVDAnalysisViewModel(profileManager: profileManager))
+            CVDAnalysisView(CVDAnalysisViewModel(profileManager: profileManager),
+                            severity: $severity)
                 .padding()
         }
         .sheet(isPresented: $loadImage, onDismiss: nil) {

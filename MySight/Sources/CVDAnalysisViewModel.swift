@@ -32,7 +32,7 @@ class CVDAnalysisViewModel {
 
     func loadNext(confusionLine: ConfusionLine?,
                   severity: Float) -> ConfusionLine? {
-        let (first, remainder) = (confusionLines.first,
+        let (next, remainder) = (confusionLines.first,
                                   Array(confusionLines.dropFirst()))
         confusionLines = remainder
 
@@ -40,10 +40,10 @@ class CVDAnalysisViewModel {
             model.update(confusionLine: confusionLine, score: severity)
         }
 
-        return first
+        return next
     }
 
-    func save(profile: CVDProfile) {
-        profileManager.save(profile: profile)
+    func save(profile: CVDProfile, onSaved: @escaping () -> Void) {
+        profileManager.save(profile: profile, onSaved: onSaved)
     }
 }

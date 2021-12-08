@@ -39,7 +39,7 @@ extension UserDefaults {
         }
     }
 
-    func save(profile: CVDProfile) {
+    func save(profile: CVDProfile) -> Bool {
         var savedProfiles = savedProfiles()
 
         savedProfiles.removeAll { element in
@@ -51,7 +51,10 @@ extension UserDefaults {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(savedProfiles) {
             set(encoded, forKey: .profilesKeyPath)
+            return true
         }
+
+        return false
     }
 
     func remove(profile: CVDProfile) -> Int? {

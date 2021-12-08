@@ -11,4 +11,15 @@ extension View {
     func iconStyle() -> some View {
         font(Font.title2.weight(.light))
     }
+
+    func imageStyle() -> some View {
+        return self
+            .frame(maxHeight: .infinity)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 4)
+            .background(Color.accentColor)
+            .foregroundColor(.background)
+            .clipShape(Capsule())
+            .iconStyle()
+    }
 }

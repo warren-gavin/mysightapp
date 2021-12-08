@@ -38,7 +38,6 @@ private extension ControlPanelView {
             } label: {
                 Image(systemName: "plus")
             }
-            .frame(maxWidth: .infinity)
             .imageStyle()
 
             Button {
@@ -46,7 +45,6 @@ private extension ControlPanelView {
             } label: {
                 Image(systemName: "photo.on.rectangle.angled")
             }
-            .frame(maxWidth: .infinity)
             .imageStyle()
         }
     }
@@ -87,7 +85,6 @@ private extension ControlPanelView {
                 ForEach(profileManager.standardProfiles, id: \.name) { profile in
                     Button(profileButtonName(for: profile)) {
                         cvd = profile.cvd
-                        severity = profile.severity
                         profileManager.activeProfile = profile
                     }
                     .accessibilityLabel(profile.name)
@@ -164,23 +161,16 @@ private extension ControlPanelView {
     }
 }
 
-private struct ImageButton: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxHeight: .infinity)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 4)
-            .background(Color.background)
-            .clipShape(Capsule())
-    }
-}
-
 private struct ProfileButton: ViewModifier {
     let profile: CVDProfile
     let activeProfile: CVDProfile
 
     var buttonBackground: Color {
-        profile == activeProfile ? .background : .clear
+        profile == activeProfile ? .accentColor : .clear
+    }
+
+    var textColor: Color {
+        profile == activeProfile ? .background : .accentColor
     }
 
     func body(content: Content) -> some View {
@@ -188,18 +178,13 @@ private struct ProfileButton: ViewModifier {
             .padding(.horizontal, 12)
             .padding(.vertical, 3)
             .background(buttonBackground)
+            .foregroundColor(textColor)
             .cornerRadius(8)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.accentColor, lineWidth: 1)
             )
             .padding(1)
-    }
-}
-
-extension View {
-    func imageStyle() -> some View {
-        modifier(ImageButton())
     }
 }
 
@@ -212,14 +197,14 @@ struct ControlPanelView_Previews: PreviewProvider {
 
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
-                             severity: .constant(1.0),
+                             severity: .constant(0.95),
                              addNewProfile: .constant(false),
                              loadImage: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
-            ControlPanelView(cvd: .constant(.deutan),
-                             severity: .constant(1.0),
+            ControlPanelView(cvd: .constant(.tritan),
+                             severity: .constant(0.6),
                              addNewProfile: .constant(false),
                              loadImage: .constant(false))
                 .preferredColorScheme(.light)

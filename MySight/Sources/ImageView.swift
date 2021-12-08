@@ -159,7 +159,7 @@ struct ImageView_Previews: PreviewProvider {
             PreviewDevice.PhoneDevices.twelveProMax,
 //            PreviewDevice.PhoneDevices.eight,
         ], id: \.rawValue) {
-            ImageView(image: .constant(UIImage(named: "preview-image-view")),
+            ImageView(image: .constant(UIImage(named: "app-store-preview-1")),
                       cvd: .constant(.deutan),
                       severity: .constant(1.0))
     //            .edgesIgnoringSafeArea(.all)
