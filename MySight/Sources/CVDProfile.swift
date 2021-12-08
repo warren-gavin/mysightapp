@@ -22,6 +22,12 @@ struct CVDProfile: Codable, Equatable {
     }
 }
 
+extension CVDProfile: Identifiable {
+    var id: String {
+        "\(name)-\(cvd.dichromatName)-\(severity)"
+    }
+}
+
 extension CVDProfile {
     static let standardProfiles = [
         CVDProfile(name: CVD.deutan.shortName.localized,
