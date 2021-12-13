@@ -26,7 +26,7 @@ struct ControlPanelView: View {
                 Text(description)
                 Spacer()
             }
-            .padding(.horizontal, 20.0)
+            .padding(.horizontal, 8.0)
 
             if show {
                 Group {
@@ -98,7 +98,7 @@ private extension ControlPanelView {
         VStack(spacing: 4) {
             if profileManager.savedProfilesExist {
                 HStack {
-                    Text("DICHROMAT SETTINGS")
+                    Text("DICHROMAT PROFILES")
                         .font(.caption)
                     Spacer()
                 }
@@ -128,7 +128,7 @@ private extension ControlPanelView {
     func savedProfiles() -> some View {
         VStack(spacing: 4) {
             HStack {
-                Text("SAVED SETTINGS")
+                Text("SAVED PROFILES")
                     .font(.caption)
                 Spacer()
             }
@@ -154,8 +154,8 @@ private extension ControlPanelView {
                                     .iconStyle()
                             }
                             .alert(item: $deleteProfile) { profileToDelete in
-                                Alert(title: Text("Delete setting?"),
-                                      message: Text("Are you sure you want to delete this setting?"),
+                                Alert(title: Text("Delete profile?"),
+                                      message: Text("Are you sure you want to delete this profile?"),
                                       primaryButton: .cancel(),
                                       secondaryButton: .destructive(Text("Delete"), action: {
                                     profileManager.remove(profile: profileToDelete)

@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  MySight
+
+  Created by Warren Gavin on 05/12/2021.
+  
+*/
+
+"100%% dichromacy" = "100%% dichromacy";
+"%lld%% anomalous trichromacy" = "%lld%% anomalous trichromacy";
+"100%% %@" = "100%% %@";
+"%lld%% %@" = "%lld%% %@";
+"Normal Colour Vision" = "Normal Colour Vision";
+
+// CVD Analysis
+"cvd.analysis.intro" = "Would you like to see what somone who has CVD sees? Ask them to complete the next few screens.
+
+You will be shown a series of colours like the one below.";
+
+"cvd.analysis.explanation" = "People with normal colour vision see a gradient of colours, but people with CVD find it harder to see the gradient and may even see a solid rectangle, depending on the severity.";

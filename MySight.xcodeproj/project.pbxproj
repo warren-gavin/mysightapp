@@ -12,7 +12,6 @@
 		80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
 		800BAA08275544A50092A478 /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
-		80157F07275CFE4D00FCA090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80157F06275CFE4D00FCA090 /* Localizable.strings */; };
 		8045D3B7275163720001DD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
 		806F8EB32751647C00990F58 /* CVDFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E992751647C00990F58 /* CVDFilter.swift */; };
@@ -41,6 +40,7 @@
 		806F8ECB2751647C00990F58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB22751647C00990F58 /* ContentView.swift */; };
 		80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B37F5E27568074005BD783 /* PreviewDevices.swift */; };
 		80B88B722756A1BC005CBFDA /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 80B88B712756A1BC005CBFDA /* ActivityView */; };
+		80DBA34F2767C513009528DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,6 @@
 		80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		800BAA07275544A50092A478 /* Stacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacker.swift; sourceTree = "<group>"; };
 		80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVDProfile+Strings.swift"; sourceTree = "<group>"; };
-		80157F06275CFE4D00FCA090 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8045D3AF275163700001DD01 /* MySight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8045D3B6275163720001DD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8045D3B9275163720001DD01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -78,6 +77,8 @@
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		806F8EB22751647C00990F58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80B37F5E27568074005BD783 /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
+		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B5210B0E2110E825A51CFBD /* Pods-MySight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySight.release.xcconfig"; path = "Target Support Files/Pods-MySight/Pods-MySight.release.xcconfig"; sourceTree = "<group>"; };
 		FC05C1687F91A3AD66608625 /* Pods_MySight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,7 +126,7 @@
 		8045D3B1275163700001DD01 /* MySight */ = {
 			isa = PBXGroup;
 			children = (
-				80157F06275CFE4D00FCA090 /* Localizable.strings */,
+				80DBA3512767C513009528DA /* Localizable.strings */,
 				806F8E982751647C00990F58 /* ImageFilters */,
 				806F8E9B2751647C00990F58 /* Sources */,
 				8045D3B6275163720001DD01 /* Assets.xcassets */,
@@ -240,6 +241,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"en-GB",
 				Base,
 			);
 			mainGroup = 8045D3A6275163700001DD01;
@@ -261,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */,
-				80157F07275CFE4D00FCA090 /* Localizable.strings in Resources */,
+				80DBA34F2767C513009528DA /* Localizable.strings in Resources */,
 				8045D3B7275163720001DD01 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +368,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80DBA3512767C513009528DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80DBA3502767C513009528DA /* en-GB */,
+				80DBA3522767C520009528DA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8045D3BB275163720001DD01 /* Debug */ = {

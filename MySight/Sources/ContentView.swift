@@ -48,7 +48,7 @@ struct ContentView: View {
                                          addNewProfile: $addNewProfile,
                                          loadImage: $loadImage,
                                          show: $showControls)
-                            .padding(.vertical, showControls ? 20.0 : 12.0)
+                            .padding(.vertical, showControls ? 20.0 : 8.0)
                             .backgroundStyle()
                             .padding(.bottom, 8.0)
                             .padding(.horizontal, showControls ? 24.0 : 12.0)

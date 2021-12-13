@@ -7,8 +7,10 @@
 
 import Foundation
 
-class CVDAnalysisViewModel {
+class CVDAnalysisViewModel: ObservableObject {
     private let profileManager: CVDProfileManager
+    private let userDefaults: UserDefaults
+
     private var model = CVDAnalysisModel()
     private var confusionLines: [ConfusionLine] = [
         .deutan_1, .protan_1, .tritan_1,
@@ -18,6 +20,10 @@ class CVDAnalysisViewModel {
         .deutan_5, .protan_5, .tritan_5
     ].shuffled()
 
+    var showIntro: Bool {
+        return !userDefaults.bool(forKey: .showIntroKey)
+    }
+
     var probableCvdAndSeverity: (CVD, Float) {
         model.probableCvdAndSeverity()
     }
@@ -26,8 +32,14 @@ class CVDAnalysisViewModel {
         confusionLines.isEmpty
     }
 
-    init(profileManager: CVDProfileManager) {
+    init(profileManager: CVDProfileManager, userDefaults: UserDefaults = .standard) {
         self.profileManager = profileManager
+        self.userDefaults = userDefaults
+    }
+
+    func introWasRead() {
+        userDefaults.set(true, forKey: .showIntroKey)
+        objectWillChange.send()
     }
 
     func loadNext(confusionLine: ConfusionLine?,
@@ -46,4 +58,8 @@ class CVDAnalysisViewModel {
     func save(profile: CVDProfile, onSaved: @escaping () -> Void) {
         profileManager.save(profile: profile, onSaved: onSaved)
     }
+}
+
+private extension String {
+    static let showIntroKey = "com.apokrupto.cvd-analysis-intro-shown"
 }

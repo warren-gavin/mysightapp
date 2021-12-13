@@ -16,7 +16,7 @@ struct CVDAnalysisView: View {
     @State private var confusionLine: ConfusionLine
     @State private var newProfileName = ""
 
-    private let viewModel: CVDAnalysisViewModel
+    @ObservedObject private var viewModel: CVDAnalysisViewModel
 
     init(_ viewModel: CVDAnalysisViewModel, severity: Binding<Float>) {
         let confusionLine = viewModel.loadNext(confusionLine: nil,
@@ -26,36 +26,27 @@ struct CVDAnalysisView: View {
         self._confusionLine = State<ConfusionLine>(wrappedValue: confusionLine)
         self._activeSeverity = severity
     }
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Add a new CVD setting")
+            Text("Add a new CVD profile")
                 .padding(.top, 44)
                 .padding(.bottom, 16)
                 .font(Font.title.weight(.black))
 
-            Text("Move the slider until you see a solid rectangle")
-                .font(.headline)
-                .padding(.bottom, 8)
-                .opacity(textOpacity)
-
-            Text("If you already see a rectangle, hit Next")
-                .font(.subheadline)
-                .opacity(textOpacity)
-                .padding(.bottom, 24)
+            if !viewModel.showIntro {
+                instructionsView
+            }
 
             Spacer()
 
             HStack {
                 Spacer()
-                if !viewModel.analysisComplete {
-                    VStack {
-                        ConfusionLineView(confusionLine: confusionLine,
-                                          severity: $userEstimatedSeverity)
-                        Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
-                            .padding(.top)
-                            .frame(maxWidth: 400)
-                    }
+                if viewModel.showIntro {
+                    introView
+                }
+                else if !viewModel.analysisComplete {
+                    analysisView
                 }
                 else {
                     analysisResultView
@@ -72,7 +63,13 @@ struct CVDAnalysisView: View {
 
                 Spacer()
 
-                if !viewModel.analysisComplete {
+                if viewModel.showIntro {
+                    Button("Next") {
+                        userEstimatedSeverity = 0.0
+                        viewModel.introWasRead()
+                    }
+                }
+                else if !viewModel.analysisComplete {
                     Button("Next") {
                         if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
                                                                   severity: userEstimatedSeverity) {
@@ -103,6 +100,54 @@ struct CVDAnalysisView: View {
 private extension CVDAnalysisView {
     var textOpacity: CGFloat {
         viewModel.analysisComplete ? 0.0 : 1.0
+    }
+
+    var introView: some View {
+        ScrollView {
+            VStack {
+                Text("cvd.analysis.intro")
+
+                ConfusionLineView(confusionLine: .tritan_2, severity: .constant(0.0))
+                    .padding(.vertical, 24)
+
+                Text("cvd.analysis.explanation")
+
+                VStack {
+                    ConfusionLineView(confusionLine: .tritan_2,
+                                      severity: $userEstimatedSeverity)
+                }
+                .padding(.vertical, 24)
+                .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true),
+                           value: userEstimatedSeverity)
+                .onAppear {
+                    userEstimatedSeverity = 1.0
+                }
+            }
+        }
+    }
+
+    var instructionsView: some View {
+        Group {
+            Text("Move the slider until you see a solid rectangle")
+                .font(.headline)
+                .padding(.bottom, 8)
+                .opacity(textOpacity)
+
+            Text("If you already see a rectangle, hit Next")
+                .font(.subheadline)
+                .opacity(textOpacity)
+                .padding(.bottom, 24)
+        }
+    }
+
+    var analysisView: some View {
+        VStack {
+            ConfusionLineView(confusionLine: confusionLine,
+                              severity: $userEstimatedSeverity)
+            Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
+                .padding(.top)
+                .frame(maxWidth: 400)
+        }
     }
 
     var analysisResultView: some View {
