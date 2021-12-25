@@ -15,6 +15,7 @@ struct CVDAnalysisView: View {
     @State private var userEstimatedSeverity: Float = 0.0
     @State private var confusionLine: ConfusionLine
     @State private var newProfileName = ""
+    @FocusState private var textFieldFocus: Bool
 
     @ObservedObject private var viewModel: CVDAnalysisViewModel
 
@@ -170,7 +171,11 @@ private extension CVDAnalysisView {
                 .font(.largeTitle)
             Text(severityEstimate(severity: severity))
             TextField("Save as...", text: $newProfileName)
+                .focused($textFieldFocus)
                 .padding(.top, 16)
+        }
+        .onAppear {
+            textFieldFocus = true
         }
     }
 

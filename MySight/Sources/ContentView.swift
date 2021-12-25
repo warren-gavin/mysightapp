@@ -49,8 +49,8 @@ struct ContentView: View {
                                          loadImage: $loadImage,
                                          show: $showControls)
                             .padding(.vertical, showControls ? 20.0 : 8.0)
-                            .backgroundStyle()
-                            .padding(.bottom, 8.0)
+                            .background(.ultraThinMaterial,
+                                        in: RoundedRectangle(cornerRadius: 24))                            .padding(.bottom, 8.0)
                             .padding(.horizontal, showControls ? 24.0 : 12.0)
                             .onTapGesture {}
                     }
@@ -87,40 +87,6 @@ private extension ContentView {
         }
     }
 }
-
-struct Background: ViewModifier {
-    struct Blur: UIViewRepresentable {
-        var style: UIBlurEffect.Style = .systemUltraThinMaterial
-
-        func makeUIView(context: Context) -> UIVisualEffectView {
-            return UIVisualEffectView(effect: UIBlurEffect(style: style))
-        }
-
-        func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-            uiView.effect = UIBlurEffect(style: style)
-        }
-    }
-
-    @ViewBuilder
-    func body(content: Content) -> some View {
-        if #available(iOS 15.0, *) {
-            content.background(.ultraThinMaterial,
-                               in: RoundedRectangle(cornerRadius: 24))
-        }
-        else {
-            content
-                .background(Blur())
-                .cornerRadius(24)
-        }
-    }
-}
-
-extension View {
-    func backgroundStyle() -> some View {
-        modifier(Background())
-    }
-}
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

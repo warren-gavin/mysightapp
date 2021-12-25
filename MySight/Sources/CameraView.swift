@@ -97,7 +97,11 @@ private class CVDCameraUIView: UIView {
     }
 
     var orientation: AVCaptureVideoOrientation {
-        switch UIApplication.shared.windows.first!.windowScene!.interfaceOrientation {
+        let windowScenes = UIApplication.shared.connectedScenes.compactMap {
+            $0 as? UIWindowScene
+        }
+        
+        switch windowScenes.first!.interfaceOrientation {
         case .unknown:
             fatalError()
 
