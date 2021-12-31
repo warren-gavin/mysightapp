@@ -38,6 +38,7 @@
 		806F8EC92751647C00990F58 /* CVDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB02751647C00990F58 /* CVDProfile.swift */; };
 		806F8ECA2751647C00990F58 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB12751647C00990F58 /* ImageView.swift */; };
 		806F8ECB2751647C00990F58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB22751647C00990F58 /* ContentView.swift */; };
+		80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */; };
 		80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B37F5E27568074005BD783 /* PreviewDevices.swift */; };
 		80B88B722756A1BC005CBFDA /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 80B88B712756A1BC005CBFDA /* ActivityView */; };
 		80DBA34F2767C513009528DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
@@ -76,6 +77,7 @@
 		806F8EB02751647C00990F58 /* CVDProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDProfile.swift; sourceTree = "<group>"; };
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		806F8EB22751647C00990F58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DeviceRotation.swift"; sourceTree = "<group>"; };
 		80B37F5E27568074005BD783 /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
 		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				806F8EA22751647C00990F58 /* UIColor+Hex.swift */,
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
+				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				806F8ECA2751647C00990F58 /* ImageView.swift in Sources */,
 				806F8ECB2751647C00990F58 /* ContentView.swift in Sources */,
+				80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */,
 				806F8EB62751647C00990F58 /* View+Image.swift in Sources */,
 				800BAA08275544A50092A478 /* Stacker.swift in Sources */,
 				806F8EC12751647C00990F58 /* CVDProfileManager.swift in Sources */,

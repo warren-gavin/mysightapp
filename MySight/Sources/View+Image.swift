@@ -17,8 +17,8 @@ extension View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, 12)
             .padding(.vertical, 4)
-            .background(Color.accentColor)
-            .foregroundColor(.background)
+            .background(.ultraThinMaterial)
+            .foregroundColor(.accentColor)
             .clipShape(Capsule())
             .iconStyle()
     }

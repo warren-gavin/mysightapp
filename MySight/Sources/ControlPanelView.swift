@@ -9,15 +9,14 @@ import SwiftUI
 
 struct ControlPanelView: View {
     @EnvironmentObject var profileManager: CVDProfileManager
-    @Environment(\.sizeCategory) var sizeCategory
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
 
     @Binding var cvd: CVD
     @Binding var severity: Float
-    @Binding var addNewProfile: Bool
-    @Binding var loadImage: Bool
     @Binding var show: Bool
 
     @State private var deleteProfile: CVDProfile?
+    @State private var orientation: UIDeviceOrientation = .unknown
 
     var body: some View {
         VStack {
@@ -37,7 +36,19 @@ struct ControlPanelView: View {
                 }.opacity(show ? 1 : 0)
             }
         }
-        .fixedSize(horizontal: true, vertical: true)
+        .fixedSize(horizontal: shouldFixHorizontal, vertical: true)
+        .onRotate { newOrientation in
+            switch newOrientation {
+            case .portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight:
+                orientation = newOrientation
+
+            case .faceUp, .faceDown, .unknown:
+                break
+
+            @unknown default:
+                break
+            }
+        }
     }
 }
 
@@ -54,35 +65,9 @@ private extension ControlPanelView {
         return "\(Int(severity * 100))% \(cvd.anomalousTrichromatName.localized)"
     }
 
-    var actionButtons: some View {
-        HStack {
-            Button {
-                addNewProfile = true
-            } label: {
-                Image(systemName: "plus")
-            }
-            .imageStyle()
-
-            Button {
-                loadImage = true
-            } label: {
-                Image(systemName: "photo.on.rectangle.angled")
-            }
-            .imageStyle()
-        }
-    }
-
     var actionControls: some View {
-        Group {
-            Slider(value: $severity, in: 0.0 ... 1.0)
-                .frame(minWidth: 170)
-            
-            actionButtons
-        }
-        .modifier(
-            Stacker(spacing: 12,
-                    useVerticalAlignment: sizeCategory.isAccessibilityCategory)
-        )
+        Slider(value: $severity, in: 0.0 ... 1.0)
+            .frame(minWidth: 170)
     }
 
     func profileButtonName(for profile: CVDProfile) -> String {
@@ -90,7 +75,7 @@ private extension ControlPanelView {
             return profile.name
         }
 
-        return sizeCategory.isAccessibilityCategory ? accessibilityAbbreviation : profile.name
+        return dynamicTypeSize.isAccessibilitySize ? accessibilityAbbreviation : profile.name
     }
 
     @ViewBuilder
@@ -182,6 +167,17 @@ private extension ControlPanelView {
             }
         }
     }
+
+    var shouldFixHorizontal: Bool {
+        switch orientation {
+        case .landscapeLeft, .landscapeRight:
+            return true
+
+        default:
+            return false
+        }
+    }
+
 }
 
 private struct ProfileButton: ViewModifier {
@@ -221,20 +217,16 @@ struct ControlPanelView_Previews: PreviewProvider {
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(0.95),
-                             addNewProfile: .constant(false),
-                             loadImage: .constant(false),
                              show: .constant(true))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
             ControlPanelView(cvd: .constant(.tritan),
                              severity: .constant(0.6),
-                             addNewProfile: .constant(false),
-                             loadImage: .constant(false),
                              show: .constant(true))
                 .preferredColorScheme(.light)
-                .previewLayout(.sizeThatFits)
-                .environment(\.sizeCategory, .accessibilityLarge)
+//                .previewLayout(.sizeThatFits)
+//                .environment(\.sizeCategory, .accessibilityLarge)
         }
         .background(Color.gray)
         .environmentObject(manager)

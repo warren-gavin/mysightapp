@@ -22,6 +22,10 @@ struct ContentView: View {
     init() {
         profileManager = CVDProfileManager()
 
+//        profileManager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
+//        profileManager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
+//        profileManager.activeProfile = CVDProfile.standardProfiles.first!
+
         cvd = profileManager.activeProfile.cvd
         severity = profileManager.activeProfile.severity
     }
@@ -34,31 +38,57 @@ struct ContentView: View {
                         .ignoresSafeArea()
                 }
 
-                VStack {
-                    ImageView(image: $image.animation(),
-                              cvd: $cvd,
-                              severity: $severity)
-                        .transition(.move(edge: .bottom))
+                VStack(alignment: .trailing) {
+                    if let _ = image {
+                        ImageView(image: $image.animation(),
+                                  cvd: $cvd,
+                                  severity: $severity)
+                            .transition(.move(edge: .bottom))
+                    }
+                    else if showControls {
+                        HStack {
+                            Button {
+                                addNewProfile = true
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                            .imageStyle()
+                            .fixedSize(horizontal: true, vertical: true)
 
-                    HStack(spacing: 0) {
-                        Spacer(minLength: spacerMinLength(in: proxy.frame(in: .local)))
+                            Spacer()
 
+                            Button {
+                                loadImage = true
+                            } label: {
+                                Image(systemName: "photo.on.rectangle.angled")
+                            }
+                            .imageStyle()
+                            .fixedSize(horizontal: true, vertical: true)
+                        }
+                        .padding()
+                        .fixedSize(horizontal: false, vertical: true)
+
+                        Spacer()
+                    }
+
+                    HStack {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
-                                         addNewProfile: $addNewProfile,
-                                         loadImage: $loadImage,
                                          show: $showControls)
                             .padding(.vertical, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
-                                        in: RoundedRectangle(cornerRadius: 24))                            .padding(.bottom, 8.0)
-                            .padding(.horizontal, showControls ? 24.0 : 12.0)
-                            .onTapGesture {}
+                                        in: RoundedRectangle(cornerRadius: 24))
+                            .padding(.bottom, 8.0)
+                            .onTapGesture {
+                                print("tapped")
+                            }
                     }
+                    .padding(.horizontal)
                     .ignoresSafeArea()
                 }
             }
             .onTapGesture {
-                withAnimation {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
                     showControls.toggle()
                 }
             }
@@ -76,24 +106,19 @@ struct ContentView: View {
     }
 }
 
-private extension ContentView {
-    func spacerMinLength(in frame: CGRect) -> CGFloat {
-        switch UIDevice.current.orientation {
-        case .landscapeLeft, .landscapeRight:
-            return showControls ? 400 : 200
-
-        default:
-            return 0
-        }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(PreviewDevice.allPhoneDevices, id: \.rawValue) {
-            ContentView()
-                .previewDevice($0)
-                .previewDisplayName($0.rawValue)
-        }
+        let manager = CVDProfileManager()
+        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
+        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .protan, severity: 0.7))
+        manager.activeProfile = CVDProfile.standardProfiles.first!
+
+        return ContentView()
+            .environmentObject(manager)
+            .previewDevice(PreviewDevice.eight)
+            .previewDisplayName(PreviewDevice.eight.rawValue)
+//            .previewInterfaceOrientation(.landscapeLeft)
+            .environment(\.sizeCategory, .extraExtraExtraLarge)
+
     }
 }
