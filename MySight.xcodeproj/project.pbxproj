@@ -15,6 +15,7 @@
 		8045D3B7275163720001DD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
 		80586BAA277F764D007153E3 /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
+		806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D823B278207C500AE46E3 /* CondensibleText.swift */; };
 		806F8EB32751647C00990F58 /* CVDFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E992751647C00990F58 /* CVDFilter.swift */; };
 		806F8EB42751647C00990F58 /* CVDFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9A2751647C00990F58 /* CVDFilter.metal */; };
 		806F8EB52751647C00990F58 /* UserDefaults+CVDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */; };
@@ -55,6 +56,7 @@
 		8045D3B6275163720001DD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8045D3B9275163720001DD01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80586BA9277F764D007153E3 /* PrivacyPolicy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PrivacyPolicy.md; sourceTree = "<group>"; };
+		806D823B278207C500AE46E3 /* CondensibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CondensibleText.swift; sourceTree = "<group>"; };
 		806F8E992751647C00990F58 /* CVDFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDFilter.swift; sourceTree = "<group>"; };
 		806F8E9A2751647C00990F58 /* CVDFilter.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = CVDFilter.metal; sourceTree = "<group>"; };
 		806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CVDProfile.swift"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
+				806D823B278207C500AE46E3 /* CondensibleText.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */,
 				806F8ECA2751647C00990F58 /* ImageView.swift in Sources */,
 				806F8ECB2751647C00990F58 /* ContentView.swift in Sources */,
 				80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */,

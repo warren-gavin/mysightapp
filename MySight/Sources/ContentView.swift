@@ -22,10 +22,6 @@ struct ContentView: View {
     init() {
         profileManager = CVDProfileManager()
 
-//        profileManager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
-//        profileManager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
-//        profileManager.activeProfile = CVDProfile.standardProfiles.first!
-
         cvd = profileManager.activeProfile.cvd
         severity = profileManager.activeProfile.severity
     }
@@ -75,7 +71,8 @@ struct ContentView: View {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
                                          show: $showControls)
-                            .padding(.vertical, showControls ? 20.0 : 8.0)
+                            .padding(.top, 8.0)
+                            .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
                                         in: RoundedRectangle(cornerRadius: 24))
                             .padding(.bottom, 8.0)

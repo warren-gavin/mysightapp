@@ -23,6 +23,7 @@ struct ControlPanelView: View {
             HStack {
                 Spacer()
                 Text(description)
+                    .condensible()
                 Spacer()
             }
             .padding(.horizontal, 8.0)
@@ -67,7 +68,7 @@ private extension ControlPanelView {
 
     var actionControls: some View {
         Slider(value: $severity, in: 0.0 ... 1.0)
-            .frame(minWidth: 170)
+            .padding(.top, -14)
     }
 
     func profileButtonName(for profile: CVDProfile) -> String {
@@ -75,7 +76,13 @@ private extension ControlPanelView {
             return profile.name
         }
 
-        return dynamicTypeSize.isAccessibilitySize ? accessibilityAbbreviation : profile.name
+        switch dynamicTypeSize {
+        case .accessibility2, .accessibility3, .accessibility4, .accessibility5:
+            return accessibilityAbbreviation
+
+        default:
+            return profile.name
+        }
     }
 
     @ViewBuilder
@@ -84,16 +91,19 @@ private extension ControlPanelView {
             if profileManager.savedProfilesExist {
                 HStack {
                     Text("DICHROMAT PROFILES")
-                        .font(.caption)
+                        .condensible(style: .caption)
                     Spacer()
                 }
             }
 
             HStack {
                 ForEach(profileManager.standardProfiles, id: \.name) { profile in
-                    Button(profileButtonName(for: profile)) {
+                    Button {
                         cvd = profile.cvd
                         profileManager.activeProfile = profile
+                    } label: {
+                        Text(profileButtonName(for: profile))
+                            .condensible()
                     }
                     .accessibilityLabel(profile.name)
                     .modifier(ProfileButton(profile: profile,
@@ -114,7 +124,7 @@ private extension ControlPanelView {
         VStack(spacing: 4) {
             HStack {
                 Text("SAVED PROFILES")
-                    .font(.caption)
+                    .condensible(style: .caption)
                 Spacer()
             }
             .padding(.horizontal, 20.0)
@@ -124,10 +134,13 @@ private extension ControlPanelView {
                 HStack(spacing: 16) {
                     ForEach(profileManager.savedProfiles, id: \.name) { profile in
                         HStack {
-                            Button(profile.name) {
+                            Button {
                                 cvd = profile.cvd
                                 severity = profile.severity
                                 profileManager.activeProfile = profile
+                            } label: {
+                                Text(profile.name)
+                                    .condensible()
                             }
                             .modifier(ProfileButton(profile: profile,
                                                     activeProfile: profileManager.activeProfile))
@@ -149,7 +162,6 @@ private extension ControlPanelView {
                                     severity = profileManager.activeProfile.severity
                                 }))
                             }
-
                         }
                     }
                 }
@@ -177,18 +189,17 @@ private extension ControlPanelView {
             return false
         }
     }
-
 }
 
 private struct ProfileButton: ViewModifier {
     let profile: CVDProfile
     let activeProfile: CVDProfile
 
-    var buttonBackground: Color {
+    private var buttonBackground: Color {
         profile == activeProfile ? .accentColor : .clear
     }
 
-    var textColor: Color {
+    private var textColor: Color {
         profile == activeProfile ? .background : .accentColor
     }
 
@@ -221,10 +232,11 @@ struct ControlPanelView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
-            ControlPanelView(cvd: .constant(.tritan),
-                             severity: .constant(0.6),
-                             show: .constant(true))
-                .preferredColorScheme(.light)
+//            ControlPanelView(cvd: .constant(.tritan),
+//                             severity: .constant(0.6),
+//                             show: .constant(true))
+//                .preferredColorScheme(.light)
+.previewInterfaceOrientation(.portraitUpsideDown)
 //                .previewLayout(.sizeThatFits)
 //                .environment(\.sizeCategory, .accessibilityLarge)
         }

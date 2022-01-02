@@ -33,7 +33,7 @@ struct CVDAnalysisView: View {
             Text("Add a new CVD profile")
                 .padding(.top, 44)
                 .padding(.bottom, 16)
-                .font(Font.title.weight(.black))
+                .condensible(style: .title, weight: .black)
 
             if !viewModel.showIntro {
                 instructionsView
@@ -58,29 +58,38 @@ struct CVDAnalysisView: View {
             Spacer()
 
             HStack {
-                Button("Cancel") {
+                Button {
                     presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Cancel")
+                        .condensible()
                 }
 
                 Spacer()
 
                 if viewModel.showIntro {
-                    Button("Next") {
+                    Button {
                         userEstimatedSeverity = 0.0
                         viewModel.introWasRead()
+                    } label: {
+                        Text("Next")
+                            .condensible()
                     }
                 }
                 else if !viewModel.analysisComplete {
-                    Button("Next") {
+                    Button {
                         if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
                                                                   severity: userEstimatedSeverity) {
                             self.confusionLine = confusionLine
                             userEstimatedSeverity = 0.0
                         }
+                    } label: {
+                        Text("Next")
+                            .condensible()
                     }
                 }
                 else {
-                    Button("Save") {
+                    Button {
                         let (cvd, severity) = viewModel.probableCvdAndSeverity
                         viewModel.save(profile: CVDProfile(name: newProfileName,
                                                            cvd: cvd,
@@ -89,6 +98,9 @@ struct CVDAnalysisView: View {
                         }
 
                         presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Save")
+                            .condensible()
                     }
                     .disabled(newProfileName.isEmpty)
                 }
@@ -107,11 +119,13 @@ private extension CVDAnalysisView {
         ScrollView {
             VStack {
                 Text("cvd.analysis.intro")
+                    .condensible()
 
                 ConfusionLineView(confusionLine: .tritan_2, severity: .constant(0.0))
                     .padding(.vertical, 24)
 
                 Text("cvd.analysis.explanation")
+                    .condensible()
 
                 VStack {
                     ConfusionLineView(confusionLine: .tritan_2,
@@ -130,12 +144,12 @@ private extension CVDAnalysisView {
     var instructionsView: some View {
         Group {
             Text("Move the slider until you see a solid rectangle")
-                .font(.headline)
+                .condensible(style: .headline)
                 .padding(.bottom, 8)
                 .opacity(textOpacity)
 
             Text("If you already see a rectangle, hit Next")
-                .font(.subheadline)
+                .condensible(style: .subheadline)
                 .opacity(textOpacity)
                 .padding(.bottom, 24)
         }
@@ -168,8 +182,11 @@ private extension CVDAnalysisView {
 
         return VStack {
             Text(diagnosis)
-                .font(.largeTitle)
+                .condensible(style: .largeTitle)
+
             Text(severityEstimate(severity: severity))
+                .condensible()
+
             TextField("Save as...", text: $newProfileName)
                 .focused($textFieldFocus)
                 .padding(.top, 16)
