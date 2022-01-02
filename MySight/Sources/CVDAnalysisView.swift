@@ -159,6 +159,7 @@ private extension CVDAnalysisView {
         VStack {
             ConfusionLineView(confusionLine: confusionLine,
                               severity: $userEstimatedSeverity)
+            
             Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
                 .padding(.top)
                 .frame(maxWidth: 400)
@@ -191,7 +192,7 @@ private extension CVDAnalysisView {
                 .focused($textFieldFocus)
                 .padding(.top, 16)
         }
-        .onAppear {
+        .task {
             textFieldFocus = true
         }
     }
