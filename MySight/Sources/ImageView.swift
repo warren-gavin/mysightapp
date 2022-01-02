@@ -34,13 +34,13 @@ struct ImageView: View {
                             ActionSheet(title: Text("Share this image"),
                                         message: Text("Choose a file size"),
                                         buttons: [
-                                .default(Text("Small (\(image.sizeEstimate(scaledTo: 0.1)))")) {
-                                    share(image: image, scaledTo: 0.1)
+                                .default(Text("Small (Social Media)")) {
+                                    share(image: image, scaledTo: 0.2)
                                 },
-                                .default(Text("Medium (\(image.sizeEstimate(scaledTo: 0.3)))")) {
+                                .default(Text("Medium (Email)")) {
                                     share(image: image, scaledTo: 0.3)
                                 },
-                                .default(Text("Large (\(image.sizeEstimate(scaledTo: 0.6)))")) {
+                                .default(Text("Large (Many MBs)")) {
                                     share(image: image, scaledTo: 0.6)
                                 },
                                 .cancel {
@@ -93,9 +93,20 @@ private extension ImageView {
     }
 
     func combined(images: UIImage..., texts: String..., scaledTo scaleFactor: CGFloat) -> UIImage? {
+        let drawHorizontal: Bool = {
+            let image = images[0]
+            return image.size.width < image.size.height ? true : false
+        }()
+
         let originalSize = images.reduce(into: CGSize.zero) { partialResult, image in
-            partialResult = CGSize(width: partialResult.width + image.size.width,
-                                   height: image.size.height)
+            if drawHorizontal {
+                partialResult = CGSize(width: partialResult.width + image.size.width,
+                                       height: image.size.height)
+            }
+            else {
+                partialResult = CGSize(width: image.size.width,
+                                       height: partialResult.height + image.size.height)
+            }
         }
 
         let size = CGSize(width: originalSize.width * scaleFactor,
@@ -103,7 +114,11 @@ private extension ImageView {
 
         let image = UIGraphicsImageRenderer(size: size).image { _ in
             images.enumerated().forEach { (idx, image) in
-                let imageRect = CGRect(origin: CGPoint(x: image.size.width * scaleFactor * CGFloat(idx), y: 0),
+                let xScaleFactor = scaleFactor * (drawHorizontal ? CGFloat(idx) : 0)
+                let yScaleFactor = scaleFactor * (drawHorizontal ? 0 : CGFloat(idx))
+
+                let imageRect = CGRect(origin: CGPoint(x: image.size.width * xScaleFactor,
+                                                       y: image.size.height * yScaleFactor),
                                        size: CGSize(width: image.size.width * scaleFactor,
                                                     height: image.size.height * scaleFactor))
                 image.draw(in: imageRect)
@@ -126,13 +141,6 @@ private extension ImageView {
                                      scaledTo: scaleFactor) {
             item = ActivityItem(items: shareImage)
         }
-    }
-}
-
-private extension UIImage {
-    func sizeEstimate(scaledTo scaleFactor: CGFloat) -> String {
-        let screenScale = UIScreen.main.scale
-        return "\(Int(size.width * 2 * screenScale * scaleFactor)) x \(Int(size.height * screenScale * scaleFactor))"
     }
 }
 
