@@ -34,7 +34,7 @@ extension View {
 private extension CondensibleText {
     var fontName: String {
         switch dynamicTypeSize {
-        case .xxxLarge, .accessibility1, .accessibility2, .accessibility3, .accessibility4, .accessibility5:
+        case .xxLarge, .xxxLarge, .accessibility1, .accessibility2, .accessibility3, .accessibility4, .accessibility5:
             return condensedFont
 
         default:

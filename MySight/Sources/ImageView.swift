@@ -80,8 +80,7 @@ private extension ImageView {
             return nil
         }
 
-        let filter = CVDFilter(cvd: cvd, severity: severity)
-        return filter.filteredImage(with: image)
+        return image.applyCVDFilter(cvd: cvd, severity: severity)
     }
 
     var filteredImageView: Image? {

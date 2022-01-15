@@ -29,16 +29,7 @@ struct CVDCameraSimulationView: View {
 extension CVDCameraSimulationView {
     func cameraView(frame: CGRect) -> some View {
 #if targetEnvironment(simulator)
-        switch cvd {
-        case .deutan:
-            return Color.green.opacity(Double(severity))
-            
-        case .protan:
-            return Color.red.opacity(Double(severity))
-            
-        case .tritan:
-            return Color.blue.opacity(Double(severity))
-        }
+        SimulatorCameraView(cvd: cvd, severity: severity)
 #else
         CameraView(frame: frame,
                    simulating: $cvd,
@@ -53,5 +44,6 @@ struct CVDSimulationView_Previews: PreviewProvider {
         CVDCameraSimulationView(cvd: .constant(.deutan),
                                 severity: .constant(1.0))
             .edgesIgnoringSafeArea(.all)
+.previewInterfaceOrientation(.landscapeLeft)
     }
 }

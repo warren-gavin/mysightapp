@@ -12,7 +12,6 @@
 		80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
 		800BAA08275544A50092A478 /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
-		8045D3B7275163720001DD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
 		80586BAA277F764D007153E3 /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
 		806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D823B278207C500AE46E3 /* CondensibleText.swift */; };
@@ -41,8 +40,51 @@
 		806F8ECA2751647C00990F58 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB12751647C00990F58 /* ImageView.swift */; };
 		806F8ECB2751647C00990F58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB22751647C00990F58 /* ContentView.swift */; };
 		80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */; };
+		80AD898427932AF2007B514D /* CondensibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D823B278207C500AE46E3 /* CondensibleText.swift */; };
+		80AD898527932AF2007B514D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB12751647C00990F58 /* ImageView.swift */; };
+		80AD898627932AF2007B514D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB22751647C00990F58 /* ContentView.swift */; };
+		80AD898727932AF2007B514D /* View+DeviceRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */; };
+		80AD898827932AF2007B514D /* View+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9D2751647C00990F58 /* View+Image.swift */; };
+		80AD898927932AF2007B514D /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
+		80AD898A27932AF2007B514D /* CVDProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA82751647C00990F58 /* CVDProfileManager.swift */; };
+		80AD898B27932AF2007B514D /* CVDAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA62751647C00990F58 /* CVDAnalysisView.swift */; };
+		80AD898C27932AF2007B514D /* CVDAnalysisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAD2751647C00990F58 /* CVDAnalysisModel.swift */; };
+		80AD898D27932AF2007B514D /* ConfusionLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9E2751647C00990F58 /* ConfusionLineView.swift */; };
+		80AD898E27932AF2007B514D /* Color+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA12751647C00990F58 /* Color+Assets.swift */; };
+		80AD898F27932AF2007B514D /* ControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA42751647C00990F58 /* ControlPanelView.swift */; };
+		80AD899027932AF2007B514D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
+		80AD899127932AF2007B514D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA22751647C00990F58 /* UIColor+Hex.swift */; };
+		80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAF2751647C00990F58 /* ConfusionLine.swift */; };
+		80AD899327932AF2007B514D /* CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA52751647C00990F58 /* CVD.swift */; };
+		80AD899427932AF2007B514D /* MySightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA02751647C00990F58 /* MySightApp.swift */; };
+		80AD899527932AF2007B514D /* LocalizedStringKey+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C33275A9C2D008CC16F /* LocalizedStringKey+Bundle.swift */; };
+		80AD899627932AF2007B514D /* CVDAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA72751647C00990F58 /* CVDAnalysisViewModel.swift */; };
+		80AD899727932AF2007B514D /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA32751647C00990F58 /* Color+Hex.swift */; };
+		80AD899827932AF2007B514D /* ConfusionLineArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAA2751647C00990F58 /* ConfusionLineArrayView.swift */; };
+		80AD899927932AF2007B514D /* UIImage+CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D68BF02786ECDD00547137 /* UIImage+CVD.swift */; };
+		80AD899A27932AF2007B514D /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B37F5E27568074005BD783 /* PreviewDevices.swift */; };
+		80AD899B27932AF2007B514D /* CVDCameraSimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9F2751647C00990F58 /* CVDCameraSimulationView.swift */; };
+		80AD899C27932AF2007B514D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAC2751647C00990F58 /* CameraView.swift */; };
+		80AD899D27932AF2007B514D /* CVDFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E992751647C00990F58 /* CVDFilter.swift */; };
+		80AD899E27932AF2007B514D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA92751647C00990F58 /* ImagePicker.swift */; };
+		80AD899F27932AF2007B514D /* CVDFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9A2751647C00990F58 /* CVDFilter.metal */; };
+		80AD89A027932AF2007B514D /* CVDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EB02751647C00990F58 /* CVDProfile.swift */; };
+		80AD89A127932AF2007B514D /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
+		80AD89A227932AF2007B514D /* UserDefaults+CVDProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */; };
+		80AD89A327932AF2007B514D /* Color+CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAB2751647C00990F58 /* Color+CVD.swift */; };
+		80AD89A527932AF2007B514D /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 80AD898027932AF2007B514D /* ActivityView */; };
+		80AD89A627932AF2007B514D /* Pods_MySight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC05C1687F91A3AD66608625 /* Pods_MySight.framework */; };
+		80AD89A827932AF2007B514D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
+		80AD89A927932AF2007B514D /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
+		80AD89AA27932AF2007B514D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
+		80AD89B72793300C007B514D /* SimulatorCameraView+MySight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */; };
+		80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */; };
+		80AD89BD27933206007B514D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
+		80AD89BE2793321B007B514D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
+		80AD89C027933271007B514D /* AppStoreScreenshots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80AD89BF27933271007B514D /* AppStoreScreenshots.xcassets */; };
 		80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B37F5E27568074005BD783 /* PreviewDevices.swift */; };
 		80B88B722756A1BC005CBFDA /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 80B88B712756A1BC005CBFDA /* ActivityView */; };
+		80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D68BF02786ECDD00547137 /* UIImage+CVD.swift */; };
 		80DBA34F2767C513009528DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +124,12 @@
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		806F8EB22751647C00990F58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DeviceRotation.swift"; sourceTree = "<group>"; };
+		80AD89B127932AF2007B514D /* AppStoreSceenshots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSceenshots.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimulatorCameraView+MySight.swift"; sourceTree = "<group>"; };
+		80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimulatorCameraView+AppStoreSceenshots.swift"; sourceTree = "<group>"; };
+		80AD89BF27933271007B514D /* AppStoreScreenshots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppStoreScreenshots.xcassets; sourceTree = "<group>"; };
 		80B37F5E27568074005BD783 /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
+		80D68BF02786ECDD00547137 /* UIImage+CVD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVD.swift"; sourceTree = "<group>"; };
 		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B5210B0E2110E825A51CFBD /* Pods-MySight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySight.release.xcconfig"; path = "Target Support Files/Pods-MySight/Pods-MySight.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +143,15 @@
 			files = (
 				80B88B722756A1BC005CBFDA /* ActivityView in Frameworks */,
 				26DB41F05782BFC456810FB8 /* Pods_MySight.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AD89A427932AF2007B514D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AD89A527932AF2007B514D /* ActivityView in Frameworks */,
+				80AD89A627932AF2007B514D /* Pods_MySight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				8045D3AF275163700001DD01 /* MySight.app */,
+				80AD89B127932AF2007B514D /* AppStoreSceenshots.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +194,7 @@
 				806F8E982751647C00990F58 /* ImageFilters */,
 				806F8E9B2751647C00990F58 /* Sources */,
 				8045D3B6275163720001DD01 /* Assets.xcassets */,
+				80AD89BF27933271007B514D /* AppStoreScreenshots.xcassets */,
 				8045D3B8275163720001DD01 /* Preview Content */,
 			);
 			path = MySight;
@@ -175,6 +233,7 @@
 				806F8EA12751647C00990F58 /* Color+Assets.swift */,
 				806F8EAB2751647C00990F58 /* Color+CVD.swift */,
 				806F8EA32751647C00990F58 /* Color+Hex.swift */,
+				806D823B278207C500AE46E3 /* CondensibleText.swift */,
 				806F8EAF2751647C00990F58 /* ConfusionLine.swift */,
 				806F8EAA2751647C00990F58 /* ConfusionLineArrayView.swift */,
 				806F8E9E2751647C00990F58 /* ConfusionLineView.swift */,
@@ -195,10 +254,12 @@
 				80B37F5E27568074005BD783 /* PreviewDevices.swift */,
 				800BAA07275544A50092A478 /* Stacker.swift */,
 				806F8EA22751647C00990F58 /* UIColor+Hex.swift */,
+				80D68BF02786ECDD00547137 /* UIImage+CVD.swift */,
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
-				806F8E9D2751647C00990F58 /* View+Image.swift */,
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
-				806D823B278207C500AE46E3 /* CondensibleText.swift */,
+				806F8E9D2751647C00990F58 /* View+Image.swift */,
+				80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */,
+				80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -237,6 +298,29 @@
 			productReference = 8045D3AF275163700001DD01 /* MySight.app */;
 			productType = "com.apple.product-type.application";
 		};
+		80AD897F27932AF2007B514D /* AppStoreSceenshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreSceenshots" */;
+			buildPhases = (
+				80AD898227932AF2007B514D /* [CP] Check Pods Manifest.lock */,
+				80AD898327932AF2007B514D /* Sources */,
+				80AD89A427932AF2007B514D /* Frameworks */,
+				80AD89A727932AF2007B514D /* Resources */,
+				80AD89AC27932AF2007B514D /* [CP] Embed Pods Frameworks */,
+				80AD89AD27932AF2007B514D /* Bump build number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppStoreSceenshots;
+			packageProductDependencies = (
+				80AD898027932AF2007B514D /* ActivityView */,
+			);
+			productName = MySight;
+			productReference = 80AD89B127932AF2007B514D /* AppStoreSceenshots.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				8045D3AE275163700001DD01 /* MySight */,
+				80AD897F27932AF2007B514D /* AppStoreSceenshots */,
 			);
 		};
 /* End PBXProject section */
@@ -281,8 +366,20 @@
 			files = (
 				8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */,
 				80586BAA277F764D007153E3 /* PrivacyPolicy.md in Resources */,
+				80AD89BE2793321B007B514D /* Assets.xcassets in Resources */,
 				80DBA34F2767C513009528DA /* Localizable.strings in Resources */,
-				8045D3B7275163720001DD01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AD89A727932AF2007B514D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AD89A827932AF2007B514D /* Preview Assets.xcassets in Resources */,
+				80AD89A927932AF2007B514D /* PrivacyPolicy.md in Resources */,
+				80AD89BD27933206007B514D /* Assets.xcassets in Resources */,
+				80AD89AA27932AF2007B514D /* Localizable.strings in Resources */,
+				80AD89C027933271007B514D /* AppStoreScreenshots.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +409,63 @@
 			showEnvVarsInLog = 0;
 		};
 		802F3B6727519D6D00813283 /* Bump build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bump build number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "agvtool bump\n";
+		};
+		80AD898227932AF2007B514D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MySight-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80AD89AC27932AF2007B514D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MySight/Pods-MySight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MySight/Pods-MySight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MySight/Pods-MySight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80AD89AD27932AF2007B514D /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -374,6 +528,7 @@
 				806F8EC02751647C00990F58 /* CVDAnalysisViewModel.swift in Sources */,
 				806F8EBC2751647C00990F58 /* Color+Hex.swift in Sources */,
 				806F8EC32751647C00990F58 /* ConfusionLineArrayView.swift in Sources */,
+				80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */,
 				80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */,
 				806F8EB82751647C00990F58 /* CVDCameraSimulationView.swift in Sources */,
 				806F8EC52751647C00990F58 /* CameraView.swift in Sources */,
@@ -383,7 +538,48 @@
 				806F8EC92751647C00990F58 /* CVDProfile.swift in Sources */,
 				80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */,
 				806F8EB52751647C00990F58 /* UserDefaults+CVDProfile.swift in Sources */,
+				80AD89B72793300C007B514D /* SimulatorCameraView+MySight.swift in Sources */,
 				806F8EC42751647C00990F58 /* Color+CVD.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AD898327932AF2007B514D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80AD898427932AF2007B514D /* CondensibleText.swift in Sources */,
+				80AD898527932AF2007B514D /* ImageView.swift in Sources */,
+				80AD898627932AF2007B514D /* ContentView.swift in Sources */,
+				80AD898727932AF2007B514D /* View+DeviceRotation.swift in Sources */,
+				80AD898827932AF2007B514D /* View+Image.swift in Sources */,
+				80AD898927932AF2007B514D /* Stacker.swift in Sources */,
+				80AD898A27932AF2007B514D /* CVDProfileManager.swift in Sources */,
+				80AD898B27932AF2007B514D /* CVDAnalysisView.swift in Sources */,
+				80AD898C27932AF2007B514D /* CVDAnalysisModel.swift in Sources */,
+				80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift in Sources */,
+				80AD898D27932AF2007B514D /* ConfusionLineView.swift in Sources */,
+				80AD898E27932AF2007B514D /* Color+Assets.swift in Sources */,
+				80AD898F27932AF2007B514D /* ControlPanelView.swift in Sources */,
+				80AD899027932AF2007B514D /* Collection+SafeSubscript.swift in Sources */,
+				80AD899127932AF2007B514D /* UIColor+Hex.swift in Sources */,
+				80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */,
+				80AD899327932AF2007B514D /* CVD.swift in Sources */,
+				80AD899427932AF2007B514D /* MySightApp.swift in Sources */,
+				80AD899527932AF2007B514D /* LocalizedStringKey+Bundle.swift in Sources */,
+				80AD899627932AF2007B514D /* CVDAnalysisViewModel.swift in Sources */,
+				80AD899727932AF2007B514D /* Color+Hex.swift in Sources */,
+				80AD899827932AF2007B514D /* ConfusionLineArrayView.swift in Sources */,
+				80AD899927932AF2007B514D /* UIImage+CVD.swift in Sources */,
+				80AD899A27932AF2007B514D /* PreviewDevices.swift in Sources */,
+				80AD899B27932AF2007B514D /* CVDCameraSimulationView.swift in Sources */,
+				80AD899C27932AF2007B514D /* CameraView.swift in Sources */,
+				80AD899D27932AF2007B514D /* CVDFilter.swift in Sources */,
+				80AD899E27932AF2007B514D /* ImagePicker.swift in Sources */,
+				80AD899F27932AF2007B514D /* CVDFilter.metal in Sources */,
+				80AD89A027932AF2007B514D /* CVDProfile.swift in Sources */,
+				80AD89A127932AF2007B514D /* CVDProfile+Strings.swift in Sources */,
+				80AD89A227932AF2007B514D /* UserDefaults+CVDProfile.swift in Sources */,
+				80AD89A327932AF2007B514D /* Color+CVD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +780,72 @@
 			};
 			name = Release;
 		};
+		80AD89AF27932AF2007B514D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 596C8B18EB3216F8C1BB6BF9 /* Pods-MySight.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "\"MySight/Preview Content\"";
+				DEVELOPMENT_TEAM = 8PKALBM6Q4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera in order to show you live CVD simulations.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshots;
+				PRODUCT_NAME = AppStoreSceenshots;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80AD89B027932AF2007B514D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B5210B0E2110E825A51CFBD /* Pods-MySight.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "\"MySight/Preview Content\"";
+				DEVELOPMENT_TEAM = 8PKALBM6Q4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera in order to show you live CVD simulations.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshots;
+				PRODUCT_NAME = AppStoreSceenshots;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -605,9 +867,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreSceenshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80AD89AF27932AF2007B514D /* Debug */,
+				80AD89B027932AF2007B514D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		80AD898127932AF2007B514D /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		80B88B702756A1BC005CBFDA /* XCRemoteSwiftPackageReference "ActivityView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
@@ -619,6 +898,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		80AD898027932AF2007B514D /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80AD898127932AF2007B514D /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
 		80B88B712756A1BC005CBFDA /* ActivityView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 80B88B702756A1BC005CBFDA /* XCRemoteSwiftPackageReference "ActivityView" */;

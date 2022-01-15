@@ -76,9 +76,7 @@ struct ContentView: View {
                             .background(.ultraThinMaterial,
                                         in: RoundedRectangle(cornerRadius: 24))
                             .padding(.bottom, 8.0)
-                            .onTapGesture {
-                                print("tapped")
-                            }
+                            .onTapGesture {}
                     }
                     .padding(.horizontal)
                     .ignoresSafeArea()
