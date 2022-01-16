@@ -44,6 +44,6 @@ struct CVDSimulationView_Previews: PreviewProvider {
         CVDCameraSimulationView(cvd: .constant(.deutan),
                                 severity: .constant(1.0))
             .edgesIgnoringSafeArea(.all)
-.previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -1,6 +1,6 @@
 //
-//  SimulatorCameraView+AppStoreSceenshots.swift
-//  AppStoreSceenshots
+//  SimulatorCameraView+AppStoreScreenshots.swift
+//  AppStoreScreenshots
 //
 //  Created by Warren Gavin on 15/01/2022.
 //

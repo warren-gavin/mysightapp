@@ -64,6 +64,7 @@ struct CVDAnalysisView: View {
                     Text("Cancel")
                         .condensible()
                 }
+                .accessibilityIdentifier("cancel")
 
                 Spacer()
 
@@ -75,7 +76,8 @@ struct CVDAnalysisView: View {
                         Text("Next")
                             .condensible()
                     }
-                }
+                    .accessibilityIdentifier("start analysis")
+               }
                 else if !viewModel.analysisComplete {
                     Button {
                         if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
@@ -87,6 +89,7 @@ struct CVDAnalysisView: View {
                         Text("Next")
                             .condensible()
                     }
+                    .accessibilityIdentifier("next")
                 }
                 else {
                     Button {
@@ -102,6 +105,7 @@ struct CVDAnalysisView: View {
                         Text("Save")
                             .condensible()
                     }
+                    .accessibilityIdentifier("save cvd profile")
                     .disabled(newProfileName.isEmpty)
                 }
             }
@@ -161,6 +165,7 @@ private extension CVDAnalysisView {
                               severity: $userEstimatedSeverity)
             
             Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
+                .accessibilityIdentifier("severity analysis")
                 .padding(.top)
                 .frame(maxWidth: 400)
         }

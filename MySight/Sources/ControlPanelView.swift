@@ -68,6 +68,7 @@ private extension ControlPanelView {
 
     var actionControls: some View {
         Slider(value: $severity, in: 0.0 ... 1.0)
+            .accessibilityIdentifier("cvd severity")
             .padding(.top, -14)
     }
 
@@ -105,7 +106,7 @@ private extension ControlPanelView {
                         Text(profileButtonName(for: profile))
                             .condensible()
                     }
-                    .accessibilityLabel(profile.name)
+                    .accessibilityIdentifier(profile.name)
                     .modifier(ProfileButton(profile: profile,
                                             activeProfile: profileManager.activeProfile))
 
@@ -142,6 +143,7 @@ private extension ControlPanelView {
                                 Text(profile.name)
                                     .condensible()
                             }
+                            .accessibilityIdentifier(profile.name)
                             .modifier(ProfileButton(profile: profile,
                                                     activeProfile: profileManager.activeProfile))
 
@@ -151,6 +153,7 @@ private extension ControlPanelView {
                                 Image(systemName: "xmark.circle")
                                     .iconStyle()
                             }
+                            .accessibilityIdentifier("delete profile")
                             .alert(item: $deleteProfile) { profileToDelete in
                                 Alert(title: Text("Delete profile?"),
                                       message: Text("Are you sure you want to delete this profile?"),

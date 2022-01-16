@@ -31,6 +31,7 @@ struct ContentView: View {
             ZStack(alignment: .bottom) {
                 if image == nil {
                     CVDCameraSimulationView(cvd: $cvd, severity: $severity)
+                        .accessibilityIdentifier("camera view")
                         .ignoresSafeArea()
                 }
 
@@ -48,6 +49,8 @@ struct ContentView: View {
                             } label: {
                                 Image(systemName: "plus")
                             }
+//                            .accessibilityIdentifier("add new profile")
+                            .accessibilityIdentifier("add new profile")
                             .imageStyle()
                             .fixedSize(horizontal: true, vertical: true)
 
@@ -58,6 +61,7 @@ struct ContentView: View {
                             } label: {
                                 Image(systemName: "photo.on.rectangle.angled")
                             }
+                            .accessibilityIdentifier("select image")
                             .imageStyle()
                             .fixedSize(horizontal: true, vertical: true)
                         }
@@ -71,6 +75,7 @@ struct ContentView: View {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
                                          show: $showControls)
+                            .accessibilityIdentifier("control panel")
                             .padding(.top, 8.0)
                             .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
