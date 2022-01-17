@@ -1,0 +1,52 @@
+{
+  "default": {
+    "keyword": {
+      "fonts": [
+        {
+          "font": "./fonts/AvenirNextLTPro-Bold.otf",
+          "font_size": 20,
+          "supported": ["en", "en-GB"]
+        }
+      ],
+    "color": "#201069"
+    },
+    "title": {
+      "fonts": [
+        {
+          "font": "./fonts/AvenirNextLTPro-Regular.otf",
+          "supported": ["en", "en-GB"]
+        }
+      ],
+      "color": "#201069"
+    },
+    "background": "./background.jpeg",
+    "show_complete_frame": true,
+    "padding": 50
+  },
+  "data": [
+    {
+      "filter": "Deutan"
+    },
+    {
+      "filter": "Protan"
+    },
+    {
+      "filter": "Tritan"
+    },
+    {
+      "filter": "add-new-profile"
+    },
+    {
+      "filter": "high-severity-image"
+    },
+    {
+      "filter": "low-severity-image"
+    },
+    {
+      "filter": "no-control-panel"
+    },
+    {
+      "filter": "normal-color-vision"
+    }
+  ]
+}

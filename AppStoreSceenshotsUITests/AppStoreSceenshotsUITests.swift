@@ -26,28 +26,39 @@ class AppStoreScreenshotsUITests: XCTestCase {
 
         app.launch()
 
+        XCUIDevice.shared.orientation = .landscapeLeft
+        XCUIDevice.shared.orientation = .portrait
+
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            XCUIDevice.shared.orientation = .landscapeLeft
+        }
+
         app.snapshot("add new profile", in: \.buttons)
         app.buttons["cancel"].tap()
 
         app.snapshot("Protan", in: \.buttons)
-        app.snapshot("Tritan", in: \.buttons)
+        app.snapshot("Tritan", in: \.buttons) 
         app.snapshot("Deutan", in: \.buttons)
+
+        let cvdSeveritySlider = app.sliders["cvd severity"]
+        cvdSeveritySlider.adjust(toNormalizedSliderPosition: 0.0)
+        createScreenshot("normal-color-vision")
+        cvdSeveritySlider.adjust(toNormalizedSliderPosition: 1.0)
 
         let cameraViewImage = app.images["camera view"]
         cameraViewImage.tap()
         createScreenshot("no-control-panel")
         cameraViewImage.tap()
 
-        let controlPanelSlider = app.sliders["control panel"]
-        controlPanelSlider.swipeLeft()
-        controlPanelSlider.swipeLeft()
+        cvdSeveritySlider.adjust(toNormalizedSliderPosition: 0.42)
+
+        XCUIDevice.shared.orientation = .portrait
 
         app/*@START_MENU_TOKEN@*/.buttons["select image"]/*[[".buttons[\"photo.on.rectangle.angled\"]",".buttons[\"select image\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app/*@START_MENU_TOKEN@*/.scrollViews.otherElements.images["Photo, January 13, 7:41 PM"]/*[[".otherElements[\"Photos\"].scrollViews.otherElements",".otherElements[\"Photo, January 13, 7:41 PM, Photo, March 30, 2018, 8:14 PM, Photo, August 08, 2012, 10:55 PM, Photo, August 08, 2012, 10:29 PM, Photo, August 08, 2012, 7:52 PM, Photo, October 09, 2009, 10:09 PM, Photo, March 13, 2011, 12:17 AM\"].images[\"Photo, January 13, 7:41 PM\"]",".images[\"Photo, January 13, 7:41 PM\"]",".scrollViews.otherElements"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
         createScreenshot("low-severity-image")
 
-        controlPanelSlider.swipeRight()
-        controlPanelSlider.swipeRight()
+        cvdSeveritySlider.adjust(toNormalizedSliderPosition: 1.0)
         createScreenshot("high-severity-image")
 
         app/*@START_MENU_TOKEN@*/.buttons["dismiss"]/*[[".buttons[\"Close\"]",".buttons[\"dismiss\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()

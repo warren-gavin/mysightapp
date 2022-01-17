@@ -156,6 +156,16 @@
 		80B8BB5527946C4E002A57F0 /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Snapfile; sourceTree = "<group>"; };
 		80B8BB5627946E0C002A57F0 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
 		80B8BB5727946E0C002A57F0 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		80C2A295279498BE00320C26 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
+		80C2A296279498BE00320C26 /* Framefile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Framefile.json; sourceTree = "<group>"; };
+		80C2A297279498BE00320C26 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
+		80C2A2A2279498BE00320C26 /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		80C2A2A3279498BE00320C26 /* AvenirNextLTPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-It.otf"; sourceTree = "<group>"; };
+		80C2A2A4279498BE00320C26 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		80C2A2A72794AD1900320C26 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
+		80C2A2A82794AD1900320C26 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
+		80C2A2AA2794AD1900320C26 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
+		80C2A2AC2794AD3500320C26 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
 		80D68BF02786ECDD00547137 /* UIImage+CVD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVD.swift"; sourceTree = "<group>"; };
 		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -313,11 +323,53 @@
 		80B8BB5427946C4E002A57F0 /* fastlane */ = {
 			isa = PBXGroup;
 			children = (
+				80C2A294279498BE00320C26 /* screenshots */,
 				80B8BB5727946E0C002A57F0 /* Appfile */,
 				80B8BB5627946E0C002A57F0 /* Fastfile */,
 				80B8BB5527946C4E002A57F0 /* Snapfile */,
 			);
 			path = fastlane;
+			sourceTree = "<group>";
+		};
+		80C2A294279498BE00320C26 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A92794AD1900320C26 /* en */,
+				80C2A2A62794AD1900320C26 /* en-GB */,
+				80C2A2A1279498BE00320C26 /* fonts */,
+				80C2A295279498BE00320C26 /* keyword.strings */,
+				80C2A296279498BE00320C26 /* Framefile.json */,
+				80C2A297279498BE00320C26 /* title.strings */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
+		80C2A2A1279498BE00320C26 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A2279498BE00320C26 /* AvenirNextLTPro-Bold.otf */,
+				80C2A2A3279498BE00320C26 /* AvenirNextLTPro-It.otf */,
+				80C2A2A4279498BE00320C26 /* AvenirNextLTPro-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		80C2A2A62794AD1900320C26 /* en-GB */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A72794AD1900320C26 /* title.strings */,
+				80C2A2A82794AD1900320C26 /* keyword.strings */,
+			);
+			path = "en-GB";
+			sourceTree = "<group>";
+		};
+		80C2A2A92794AD1900320C26 /* en */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2AA2794AD1900320C26 /* keyword.strings */,
+				80C2A2AC2794AD3500320C26 /* title.strings */,
+			);
+			path = en;
 			sourceTree = "<group>";
 		};
 		8EF7B16E50B041A6D923AE0D /* Frameworks */ = {

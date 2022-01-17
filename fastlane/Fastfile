@@ -6,5 +6,7 @@ platform :ios do
     capture_screenshots(workspace: "MySight.xcworkspace",
                         scheme: "AppStoreScreenshots",
                         dark_mode: true)
+
+    frame_screenshots
   end
 end

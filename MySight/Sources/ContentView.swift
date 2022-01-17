@@ -75,7 +75,6 @@ struct ContentView: View {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
                                          show: $showControls)
-                            .accessibilityIdentifier("control panel")
                             .padding(.top, 8.0)
                             .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,

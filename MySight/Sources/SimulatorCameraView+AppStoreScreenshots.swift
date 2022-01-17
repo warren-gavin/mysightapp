@@ -19,22 +19,17 @@ struct SimulatorCameraView: View {
 
 extension SimulatorCameraView {
     var image: UIImage {
-        switch (UIDevice.current.userInterfaceIdiom, UIDevice.current.orientation) {
-        case (.pad, .portrait):
-            return UIImage(named: "ipad-pro-3-12.9.portrait")!
+        let orientation = (UIDevice.current.orientation == .portrait ? "portrait" : "landscape")
 
-        case (.pad, .landscapeRight), (.pad, .landscapeLeft):
-            return UIImage(named: "ipad-pro-3-12.9.landscape")!
-
-        case (.phone, .portrait):
-            return UIImage(named: "iphone-6.5.portrait")!
-
-        case (.phone, .landscapeRight), (.phone, .landscapeLeft):
-            return UIImage(named: "iphone-6.5.landscape")!
-
-        default:
-            fatalError("Wrong device or orientation")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return UIImage(named: "ipad-pro-3-12.9.\(orientation)")!
         }
+
+        if UIScreen.main.bounds.height / UIScreen.main.bounds.width < 2.0 {
+            return UIImage(named: "iphone-5.5.\(orientation)")!
+        }
+
+        return UIImage(named: "iphone-6.5.\(orientation)")!
     }
 }
 
