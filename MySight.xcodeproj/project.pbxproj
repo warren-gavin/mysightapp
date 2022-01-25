@@ -56,7 +56,6 @@
 		80AD899127932AF2007B514D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA22751647C00990F58 /* UIColor+Hex.swift */; };
 		80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EAF2751647C00990F58 /* ConfusionLine.swift */; };
 		80AD899327932AF2007B514D /* CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA52751647C00990F58 /* CVD.swift */; };
-		80AD899427932AF2007B514D /* MySightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA02751647C00990F58 /* MySightApp.swift */; };
 		80AD899527932AF2007B514D /* LocalizedStringKey+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C33275A9C2D008CC16F /* LocalizedStringKey+Bundle.swift */; };
 		80AD899627932AF2007B514D /* CVDAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA72751647C00990F58 /* CVDAnalysisViewModel.swift */; };
 		80AD899727932AF2007B514D /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F8EA32751647C00990F58 /* Color+Hex.swift */; };
@@ -78,15 +77,38 @@
 		80AD89A927932AF2007B514D /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
 		80AD89AA27932AF2007B514D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
 		80AD89B72793300C007B514D /* SimulatorCameraView+MySight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */; };
-		80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */; };
+		80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift */; };
 		80AD89BD27933206007B514D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
 		80AD89BE2793321B007B514D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B6275163720001DD01 /* Assets.xcassets */; };
 		80AD89C027933271007B514D /* AppStoreScreenshots.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80AD89BF27933271007B514D /* AppStoreScreenshots.xcassets */; };
 		80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B37F5E27568074005BD783 /* PreviewDevices.swift */; };
 		80B88B722756A1BC005CBFDA /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 80B88B712756A1BC005CBFDA /* ActivityView */; };
+		80B8BB4A27933752002A57F0 /* AppStoreSceenshotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8BB4927933752002A57F0 /* AppStoreSceenshotsUITests.swift */; };
+		80B8BB53279337D6002A57F0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8BB52279337D5002A57F0 /* SnapshotHelper.swift */; };
+		80B8BB5827946E0C002A57F0 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 80B8BB5627946E0C002A57F0 /* Fastfile */; };
+		80B8BB5927946E0C002A57F0 /* Appfile in Resources */ = {isa = PBXBuildFile; fileRef = 80B8BB5727946E0C002A57F0 /* Appfile */; };
+		80BE3DDE279DBDD90054C91B /* AppStoreScreenshotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE3DDC279DBDD60054C91B /* AppStoreScreenshotsApp.swift */; };
+		80BE3DE0279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE3DDF279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift */; };
 		80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D68BF02786ECDD00547137 /* UIImage+CVD.swift */; };
 		80DBA34F2767C513009528DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		80B8BB4D27933752002A57F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8045D3A7275163700001DD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80AD897F27932AF2007B514D;
+			remoteInfo = AppStoreSceenshots;
+		};
+		80C2A2922794814C00320C26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8045D3A7275163700001DD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8045D3AE275163700001DD01;
+			remoteInfo = MySight;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		596C8B18EB3216F8C1BB6BF9 /* Pods-MySight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySight.debug.xcconfig"; path = "Target Support Files/Pods-MySight/Pods-MySight.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +116,8 @@
 		80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		800BAA07275544A50092A478 /* Stacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacker.swift; sourceTree = "<group>"; };
 		80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVDProfile+Strings.swift"; sourceTree = "<group>"; };
+		8040BC0A2799E8AB0021CB53 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
+		8040BC0B2799E8AB0021CB53 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
 		8045D3AF275163700001DD01 /* MySight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8045D3B6275163720001DD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8045D3B9275163720001DD01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -124,11 +148,26 @@
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		806F8EB22751647C00990F58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DeviceRotation.swift"; sourceTree = "<group>"; };
-		80AD89B127932AF2007B514D /* AppStoreSceenshots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreSceenshots.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80ACEB86279778FF0000F093 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		80AD89B127932AF2007B514D /* AppStoreScreenshots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreScreenshots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimulatorCameraView+MySight.swift"; sourceTree = "<group>"; };
-		80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimulatorCameraView+AppStoreSceenshots.swift"; sourceTree = "<group>"; };
+		80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SimulatorCameraView+AppStoreScreenshots.swift"; sourceTree = "<group>"; };
 		80AD89BF27933271007B514D /* AppStoreScreenshots.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppStoreScreenshots.xcassets; sourceTree = "<group>"; };
 		80B37F5E27568074005BD783 /* PreviewDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDevices.swift; sourceTree = "<group>"; };
+		80B8BB4727933752002A57F0 /* AppStoreScreenshotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreScreenshotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B8BB4927933752002A57F0 /* AppStoreSceenshotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreSceenshotsUITests.swift; sourceTree = "<group>"; };
+		80B8BB52279337D5002A57F0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		80B8BB5527946C4E002A57F0 /* Snapfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Snapfile; sourceTree = "<group>"; };
+		80B8BB5627946E0C002A57F0 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
+		80B8BB5727946E0C002A57F0 /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Appfile; sourceTree = "<group>"; };
+		80BE3DDC279DBDD60054C91B /* AppStoreScreenshotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreScreenshotsApp.swift; sourceTree = "<group>"; };
+		80BE3DDF279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppStoreScreenshots.swift"; sourceTree = "<group>"; };
+		80C2A296279498BE00320C26 /* Framefile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Framefile.json; sourceTree = "<group>"; };
+		80C2A2A2279498BE00320C26 /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		80C2A2A3279498BE00320C26 /* AvenirNextLTPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-It.otf"; sourceTree = "<group>"; };
+		80C2A2A4279498BE00320C26 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		80C2A2A72794AD1900320C26 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
+		80C2A2A82794AD1900320C26 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
 		80D68BF02786ECDD00547137 /* UIImage+CVD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVD.swift"; sourceTree = "<group>"; };
 		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -155,6 +194,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		80B8BB4427933752002A57F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -167,11 +213,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8040BC092799E8AB0021CB53 /* en-US */ = {
+			isa = PBXGroup;
+			children = (
+				8040BC0A2799E8AB0021CB53 /* keyword.strings */,
+				8040BC0B2799E8AB0021CB53 /* title.strings */,
+			);
+			path = "en-US";
+			sourceTree = "<group>";
+		};
 		8045D3A6275163700001DD01 = {
 			isa = PBXGroup;
 			children = (
 				80586BA8277F7629007153E3 /* Docs */,
+				80B8BB5427946C4E002A57F0 /* fastlane */,
 				8045D3B1275163700001DD01 /* MySight */,
+				80B8BB4827933752002A57F0 /* AppStoreSceenshotsUITests */,
 				8045D3B0275163700001DD01 /* Products */,
 				1F4CE7C7A77E31A9057D6C0F /* Pods */,
 				8EF7B16E50B041A6D923AE0D /* Frameworks */,
@@ -182,7 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				8045D3AF275163700001DD01 /* MySight.app */,
-				80AD89B127932AF2007B514D /* AppStoreSceenshots.app */,
+				80AD89B127932AF2007B514D /* AppStoreScreenshots.app */,
+				80B8BB4727933752002A57F0 /* AppStoreScreenshotsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +286,7 @@
 		806F8E9B2751647C00990F58 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				80BE3DDC279DBDD60054C91B /* AppStoreScreenshotsApp.swift */,
 				806F8EAC2751647C00990F58 /* CameraView.swift */,
 				80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */,
 				806F8EA12751647C00990F58 /* Color+Assets.swift */,
@@ -252,16 +311,67 @@
 				80071C33275A9C2D008CC16F /* LocalizedStringKey+Bundle.swift */,
 				806F8EA02751647C00990F58 /* MySightApp.swift */,
 				80B37F5E27568074005BD783 /* PreviewDevices.swift */,
+				80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift */,
+				80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */,
 				800BAA07275544A50092A478 /* Stacker.swift */,
 				806F8EA22751647C00990F58 /* UIColor+Hex.swift */,
 				80D68BF02786ECDD00547137 /* UIImage+CVD.swift */,
+				80BE3DDF279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift */,
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
-				80AD89B62793300C007B514D /* SimulatorCameraView+MySight.swift */,
-				80AD89B82793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		80B8BB4827933752002A57F0 /* AppStoreSceenshotsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				80B8BB4927933752002A57F0 /* AppStoreSceenshotsUITests.swift */,
+				80B8BB52279337D5002A57F0 /* SnapshotHelper.swift */,
+			);
+			path = AppStoreSceenshotsUITests;
+			sourceTree = "<group>";
+		};
+		80B8BB5427946C4E002A57F0 /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A294279498BE00320C26 /* screenshots */,
+				80B8BB5727946E0C002A57F0 /* Appfile */,
+				80B8BB5627946E0C002A57F0 /* Fastfile */,
+				80B8BB5527946C4E002A57F0 /* Snapfile */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
+		80C2A294279498BE00320C26 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A62794AD1900320C26 /* en-GB */,
+				8040BC092799E8AB0021CB53 /* en-US */,
+				80C2A2A1279498BE00320C26 /* fonts */,
+				80C2A296279498BE00320C26 /* Framefile.json */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
+		80C2A2A1279498BE00320C26 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A2279498BE00320C26 /* AvenirNextLTPro-Bold.otf */,
+				80C2A2A3279498BE00320C26 /* AvenirNextLTPro-It.otf */,
+				80C2A2A4279498BE00320C26 /* AvenirNextLTPro-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		80C2A2A62794AD1900320C26 /* en-GB */ = {
+			isa = PBXGroup;
+			children = (
+				80C2A2A82794AD1900320C26 /* keyword.strings */,
+				80C2A2A72794AD1900320C26 /* title.strings */,
+			);
+			path = "en-GB";
 			sourceTree = "<group>";
 		};
 		8EF7B16E50B041A6D923AE0D /* Frameworks */ = {
@@ -298,28 +408,46 @@
 			productReference = 8045D3AF275163700001DD01 /* MySight.app */;
 			productType = "com.apple.product-type.application";
 		};
-		80AD897F27932AF2007B514D /* AppStoreSceenshots */ = {
+		80AD897F27932AF2007B514D /* AppStoreScreenshots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreSceenshots" */;
+			buildConfigurationList = 80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreScreenshots" */;
 			buildPhases = (
 				80AD898227932AF2007B514D /* [CP] Check Pods Manifest.lock */,
 				80AD898327932AF2007B514D /* Sources */,
 				80AD89A427932AF2007B514D /* Frameworks */,
 				80AD89A727932AF2007B514D /* Resources */,
 				80AD89AC27932AF2007B514D /* [CP] Embed Pods Frameworks */,
-				80AD89AD27932AF2007B514D /* Bump build number */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AppStoreSceenshots;
+			name = AppStoreScreenshots;
 			packageProductDependencies = (
 				80AD898027932AF2007B514D /* ActivityView */,
 			);
 			productName = MySight;
-			productReference = 80AD89B127932AF2007B514D /* AppStoreSceenshots.app */;
+			productReference = 80AD89B127932AF2007B514D /* AppStoreScreenshots.app */;
 			productType = "com.apple.product-type.application";
+		};
+		80B8BB4627933752002A57F0 /* AppStoreScreenshotsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80B8BB5127933752002A57F0 /* Build configuration list for PBXNativeTarget "AppStoreScreenshotsUITests" */;
+			buildPhases = (
+				80B8BB4327933752002A57F0 /* Sources */,
+				80B8BB4427933752002A57F0 /* Frameworks */,
+				80B8BB4527933752002A57F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80B8BB4E27933752002A57F0 /* PBXTargetDependency */,
+				80C2A2932794814C00320C26 /* PBXTargetDependency */,
+			);
+			name = AppStoreScreenshotsUITests;
+			productName = AppStoreSceenshotsUITests;
+			productReference = 80B8BB4727933752002A57F0 /* AppStoreScreenshotsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -334,6 +462,10 @@
 					8045D3AE275163700001DD01 = {
 						CreatedOnToolsVersion = 13.1;
 					};
+					80B8BB4627933752002A57F0 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 80AD897F27932AF2007B514D;
+					};
 				};
 			};
 			buildConfigurationList = 8045D3AA275163700001DD01 /* Build configuration list for PBXProject "MySight" */;
@@ -344,6 +476,7 @@
 				en,
 				"en-GB",
 				Base,
+				"en-US",
 			);
 			mainGroup = 8045D3A6275163700001DD01;
 			packageReferences = (
@@ -354,7 +487,8 @@
 			projectRoot = "";
 			targets = (
 				8045D3AE275163700001DD01 /* MySight */,
-				80AD897F27932AF2007B514D /* AppStoreSceenshots */,
+				80AD897F27932AF2007B514D /* AppStoreScreenshots */,
+				80B8BB4627933752002A57F0 /* AppStoreScreenshotsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -380,6 +514,15 @@
 				80AD89BD27933206007B514D /* Assets.xcassets in Resources */,
 				80AD89AA27932AF2007B514D /* Localizable.strings in Resources */,
 				80AD89C027933271007B514D /* AppStoreScreenshots.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80B8BB4527933752002A57F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B8BB5927946E0C002A57F0 /* Appfile in Resources */,
+				80B8BB5827946E0C002A57F0 /* Fastfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,24 +608,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MySight/Pods-MySight-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		80AD89AD27932AF2007B514D /* Bump build number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Bump build number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "agvtool bump\n";
-		};
 		8208F047959BF37D589A1199 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,12 +676,13 @@
 				80AD898527932AF2007B514D /* ImageView.swift in Sources */,
 				80AD898627932AF2007B514D /* ContentView.swift in Sources */,
 				80AD898727932AF2007B514D /* View+DeviceRotation.swift in Sources */,
+				80BE3DE0279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift in Sources */,
 				80AD898827932AF2007B514D /* View+Image.swift in Sources */,
 				80AD898927932AF2007B514D /* Stacker.swift in Sources */,
 				80AD898A27932AF2007B514D /* CVDProfileManager.swift in Sources */,
 				80AD898B27932AF2007B514D /* CVDAnalysisView.swift in Sources */,
 				80AD898C27932AF2007B514D /* CVDAnalysisModel.swift in Sources */,
-				80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreSceenshots.swift in Sources */,
+				80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift in Sources */,
 				80AD898D27932AF2007B514D /* ConfusionLineView.swift in Sources */,
 				80AD898E27932AF2007B514D /* Color+Assets.swift in Sources */,
 				80AD898F27932AF2007B514D /* ControlPanelView.swift in Sources */,
@@ -564,7 +690,7 @@
 				80AD899127932AF2007B514D /* UIColor+Hex.swift in Sources */,
 				80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */,
 				80AD899327932AF2007B514D /* CVD.swift in Sources */,
-				80AD899427932AF2007B514D /* MySightApp.swift in Sources */,
+				80BE3DDE279DBDD90054C91B /* AppStoreScreenshotsApp.swift in Sources */,
 				80AD899527932AF2007B514D /* LocalizedStringKey+Bundle.swift in Sources */,
 				80AD899627932AF2007B514D /* CVDAnalysisViewModel.swift in Sources */,
 				80AD899727932AF2007B514D /* Color+Hex.swift in Sources */,
@@ -583,7 +709,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		80B8BB4327933752002A57F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B8BB4A27933752002A57F0 /* AppStoreSceenshotsUITests.swift in Sources */,
+				80B8BB53279337D6002A57F0 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80B8BB4E27933752002A57F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80AD897F27932AF2007B514D /* AppStoreScreenshots */;
+			targetProxy = 80B8BB4D27933752002A57F0 /* PBXContainerItemProxy */;
+		};
+		80C2A2932794814C00320C26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8045D3AE275163700001DD01 /* MySight */;
+			targetProxy = 80C2A2922794814C00320C26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		80DBA3512767C513009528DA /* Localizable.strings */ = {
@@ -591,6 +739,7 @@
 			children = (
 				80DBA3502767C513009528DA /* en-GB */,
 				80DBA3522767C520009528DA /* en */,
+				80ACEB86279778FF0000F093 /* en-US */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -805,8 +954,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshots;
-				PRODUCT_NAME = AppStoreSceenshots;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreScreenshots;
+				PRODUCT_NAME = AppStoreScreenshots;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -838,11 +987,55 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshots;
-				PRODUCT_NAME = AppStoreSceenshots;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreScreenshots;
+				PRODUCT_NAME = AppStoreScreenshots;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		80B8BB4F27933752002A57F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8PKALBM6Q4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshotsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AppStoreScreenshots;
+			};
+			name = Debug;
+		};
+		80B8BB5027933752002A57F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8PKALBM6Q4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.AppStoreSceenshotsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AppStoreScreenshots;
 			};
 			name = Release;
 		};
@@ -867,11 +1060,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreSceenshots" */ = {
+		80AD89AE27932AF2007B514D /* Build configuration list for PBXNativeTarget "AppStoreScreenshots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80AD89AF27932AF2007B514D /* Debug */,
 				80AD89B027932AF2007B514D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80B8BB5127933752002A57F0 /* Build configuration list for PBXNativeTarget "AppStoreScreenshotsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B8BB4F27933752002A57F0 /* Debug */,
+				80B8BB5027933752002A57F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

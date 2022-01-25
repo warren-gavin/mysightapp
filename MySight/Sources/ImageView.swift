@@ -29,6 +29,7 @@ struct ImageView: View {
                             Image(systemName: "square.and.arrow.up")
                                 .iconStyle()
                         }
+                        .accessibilityIdentifier("share")
                         .activitySheet($item)
                         .actionSheet(isPresented: $sharing) {
                             ActionSheet(title: Text("Share this image"),
@@ -57,6 +58,7 @@ struct ImageView: View {
                             Image(systemName: "xmark.circle")
                                 .iconStyle()
                         }
+                        .accessibilityIdentifier("dismiss")
                     }
                     .padding(.top, 8)
                     .padding(.horizontal, 20)

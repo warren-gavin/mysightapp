@@ -12,7 +12,7 @@ struct CVDAnalysisView: View {
 
     @Binding private var activeSeverity: Float
 
-    @State private var userEstimatedSeverity: Float = 0.0
+    @State private var userEstimatedSeverity: Float = .userEstimateReset
     @State private var confusionLine: ConfusionLine
     @State private var newProfileName = ""
     @FocusState private var textFieldFocus: Bool
@@ -29,7 +29,7 @@ struct CVDAnalysisView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             Text("Add a new CVD profile")
                 .padding(.top, 44)
                 .padding(.bottom, 16)
@@ -64,29 +64,32 @@ struct CVDAnalysisView: View {
                     Text("Cancel")
                         .condensible()
                 }
+                .accessibilityIdentifier("cancel")
 
                 Spacer()
 
                 if viewModel.showIntro {
                     Button {
-                        userEstimatedSeverity = 0.0
+                        userEstimatedSeverity = .userEstimateReset
                         viewModel.introWasRead()
                     } label: {
                         Text("Next")
                             .condensible()
                     }
+                    .accessibilityIdentifier("start analysis")
                 }
                 else if !viewModel.analysisComplete {
                     Button {
                         if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
                                                                   severity: userEstimatedSeverity) {
                             self.confusionLine = confusionLine
-                            userEstimatedSeverity = 0.0
+                            userEstimatedSeverity = .userEstimateReset
                         }
                     } label: {
                         Text("Next")
                             .condensible()
                     }
+                    .accessibilityIdentifier("next cvd analysis")
                 }
                 else {
                     Button {
@@ -102,6 +105,7 @@ struct CVDAnalysisView: View {
                         Text("Save")
                             .condensible()
                     }
+                    .accessibilityIdentifier("save cvd profile")
                     .disabled(newProfileName.isEmpty)
                 }
             }
@@ -161,6 +165,7 @@ private extension CVDAnalysisView {
                               severity: $userEstimatedSeverity)
             
             Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
+                .accessibilityIdentifier("severity analysis")
                 .padding(.top)
                 .frame(maxWidth: 400)
         }
@@ -189,6 +194,7 @@ private extension CVDAnalysisView {
                 .condensible()
 
             TextField("Save as...", text: $newProfileName)
+                .accessibilityIdentifier("save as field")
                 .focused($textFieldFocus)
                 .padding(.top, 16)
         }
@@ -209,6 +215,16 @@ private extension CVDAnalysisView {
         default:
             return " "
         }
+    }
+}
+
+private extension Float {
+    static var userEstimateReset: Float {
+        if Bundle.main.bundleIdentifier == "com.apokrupto.AppStoreScreenshots" {
+            return 1.0
+        }
+
+        return 0.0
     }
 }
 

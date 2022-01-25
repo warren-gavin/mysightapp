@@ -1,0 +1,49 @@
+{
+  "default": {
+    "keyword": {
+      "fonts": [
+        {
+          "font": "./fonts/AvenirNextLTPro-Bold.otf",
+          "font_size": 20,
+          "supported": ["en", "en-GB"]
+        }
+      ],
+    "color": "#201069"
+    },
+    "title": {
+      "fonts": [
+        {
+          "font": "./fonts/AvenirNextLTPro-Regular.otf",
+          "supported": ["en", "en-GB"]
+        }
+      ],
+      "color": "#201069"
+    },
+    "background": "./background.jpeg",
+    "show_complete_frame": true,
+    "padding": 50
+  },
+  "data": [
+    {
+      "filter": "1-normal-color-vision"
+    },
+    {
+      "filter": "2-Tritan"
+    },
+    {
+      "filter": "3-next-cvd-analysis"
+    },
+    {
+      "filter": "4-save-new-profile"
+    },
+    {
+      "filter": "5-new-profile-view"
+    },
+    {
+      "filter": "6-low-severity-image"
+    },
+    {
+      "filter": "7-high-severity-image"
+    }
+  ]
+}

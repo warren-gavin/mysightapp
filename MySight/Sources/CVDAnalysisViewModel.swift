@@ -17,8 +17,11 @@ class CVDAnalysisViewModel: ObservableObject {
         .deutan_2, .protan_2, .tritan_2,
         .deutan_3, .protan_3, .tritan_3,
         .deutan_4, .protan_4, .tritan_4,
-        .deutan_5, .protan_5, .tritan_5
-    ].shuffled()
+        .deutan_5, .protan_5, .tritan_5,
+    ]
+#if !targetEnvironment(simulator)
+        .shuffled()
+#endif
 
     var showIntro: Bool {
         return !userDefaults.bool(forKey: .showIntroKey)
@@ -44,8 +47,7 @@ class CVDAnalysisViewModel: ObservableObject {
 
     func loadNext(confusionLine: ConfusionLine?,
                   severity: Float) -> ConfusionLine? {
-        let (next, remainder) = (confusionLines.first,
-                                  Array(confusionLines.dropFirst()))
+        let (next, remainder) = (confusionLines.first, Array(confusionLines.dropFirst()))
         confusionLines = remainder
 
         if let confusionLine = confusionLine {

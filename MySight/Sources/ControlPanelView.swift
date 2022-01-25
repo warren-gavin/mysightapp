@@ -14,9 +14,9 @@ struct ControlPanelView: View {
     @Binding var cvd: CVD
     @Binding var severity: Float
     @Binding var show: Bool
+    @Binding var orientation: UIDeviceOrientation
 
     @State private var deleteProfile: CVDProfile?
-    @State private var orientation: UIDeviceOrientation = .unknown
 
     var body: some View {
         VStack {
@@ -38,18 +38,6 @@ struct ControlPanelView: View {
             }
         }
         .fixedSize(horizontal: shouldFixHorizontal, vertical: true)
-        .onRotate { newOrientation in
-            switch newOrientation {
-            case .portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight:
-                orientation = newOrientation
-
-            case .faceUp, .faceDown, .unknown:
-                break
-
-            @unknown default:
-                break
-            }
-        }
     }
 }
 
@@ -68,6 +56,7 @@ private extension ControlPanelView {
 
     var actionControls: some View {
         Slider(value: $severity, in: 0.0 ... 1.0)
+            .accessibilityIdentifier("cvd severity")
             .padding(.top, -14)
     }
 
@@ -105,7 +94,7 @@ private extension ControlPanelView {
                         Text(profileButtonName(for: profile))
                             .condensible()
                     }
-                    .accessibilityLabel(profile.name)
+                    .accessibilityIdentifier(profile.name)
                     .modifier(ProfileButton(profile: profile,
                                             activeProfile: profileManager.activeProfile))
 
@@ -142,6 +131,7 @@ private extension ControlPanelView {
                                 Text(profile.name)
                                     .condensible()
                             }
+                            .accessibilityIdentifier(profile.name)
                             .modifier(ProfileButton(profile: profile,
                                                     activeProfile: profileManager.activeProfile))
 
@@ -151,6 +141,7 @@ private extension ControlPanelView {
                                 Image(systemName: "xmark.circle")
                                     .iconStyle()
                             }
+                            .accessibilityIdentifier("delete profile")
                             .alert(item: $deleteProfile) { profileToDelete in
                                 Alert(title: Text("Delete profile?"),
                                       message: Text("Are you sure you want to delete this profile?"),
@@ -181,6 +172,10 @@ private extension ControlPanelView {
     }
 
     var shouldFixHorizontal: Bool {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return true
+        }
+
         switch orientation {
         case .landscapeLeft, .landscapeRight:
             return true
@@ -228,7 +223,8 @@ struct ControlPanelView_Previews: PreviewProvider {
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(0.95),
-                             show: .constant(true))
+                             show: .constant(true),
+                             orientation: .constant(.portrait))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 

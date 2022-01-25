@@ -12,6 +12,7 @@ struct CVDCameraSimulationView: View {
 
     @Binding var cvd: CVD
     @Binding var severity: Float
+    @Binding var orientation: UIDeviceOrientation
 
     var body: some View {
         GeometryReader { proxy in
@@ -29,7 +30,7 @@ struct CVDCameraSimulationView: View {
 extension CVDCameraSimulationView {
     func cameraView(frame: CGRect) -> some View {
 #if targetEnvironment(simulator)
-        SimulatorCameraView(cvd: cvd, severity: severity)
+        SimulatorCameraView(cvd: cvd, severity: severity, orientation: $orientation)
 #else
         CameraView(frame: frame,
                    simulating: $cvd,
@@ -42,8 +43,9 @@ extension CVDCameraSimulationView {
 struct CVDSimulationView_Previews: PreviewProvider {
     static var previews: some View {
         CVDCameraSimulationView(cvd: .constant(.deutan),
-                                severity: .constant(1.0))
+                                severity: .constant(1.0),
+                                orientation: .constant(.portrait))
             .edgesIgnoringSafeArea(.all)
-.previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
