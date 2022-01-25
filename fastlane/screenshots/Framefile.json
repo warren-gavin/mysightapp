@@ -25,28 +25,25 @@
   },
   "data": [
     {
-      "filter": "Deutan"
+      "filter": "1-normal-color-vision"
     },
     {
-      "filter": "Protan"
+      "filter": "2-Tritan"
     },
     {
-      "filter": "Tritan"
+      "filter": "3-next-cvd-analysis"
     },
     {
-      "filter": "add-new-profile"
+      "filter": "4-save-new-profile"
     },
     {
-      "filter": "high-severity-image"
+      "filter": "5-new-profile-view"
     },
     {
-      "filter": "low-severity-image"
+      "filter": "6-low-severity-image"
     },
     {
-      "filter": "no-control-panel"
-    },
-    {
-      "filter": "normal-color-vision"
+      "filter": "7-high-severity-image"
     }
   ]
 }

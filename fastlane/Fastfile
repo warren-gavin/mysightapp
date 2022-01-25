@@ -5,8 +5,13 @@ platform :ios do
   lane :screenshots do
     capture_screenshots(workspace: "MySight.xcworkspace",
                         scheme: "AppStoreScreenshots",
-                        dark_mode: true)
+                        dark_mode: false,
+                        number_of_retries: 2)
 
     frame_screenshots
+
+    deliver(username: "warren@apokrupto.com",
+            overwrite_screenshots: true,
+            force: true)
   end
 end

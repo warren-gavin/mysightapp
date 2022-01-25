@@ -8,15 +8,14 @@ devices([
   "iPhone 13",
   "iPhone 13 Pro",
   "iPhone 13 Pro Max",
-  "iPad (9th generation)",
-  "iPad Air (4th generation)",
+  "iPad Pro (12.9-inch) (2nd generation)",
   "iPad Pro (12.9-inch) (5th generation)",
   "iPad Pro (11-inch) (3rd generation)",
   "iPad Pro (9.7-inch)",
 ])
 
 languages([
-  "en",
+  "en-US",
   "en-GB",
 ])
 

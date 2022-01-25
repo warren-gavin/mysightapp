@@ -14,9 +14,9 @@ struct ControlPanelView: View {
     @Binding var cvd: CVD
     @Binding var severity: Float
     @Binding var show: Bool
+    @Binding var orientation: UIDeviceOrientation
 
     @State private var deleteProfile: CVDProfile?
-    @State private var orientation: UIDeviceOrientation = .unknown
 
     var body: some View {
         VStack {
@@ -38,18 +38,6 @@ struct ControlPanelView: View {
             }
         }
         .fixedSize(horizontal: shouldFixHorizontal, vertical: true)
-        .onRotate { newOrientation in
-            switch newOrientation {
-            case .portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight:
-                orientation = newOrientation
-
-            case .faceUp, .faceDown, .unknown:
-                break
-
-            @unknown default:
-                break
-            }
-        }
     }
 }
 
@@ -184,6 +172,10 @@ private extension ControlPanelView {
     }
 
     var shouldFixHorizontal: Bool {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return true
+        }
+
         switch orientation {
         case .landscapeLeft, .landscapeRight:
             return true
@@ -231,7 +223,8 @@ struct ControlPanelView_Previews: PreviewProvider {
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
                              severity: .constant(0.95),
-                             show: .constant(true))
+                             show: .constant(true),
+                             orientation: .constant(.portrait))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 

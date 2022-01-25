@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+#if targetEnvironment(simulator)
 struct SimulatorCameraView: View {
     let cvd: CVD
     let severity: Float
+    @Binding var orientation: UIDeviceOrientation
 
     var body: some View {
         switch cvd {
@@ -27,7 +29,7 @@ struct SimulatorCameraView: View {
 
 struct SimulatorCameraView_Previews: PreviewProvider {
     static var previews: some View {
-        SimulatorCameraView(cvd: .deutan, severity: 1.0)
+        SimulatorCameraView(cvd: .deutan, severity: 1.0, orientation: .constant(.portrait))
     }
 }
-
+#endif

@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var image: UIImage?
     @State private var loadImage = false
 
+    @State private var orientation = UIDevice.current.orientation
+
     init() {
         profileManager = CVDProfileManager()
 
@@ -30,7 +32,9 @@ struct ContentView: View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
                 if image == nil {
-                    CVDCameraSimulationView(cvd: $cvd, severity: $severity)
+                    CVDCameraSimulationView(cvd: $cvd,
+                                            severity: $severity,
+                                            orientation: $orientation)
                         .accessibilityIdentifier("camera view")
                         .ignoresSafeArea()
                 }
@@ -49,7 +53,6 @@ struct ContentView: View {
                             } label: {
                                 Image(systemName: "plus")
                             }
-//                            .accessibilityIdentifier("add new profile")
                             .accessibilityIdentifier("add new profile")
                             .imageStyle()
                             .fixedSize(horizontal: true, vertical: true)
@@ -74,7 +77,8 @@ struct ContentView: View {
                     HStack {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
-                                         show: $showControls)
+                                         show: $showControls,
+                                         orientation: $orientation)
                             .padding(.top, 8.0)
                             .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
@@ -99,6 +103,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $loadImage, onDismiss: nil) {
             ImagePicker(image: $image)
+        }
+        .onRotate { newOrientation in
+            orientation = newOrientation
         }
         .statusBar(hidden: !showControls)
         .environmentObject(profileManager)
