@@ -21,7 +21,7 @@ MySight uses your device's camera to show you the CVD world in realtime. You can
     <td>Not everyone has the same level of CVD, if you know someone who has CVD and would like to see what they see you can use the app to save their specific settings. tap the + button to start the process of adding a new setting. You will need to get your friend to go through a number of screens where they will be asked to play around with a slider in order to make a series of coloured boxes turn into a single solid rectangle. The app uses this to estimate the type of CVD (deutan, protan or tritan) and the severity. Once done, you can save this setting 
 
       
-### Tip
+<p/><p/>
 If the control panel becomes too large, tapping on the screen will minimise everything and give you a better view from the camera.
     </td>
   </tr>
