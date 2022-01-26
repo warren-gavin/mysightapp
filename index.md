@@ -5,6 +5,10 @@ MySight helps people with normal colour vision see the world as it looks to peop
 So, what can you do with MySight? Well you can...
 
 ## See the colourblind world in realtime
+<p align="center">
+<img height=200 src="https://user-images.githubusercontent.com/14868432/151156546-86d9ee4b-80ae-4ef0-8c18-7948b95f8142.png">
+</p>
+
 MySight uses your device's camera to show you the CVD world in realtime. You can adjust for severity and see what deutans, protans and tritans each individually see.
 
 ## Add new settings for people you know
@@ -16,6 +20,7 @@ MySight uses your device's camera to show you the CVD world in realtime. You can
     </td>
     <td>Not everyone has the same level of CVD, if you know someone who has CVD and would like to see what they see you can use the app to save their specific settings. tap the + button to start the process of adding a new setting. You will need to get your friend to go through a number of screens where they will be asked to play around with a slider in order to make a series of coloured boxes turn into a single solid rectangle. The app uses this to estimate the type of CVD (deutan, protan or tritan) and the severity. Once done, you can save this setting 
 
+      
 ### Tip
 If the control panel becomes too large, tapping on the screen will minimise everything and give you a better view from the camera.
     </td>
