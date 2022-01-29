@@ -21,6 +21,9 @@ struct ContentView: View {
 
     @State private var orientation = UIDevice.current.orientation
 
+    @State private var enableFilter = true
+    @State private var showHelp = false
+
     init() {
         profileManager = CVDProfileManager()
 
@@ -34,7 +37,8 @@ struct ContentView: View {
                 if image == nil {
                     CVDCameraSimulationView(cvd: $cvd,
                                             severity: $severity,
-                                            orientation: $orientation)
+                                            orientation: $orientation,
+                                            enableFilter: enableFilter)
                         .accessibilityIdentifier("camera view")
                         .ignoresSafeArea()
                 }
@@ -78,7 +82,9 @@ struct ContentView: View {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
                                          show: $showControls,
-                                         orientation: $orientation)
+                                         orientation: $orientation,
+                                         enableFilter: $enableFilter,
+                                         showHelp: $showHelp)
                             .padding(.top, 8.0)
                             .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
@@ -103,6 +109,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $loadImage, onDismiss: nil) {
             ImagePicker(image: $image)
+        }
+        .sheet(isPresented: $showHelp, onDismiss: nil) {
+            Color.red
         }
         .onRotate { newOrientation in
             orientation = newOrientation
