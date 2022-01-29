@@ -24,6 +24,7 @@ struct ControlPanelView: View {
         VStack {
             HStack(spacing: 12) {
                 Toggle("", isOn: $enableFilter)
+                    .tint(Color.accentColor.opacity(0.9))
                     .fixedSize()
                     .padding(.leading, -7)
                 Spacer()
