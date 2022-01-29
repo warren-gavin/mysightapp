@@ -13,7 +13,7 @@ struct CVDAnalysisView: View {
     @Binding private var activeSeverity: Float
 
     @State private var userEstimatedSeverity: Float = .userEstimateReset
-    @State private var confusionLine: ConfusionLine
+    @State private var confusionLine: ConfusionLine?
     @State private var newProfileName = ""
     @FocusState private var textFieldFocus: Bool
 
@@ -24,7 +24,7 @@ struct CVDAnalysisView: View {
                                                severity: 0.0)!
 
         self.viewModel = viewModel
-        self._confusionLine = State<ConfusionLine>(wrappedValue: confusionLine)
+        self._confusionLine = State<ConfusionLine?>(wrappedValue: confusionLine)
         self._activeSeverity = severity
     }
 
@@ -46,7 +46,7 @@ struct CVDAnalysisView: View {
                 if viewModel.showIntro {
                     introView
                 }
-                else if !viewModel.analysisComplete {
+                else if confusionLine != nil {
                     analysisView
                 }
                 else {
@@ -78,13 +78,11 @@ struct CVDAnalysisView: View {
                     }
                     .accessibilityIdentifier("start analysis")
                 }
-                else if !viewModel.analysisComplete {
+                else if confusionLine != nil {
                     Button {
-                        if let confusionLine = viewModel.loadNext(confusionLine: confusionLine,
-                                                                  severity: userEstimatedSeverity) {
-                            self.confusionLine = confusionLine
-                            userEstimatedSeverity = .userEstimateReset
-                        }
+                        self.confusionLine = viewModel.loadNext(confusionLine: confusionLine,
+                                                                severity: userEstimatedSeverity)
+                        userEstimatedSeverity = .userEstimateReset
                     } label: {
                         Text("Next")
                             .condensible()
@@ -116,7 +114,7 @@ struct CVDAnalysisView: View {
 
 private extension CVDAnalysisView {
     var textOpacity: CGFloat {
-        viewModel.analysisComplete ? 0.0 : 1.0
+        confusionLine == nil ? 0.0 : 1.0
     }
 
     var introView: some View {
@@ -161,7 +159,7 @@ private extension CVDAnalysisView {
 
     var analysisView: some View {
         VStack {
-            ConfusionLineView(confusionLine: confusionLine,
+            ConfusionLineView(confusionLine: confusionLine!,
                               severity: $userEstimatedSeverity)
             
             Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
