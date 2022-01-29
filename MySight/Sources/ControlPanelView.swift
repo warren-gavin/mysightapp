@@ -15,18 +15,29 @@ struct ControlPanelView: View {
     @Binding var severity: Float
     @Binding var show: Bool
     @Binding var orientation: UIDeviceOrientation
+    @Binding var enableFilter: Bool
+    @Binding var showHelp: Bool
 
     @State private var deleteProfile: CVDProfile?
 
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing: 12) {
+                Toggle("", isOn: $enableFilter)
+                    .tint(Color.accentColor.opacity(0.9))
+                    .fixedSize()
+                    .padding(.leading, -7)
                 Spacer()
                 Text(description)
                     .condensible()
-                Spacer()
+                Button {
+                    showHelp = true
+                } label: {
+                    Image(systemName: "questionmark.circle")
+                        .iconStyle()
+                }
             }
-            .padding(.horizontal, 8.0)
+            .padding(.horizontal, show ? 20.0 : 8.0)
 
             if show {
                 Group {
@@ -222,9 +233,11 @@ struct ControlPanelView_Previews: PreviewProvider {
 
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
-                             severity: .constant(0.95),
+                             severity: .constant(1),
                              show: .constant(true),
-                             orientation: .constant(.portrait))
+                             orientation: .constant(.portrait),
+                             enableFilter: .constant(true),
+                             showHelp: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
