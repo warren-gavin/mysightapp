@@ -64,13 +64,12 @@ struct ImageView: View {
                     .padding(.horizontal, 20)
 
                     Spacer()
-
-                    filteredImageView?
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-
-                    Spacer()
                 }
+
+                filteredImageView?
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
             }
         }
     }
