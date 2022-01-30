@@ -34,23 +34,22 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
-                if image == nil {
+                if let _ = image {
+                    ImageView(image: $image.animation(),
+                              cvd: $cvd,
+                              severity: enableFilter ? $severity : .constant(0))
+                        .transition(.move(edge: .bottom))
+                }
+                else {
                     CVDCameraSimulationView(cvd: $cvd,
-                                            severity: $severity,
-                                            orientation: $orientation,
-                                            enableFilter: enableFilter)
+                                            severity: enableFilter ? $severity : .constant(0),
+                                            orientation: $orientation)
                         .accessibilityIdentifier("camera view")
                         .ignoresSafeArea()
                 }
 
                 VStack(alignment: .trailing) {
-                    if let _ = image {
-                        ImageView(image: $image.animation(),
-                                  cvd: $cvd,
-                                  severity: $severity)
-                            .transition(.move(edge: .bottom))
-                    }
-                    else if showControls {
+                    if showControls, image == nil {
                         HStack {
                             Button {
                                 addNewProfile = true
@@ -59,7 +58,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("add new profile")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
 
                             Spacer()
 
@@ -70,7 +68,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("select image")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
                         }
                         .padding()
                         .fixedSize(horizontal: false, vertical: true)

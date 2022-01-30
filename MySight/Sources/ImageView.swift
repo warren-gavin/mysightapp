@@ -21,6 +21,14 @@ struct ImageView: View {
             ZStack {
                 Color.background
 
+                ZoomedView {
+                    filteredImageView?
+                        .resizable()
+                        .ignoresSafeArea()
+                        .aspectRatio(contentMode: .fit)
+                }
+                .ignoresSafeArea()
+
                 VStack {
                     HStack {
                         Button {
@@ -30,6 +38,7 @@ struct ImageView: View {
                                 .iconStyle()
                         }
                         .accessibilityIdentifier("share")
+                        .imageStyle()
                         .activitySheet($item)
                         .actionSheet(isPresented: $sharing) {
                             ActionSheet(title: Text("Share this image"),
@@ -59,15 +68,10 @@ struct ImageView: View {
                                 .iconStyle()
                         }
                         .accessibilityIdentifier("dismiss")
+                        .imageStyle()
                     }
                     .padding(.top, 8)
                     .padding(.horizontal, 20)
-
-                    Spacer()
-
-                    filteredImageView?
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
 
                     Spacer()
                 }
