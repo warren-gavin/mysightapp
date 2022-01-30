@@ -12,6 +12,8 @@
 		80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
 		800BAA08275544A50092A478 /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
+		802E9BEB27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
+		802E9BEC27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
 		80586BAA277F764D007153E3 /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
 		806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D823B278207C500AE46E3 /* CondensibleText.swift */; };
@@ -116,6 +118,7 @@
 		80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		800BAA07275544A50092A478 /* Stacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacker.swift; sourceTree = "<group>"; };
 		80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVDProfile+Strings.swift"; sourceTree = "<group>"; };
+		802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedView.swift; sourceTree = "<group>"; };
 		8040BC0A2799E8AB0021CB53 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
 		8040BC0B2799E8AB0021CB53 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
 		8045D3AF275163700001DD01 /* MySight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +323,7 @@
 				806F8E9C2751647C00990F58 /* UserDefaults+CVDProfile.swift */,
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
+				802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -652,6 +656,7 @@
 				80071C34275A9C2D008CC16F /* LocalizedStringKey+Bundle.swift in Sources */,
 				806F8EC02751647C00990F58 /* CVDAnalysisViewModel.swift in Sources */,
 				806F8EBC2751647C00990F58 /* Color+Hex.swift in Sources */,
+				802E9BEB27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */,
 				806F8EC32751647C00990F58 /* ConfusionLineArrayView.swift in Sources */,
 				80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */,
 				80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */,
@@ -702,6 +707,7 @@
 				80AD899D27932AF2007B514D /* CVDFilter.swift in Sources */,
 				80AD899E27932AF2007B514D /* ImagePicker.swift in Sources */,
 				80AD899F27932AF2007B514D /* CVDFilter.metal in Sources */,
+				802E9BEC27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */,
 				80AD89A027932AF2007B514D /* CVDProfile.swift in Sources */,
 				80AD89A127932AF2007B514D /* CVDProfile+Strings.swift in Sources */,
 				80AD89A227932AF2007B514D /* UserDefaults+CVDProfile.swift in Sources */,

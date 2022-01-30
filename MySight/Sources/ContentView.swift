@@ -58,7 +58,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("add new profile")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
 
                             Spacer()
 
@@ -69,7 +68,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("select image")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
                         }
                         .padding()
                         .fixedSize(horizontal: false, vertical: true)

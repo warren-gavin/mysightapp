@@ -21,5 +21,6 @@ extension View {
             .foregroundColor(.accentColor)
             .clipShape(Capsule())
             .iconStyle()
+            .fixedSize(horizontal: true, vertical: true)
     }
 }
