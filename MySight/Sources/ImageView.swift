@@ -40,23 +40,15 @@ struct ImageView: View {
                         .accessibilityIdentifier("share")
                         .imageStyle()
                         .activitySheet($item)
-                        .actionSheet(isPresented: $sharing) {
-                            ActionSheet(title: Text("Share this image"),
-                                        message: Text("Choose a file size"),
-                                        buttons: [
-                                .default(Text("Small (Social Media)")) {
-                                    share(image: image, scaledTo: 0.2)
-                                },
-                                .default(Text("Medium (Email)")) {
-                                    share(image: image, scaledTo: 0.3)
-                                },
-                                .default(Text("Large (Many MBs)")) {
-                                    share(image: image, scaledTo: 0.6)
-                                },
-                                .cancel {
-                                    sharing = false
+                        .popover(isPresented: $sharing) {
+                            ImageSharingView(image: combined(images: image, filteredImage!,
+                                                             texts: NSLocalizedString("", comment: ""), "",
+                                                             scaledTo: 0.1)!) { scale in
+                                sharing = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+                                    share(image: image, scaledTo: scale)
                                 }
-                            ])
+                            }
                         }
 
                         Spacer()
@@ -100,7 +92,7 @@ private extension ImageView {
     func combined(images: UIImage..., texts: String..., scaledTo scaleFactor: CGFloat) -> UIImage? {
         let drawHorizontal: Bool = {
             let image = images[0]
-            return image.size.width < image.size.height ? true : false
+            return image.size.width < image.size.height
         }()
 
         let originalSize = images.reduce(into: CGSize.zero) { partialResult, image in
@@ -117,7 +109,7 @@ private extension ImageView {
         let size = CGSize(width: originalSize.width * scaleFactor,
                           height: originalSize.height * scaleFactor)
 
-        let image = UIGraphicsImageRenderer(size: size).image { _ in
+        return UIGraphicsImageRenderer(size: size).image { _ in
             images.enumerated().forEach { (idx, image) in
                 let xScaleFactor = scaleFactor * (drawHorizontal ? CGFloat(idx) : 0)
                 let yScaleFactor = scaleFactor * (drawHorizontal ? 0 : CGFloat(idx))
@@ -130,19 +122,14 @@ private extension ImageView {
                 texts[safe: idx]?.draw(in: imageRect, scaleTo: scaleFactor)
             }
         }
-
-        return image
     }
 
     func share(image: UIImage, scaledTo scaleFactor: Double) {
-        let profile = CVDProfile(name: "",
-                                 cvd: cvd,
-                                 severity: severity)
+        let profile = CVDProfile(name: "", cvd: cvd, severity: severity)
 
         if let filteredImage = filteredImage,
            let shareImage = combined(images: image, filteredImage,
-                                     texts: NSLocalizedString("Normal Colour Vision", comment: ""),
-                                            profile.description,
+                                     texts: NSLocalizedString("Normal Colour Vision", comment: ""), profile.description,
                                      scaledTo: scaleFactor) {
             item = ActivityItem(items: shareImage)
         }
@@ -151,7 +138,7 @@ private extension ImageView {
 
 private extension String {
     func draw(in rect: CGRect, scaleTo scaleFactor: CGFloat) {
-        let font = UIFont(name: "Arial", size: 48 * scaleFactor)!
+        let font = UIFont(name: "AvenirNext-Medium", size: 48 * scaleFactor)!
         let textFontAttributes = [
             NSAttributedString.Key.font: font,
             NSAttributedString.Key.foregroundColor: UIColor.white,

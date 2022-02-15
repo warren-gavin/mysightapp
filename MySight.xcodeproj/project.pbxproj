@@ -14,6 +14,8 @@
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
 		802E9BEB27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
 		802E9BEC27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
+		804152A827B46A0300FD9796 /* ImageSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804152A727B46A0300FD9796 /* ImageSharingView.swift */; };
+		804152A927B46A0300FD9796 /* ImageSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804152A727B46A0300FD9796 /* ImageSharingView.swift */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
 		80586BAA277F764D007153E3 /* PrivacyPolicy.md in Resources */ = {isa = PBXBuildFile; fileRef = 80586BA9277F764D007153E3 /* PrivacyPolicy.md */; };
 		806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D823B278207C500AE46E3 /* CondensibleText.swift */; };
@@ -121,6 +123,7 @@
 		802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedView.swift; sourceTree = "<group>"; };
 		8040BC0A2799E8AB0021CB53 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
 		8040BC0B2799E8AB0021CB53 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
+		804152A727B46A0300FD9796 /* ImageSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSharingView.swift; sourceTree = "<group>"; };
 		8045D3AF275163700001DD01 /* MySight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8045D3B6275163720001DD01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8045D3B9275163720001DD01 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -324,6 +327,7 @@
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
 				802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */,
+				804152A727B46A0300FD9796 /* ImageSharingView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -662,6 +666,7 @@
 				80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */,
 				806F8EB82751647C00990F58 /* CVDCameraSimulationView.swift in Sources */,
 				806F8EC52751647C00990F58 /* CameraView.swift in Sources */,
+				804152A827B46A0300FD9796 /* ImageSharingView.swift in Sources */,
 				806F8EB32751647C00990F58 /* CVDFilter.swift in Sources */,
 				806F8EC22751647C00990F58 /* ImagePicker.swift in Sources */,
 				806F8EB42751647C00990F58 /* CVDFilter.metal in Sources */,
@@ -692,6 +697,7 @@
 				80AD898E27932AF2007B514D /* Color+Assets.swift in Sources */,
 				80AD898F27932AF2007B514D /* ControlPanelView.swift in Sources */,
 				80AD899027932AF2007B514D /* Collection+SafeSubscript.swift in Sources */,
+				804152A927B46A0300FD9796 /* ImageSharingView.swift in Sources */,
 				80AD899127932AF2007B514D /* UIColor+Hex.swift in Sources */,
 				80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */,
 				80AD899327932AF2007B514D /* CVD.swift in Sources */,
