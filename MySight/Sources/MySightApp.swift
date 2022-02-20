@@ -20,6 +20,21 @@ extension MySightApp {
     var contentView: some View {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(named: "AccentColor")
 
-        return ContentView()
+        return V()
+    }
+}
+
+struct V: View {
+    @State var severity: Float = 0.0
+
+    var body: some View {
+        VStack {
+            ConfusionLineArrayView(cvd: .deutan, severity: $severity)
+                .padding(.top, 60)
+                .padding(.bottom, 20)
+
+            Slider(value: $severity, in: 0...1)
+        }
+        .padding(.horizontal, 24)
     }
 }
