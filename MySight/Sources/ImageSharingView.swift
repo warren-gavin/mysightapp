@@ -68,15 +68,28 @@ private enum SharingType: CaseIterable, Identifiable {
     }
 
     func scale(for image: UIImage) -> Double {
+        guard let imageSize = image.pngData()?.count else {
+            fatalError("No image data")
+        }
+
+        let preferredScale: (Int) -> Double = { maxSize in
+            if imageSize < maxSize {
+                return 1.0
+            }
+
+            print(Double(maxSize) / Double(imageSize))
+            return Double(maxSize) / Double(imageSize)
+        }
+
         switch self {
         case .social:
-            return 0.1
+            return preferredScale(500_000)
 
         case .email:
-            return 0.2
+            return preferredScale(1_000_000)
 
         case .large:
-            return 0.3
+            return preferredScale(2_000_000)
         }
     }
 }

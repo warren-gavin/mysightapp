@@ -46,7 +46,7 @@ struct ImageView: View {
                                                              scaledTo: 0.1)!) { scale in
                                 sharing = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                                    share(image: image, scaledTo: scale)
+                                    share(image: image, scaledTo: scale * 0.1)
                                 }
                             }
                         }
