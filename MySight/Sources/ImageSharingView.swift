@@ -45,6 +45,47 @@ struct ImageSharingView: View {
     }
 }
 
+struct SmarterSharingView<Content: View>: View {
+    let content: Content
+    let onSharingTypeSelected: (Double) -> Void
+
+    init(@ViewBuilder content: () -> Content,
+         onSharingTypeSelected: @escaping (Double) -> Void) {
+        self.content = content()
+        self.onSharingTypeSelected = onSharingTypeSelected
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 12) {
+                Text("Share this image")
+                    .condensible(style: .title, weight: .bold)
+                    .padding(.vertical, 18)
+                    .padding(.horizontal, 18)
+
+                Spacer()
+
+                content
+                    .padding(.horizontal)
+
+                Spacer()
+
+                ForEach(SharingType.allCases) { sharingType in
+                    Button {
+                        onSharingTypeSelected(sharingType.maxSize)
+                    } label: {
+                        Text(sharingType.description)
+                            .condensible()
+                    }
+                    .modifier(SharingButton())
+                }
+                .padding(.bottom, 24)
+            }
+            .frame(maxWidth: 450)
+        }
+    }
+}
+
 private enum SharingType: CaseIterable, Identifiable {
     case social
     case email
@@ -64,6 +105,19 @@ private enum SharingType: CaseIterable, Identifiable {
 
         case .large:
             return "Large (Many MBs)"
+        }
+    }
+
+    var maxSize: Double {
+        switch self {
+        case .social:
+            return 300
+
+        case .email:
+            return 500
+
+        case .large:
+            return 1000
         }
     }
 
@@ -116,5 +170,21 @@ struct ImageSharingView_Previews: PreviewProvider {
     static var previews: some View {
         ImageSharingView(image: UIImage(named: "app-store-preview-1")!) { _ in }
             .preferredColorScheme(.dark)
+    }
+}
+
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+
+        let targetSize = controller.view.intrinsicContentSize
+        controller.view.bounds = CGRect(origin: .zero, size: targetSize)
+        controller.view.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
     }
 }

@@ -34,11 +34,15 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
-                if let _ = image {
-                    ImageView(image: $image.animation(),
+                if let image = image {
+                    ImageView(image: image,
                               cvd: $cvd,
-                              severity: enableFilter ? $severity : .constant(0))
-                        .transition(.move(edge: .bottom))
+                              severity: enableFilter ? $severity : .constant(0)) {
+                        withAnimation {
+                            self.image = nil
+                        }
+                    }
+                    .transition(.move(edge: .bottom))
                 }
                 else {
                     CVDCameraSimulationView(cvd: $cvd,
