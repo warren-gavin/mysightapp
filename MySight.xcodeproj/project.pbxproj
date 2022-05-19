@@ -12,6 +12,12 @@
 		80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
 		800BAA08275544A50092A478 /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
+		801BA30728368F7D00ABEDAB /* BellCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30628368F7D00ABEDAB /* BellCurveView.swift */; };
+		801BA30828368F7D00ABEDAB /* BellCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30628368F7D00ABEDAB /* BellCurveView.swift */; };
+		801BA30A2836ACF600ABEDAB /* MaskedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */; };
+		801BA30B2836ACF600ABEDAB /* MaskedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */; };
+		801BA30E2836AE9500ABEDAB /* InteractiveConesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */; };
+		801BA30F2836AE9500ABEDAB /* InteractiveConesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */; };
 		802E9BEB27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
 		802E9BEC27A6F3FB00DBD5BA /* ZoomedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */; };
 		8045D3BA275163720001DD01 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8045D3B9275163720001DD01 /* Preview Assets.xcassets */; };
@@ -120,6 +126,9 @@
 		80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		800BAA07275544A50092A478 /* Stacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacker.swift; sourceTree = "<group>"; };
 		80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVDProfile+Strings.swift"; sourceTree = "<group>"; };
+		801BA30628368F7D00ABEDAB /* BellCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellCurveView.swift; sourceTree = "<group>"; };
+		801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedGradientView.swift; sourceTree = "<group>"; };
+		801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveConesView.swift; sourceTree = "<group>"; };
 		802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedView.swift; sourceTree = "<group>"; };
 		8040BC0A2799E8AB0021CB53 /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = keyword.strings; sourceTree = "<group>"; };
 		8040BC0B2799E8AB0021CB53 /* title.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = title.strings; sourceTree = "<group>"; };
@@ -219,6 +228,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		801BA30C2836AE3D00ABEDAB /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				801BA30628368F7D00ABEDAB /* BellCurveView.swift */,
+				801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */,
+				801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */,
+				80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		8040BC092799E8AB0021CB53 /* en-US */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +312,7 @@
 		806F8E9B2751647C00990F58 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				801BA30C2836AE3D00ABEDAB /* Help */,
 				80BE3DDC279DBDD60054C91B /* AppStoreScreenshotsApp.swift */,
 				806F8EAC2751647C00990F58 /* CameraView.swift */,
 				80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */,
@@ -327,7 +348,6 @@
 				80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */,
 				806F8E9D2751647C00990F58 /* View+Image.swift */,
 				802E9BEA27A6F3FB00DBD5BA /* ZoomedView.swift */,
-				80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -651,6 +671,7 @@
 				806F8EC62751647C00990F58 /* CVDAnalysisModel.swift in Sources */,
 				806F8EB72751647C00990F58 /* ConfusionLineView.swift in Sources */,
 				806F8EBA2751647C00990F58 /* Color+Assets.swift in Sources */,
+				801BA30A2836ACF600ABEDAB /* MaskedGradientView.swift in Sources */,
 				806F8EBD2751647C00990F58 /* ControlPanelView.swift in Sources */,
 				80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */,
 				806F8EBB2751647C00990F58 /* UIColor+Hex.swift in Sources */,
@@ -665,10 +686,12 @@
 				80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */,
 				80B37F5F27568074005BD783 /* PreviewDevices.swift in Sources */,
 				806F8EB82751647C00990F58 /* CVDCameraSimulationView.swift in Sources */,
+				801BA30E2836AE9500ABEDAB /* InteractiveConesView.swift in Sources */,
 				806F8EC52751647C00990F58 /* CameraView.swift in Sources */,
 				806F8EB32751647C00990F58 /* CVDFilter.swift in Sources */,
 				80FADE2C27A9C6CD00182070 /* TechnicalTermsHelpView.swift in Sources */,
 				806F8EC22751647C00990F58 /* ImagePicker.swift in Sources */,
+				801BA30728368F7D00ABEDAB /* BellCurveView.swift in Sources */,
 				806F8EB42751647C00990F58 /* CVDFilter.metal in Sources */,
 				806F8EC92751647C00990F58 /* CVDProfile.swift in Sources */,
 				80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */,
@@ -692,6 +715,7 @@
 				80AD898A27932AF2007B514D /* CVDProfileManager.swift in Sources */,
 				80AD898B27932AF2007B514D /* CVDAnalysisView.swift in Sources */,
 				80AD898C27932AF2007B514D /* CVDAnalysisModel.swift in Sources */,
+				801BA30F2836AE9500ABEDAB /* InteractiveConesView.swift in Sources */,
 				80AD89B92793301E007B514D /* SimulatorCameraView+AppStoreScreenshots.swift in Sources */,
 				80AD898D27932AF2007B514D /* ConfusionLineView.swift in Sources */,
 				80AD898E27932AF2007B514D /* Color+Assets.swift in Sources */,
@@ -701,7 +725,9 @@
 				80AD899227932AF2007B514D /* ConfusionLine.swift in Sources */,
 				80AD899327932AF2007B514D /* CVD.swift in Sources */,
 				80BE3DDE279DBDD90054C91B /* AppStoreScreenshotsApp.swift in Sources */,
+				801BA30B2836ACF600ABEDAB /* MaskedGradientView.swift in Sources */,
 				80AD899527932AF2007B514D /* LocalizedStringKey+Bundle.swift in Sources */,
+				801BA30828368F7D00ABEDAB /* BellCurveView.swift in Sources */,
 				80AD899627932AF2007B514D /* CVDAnalysisViewModel.swift in Sources */,
 				80AD899727932AF2007B514D /* Color+Hex.swift in Sources */,
 				80AD899827932AF2007B514D /* ConfusionLineArrayView.swift in Sources */,
