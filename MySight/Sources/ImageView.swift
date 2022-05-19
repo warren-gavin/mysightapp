@@ -29,6 +29,7 @@ struct ImageView: View {
                     .aspectRatio(contentMode: .fit)
 
                 Text("Normal colour vision")
+                    .font(.footnote)
                     .padding(4)
                     .background(Color.black)
                     .foregroundColor(.white)
@@ -40,6 +41,7 @@ struct ImageView: View {
                     .aspectRatio(contentMode: .fit)
 
                 Text(CVDProfile(name: "", cvd: cvd, severity: severity).description)
+                    .font(.footnote)
                     .padding(4)
                     .background(Color.black)
                     .foregroundColor(.white)
@@ -75,15 +77,12 @@ struct ImageView: View {
                     .popover(isPresented: $sharing) {
                         SmarterSharingView {
                             sharingView
-                                .padding(.bottom, 12)
-//                                .frame(minHeight: 400)
                         } onSharingTypeSelected: { bounds in
                             sharing = false
                             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
                                 let scaledBounds = sharedImageSize(boundedTo: bounds)
-                                let snap = sharingView
-                                    .frame(width: scaledBounds.width, height: scaledBounds.height)
-                                    .snapshot()
+                                let snap = sharingView.snapshot(in: scaledBounds)
+                                
                                 self.item = ActivityItem(items: snap)
                             }
                         }

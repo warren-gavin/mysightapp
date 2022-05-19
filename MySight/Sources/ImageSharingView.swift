@@ -111,7 +111,7 @@ private enum SharingType: CaseIterable, Identifiable {
     var maxSize: Double {
         switch self {
         case .social:
-            return 300
+            return 500
 
         case .email:
             return 500
@@ -174,14 +174,13 @@ struct ImageSharingView_Previews: PreviewProvider {
 }
 
 extension View {
-    func snapshot() -> UIImage {
+    func snapshot(in bounds: CGSize) -> UIImage {
         let controller = UIHostingController(rootView: self)
 
-        let targetSize = controller.view.intrinsicContentSize
-        controller.view.bounds = CGRect(origin: .zero, size: targetSize)
+        controller.view.bounds = CGRect(origin: .zero, size: bounds)
         controller.view.backgroundColor = .clear
 
-        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        let renderer = UIGraphicsImageRenderer(size: bounds)
 
         return renderer.image { _ in
             controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
