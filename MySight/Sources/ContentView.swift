@@ -108,7 +108,7 @@ struct ContentView: View {
             ImagePicker(image: $image)
         }
         .sheet(isPresented: $showHelp, onDismiss: nil) {
-            Color.red
+            TechnicalTermsHelpView()
         }
         .onRotate { newOrientation in
             orientation = newOrientation
