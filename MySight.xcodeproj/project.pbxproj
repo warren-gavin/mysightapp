@@ -99,6 +99,7 @@
 		80BE3DE0279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE3DDF279DCBBB0054C91B /* UserDefaults+AppStoreScreenshots.swift */; };
 		80D68BF12786ECDD00547137 /* UIImage+CVD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D68BF02786ECDD00547137 /* UIImage+CVD.swift */; };
 		80DBA34F2767C513009528DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80DBA3512767C513009528DA /* Localizable.strings */; };
+		80F26158284FB431000E1AB4 /* StaticConesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F26157284FB431000E1AB4 /* StaticConesView.swift */; };
 		80FADE2C27A9C6CD00182070 /* TechnicalTermsHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */; };
 		80FADE2D27A9C6CD00182070 /* TechnicalTermsHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */; };
 /* End PBXBuildFile section */
@@ -185,6 +186,7 @@
 		80D68BF02786ECDD00547137 /* UIImage+CVD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVD.swift"; sourceTree = "<group>"; };
 		80DBA3502767C513009528DA /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80DBA3522767C520009528DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80F26157284FB431000E1AB4 /* StaticConesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticConesView.swift; sourceTree = "<group>"; };
 		80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTermsHelpView.swift; sourceTree = "<group>"; };
 		8B5210B0E2110E825A51CFBD /* Pods-MySight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySight.release.xcconfig"; path = "Target Support Files/Pods-MySight/Pods-MySight.release.xcconfig"; sourceTree = "<group>"; };
 		FC05C1687F91A3AD66608625 /* Pods_MySight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MySight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 				801BA30628368F7D00ABEDAB /* BellCurveView.swift */,
 				801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */,
 				801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */,
+				80F26157284FB431000E1AB4 /* StaticConesView.swift */,
 				80FADE2B27A9C6CD00182070 /* TechnicalTermsHelpView.swift */,
 			);
 			path = Help;
@@ -662,6 +665,7 @@
 			files = (
 				806D823C278207C500AE46E3 /* CondensibleText.swift in Sources */,
 				806F8ECA2751647C00990F58 /* ImageView.swift in Sources */,
+				80F26158284FB431000E1AB4 /* StaticConesView.swift in Sources */,
 				806F8ECB2751647C00990F58 /* ContentView.swift in Sources */,
 				80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */,
 				806F8EB62751647C00990F58 /* View+Image.swift in Sources */,

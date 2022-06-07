@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BellCurveView: View {
-    let scale: Double
+    @Binding var scale: Double
     let color: Color
 
     var body: some View {
@@ -18,7 +18,17 @@ struct BellCurveView: View {
 }
 
 private struct BellCurve: Shape {
-    let scale: CGFloat
+    private(set) var scale: CGFloat
+
+    var animatableData: CGFloat {
+        get {
+            scale
+        }
+
+        set {
+            scale = newValue
+        }
+    }
 
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath()
@@ -44,7 +54,7 @@ private struct BellCurve: Shape {
 
 struct BellCurveView_Previews: PreviewProvider {
     static var previews: some View {
-        BellCurveView(scale: 0.85, color: .red)
+        BellCurveView(scale: .constant(0.85), color: .red)
             .previewLayout(.fixed(width: 300, height: 600))
     }
 }

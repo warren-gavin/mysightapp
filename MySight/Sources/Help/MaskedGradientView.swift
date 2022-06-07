@@ -12,12 +12,10 @@ struct MaskedGradientView<S: Shape>: View {
     let color: Color
 
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [color, .background],
-                           startPoint: .top,
-                           endPoint: .bottom)
-                .mask(shape)
-        }
+        LinearGradient(colors: [color, color.opacity(0.2)],
+                       startPoint: .top,
+                       endPoint: .bottom)
+            .mask(shape)
     }
 }
 
