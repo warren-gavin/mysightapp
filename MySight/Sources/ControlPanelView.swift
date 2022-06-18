@@ -226,9 +226,12 @@ private struct ProfileButton: ViewModifier {
 
 struct ControlPanelView_Previews: PreviewProvider {
     static var previews: some View {
-        let manager = CVDProfileManager()
-        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
-        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
+        let userDefaults = UserDefaults(suiteName: "Preview")!
+        let manager = CVDProfileManager(userDefaults: userDefaults)
+
+        userDefaults.removeObject(forKey: "Test")
+//        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
+//        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
         manager.activeProfile = CVDProfile.standardProfiles.first!
 
         return Group {
@@ -241,13 +244,16 @@ struct ControlPanelView_Previews: PreviewProvider {
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
-//            ControlPanelView(cvd: .constant(.tritan),
-//                             severity: .constant(0.6),
-//                             show: .constant(true))
-//                .preferredColorScheme(.light)
-.previewInterfaceOrientation(.portraitUpsideDown)
-//                .previewLayout(.sizeThatFits)
-//                .environment(\.sizeCategory, .accessibilityLarge)
+            ControlPanelView(cvd: .constant(.tritan),
+                             severity: .constant(0.6),
+                             show: .constant(true),
+                             orientation: .constant(.portrait),
+                             enableFilter: .constant(false),
+                             showHelp: .constant(true))
+                .preferredColorScheme(.light)
+                .previewInterfaceOrientation(.portrait)
+                .previewLayout(.sizeThatFits)
+                .environment(\.sizeCategory, .accessibilityLarge)
         }
         .background(Color.gray)
         .environmentObject(manager)
