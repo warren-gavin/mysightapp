@@ -15,18 +15,29 @@ struct ControlPanelView: View {
     @Binding var severity: Float
     @Binding var show: Bool
     @Binding var orientation: UIDeviceOrientation
+    @Binding var enableFilter: Bool
+    @Binding var showHelp: Bool
 
     @State private var deleteProfile: CVDProfile?
 
     var body: some View {
         VStack {
-            HStack {
+            HStack(spacing: 12) {
+                Toggle("", isOn: $enableFilter)
+                    .tint(Color.accentColor.opacity(0.9))
+                    .fixedSize()
+                    .padding(.leading, -7)
                 Spacer()
                 Text(description)
                     .condensible()
-                Spacer()
+                Button {
+                    showHelp = true
+                } label: {
+                    Image(systemName: "questionmark.circle")
+                        .iconStyle()
+                }
             }
-            .padding(.horizontal, 8.0)
+            .padding(.horizontal, show ? 20.0 : 8.0)
 
             if show {
                 Group {
@@ -215,26 +226,34 @@ private struct ProfileButton: ViewModifier {
 
 struct ControlPanelView_Previews: PreviewProvider {
     static var previews: some View {
-        let manager = CVDProfileManager()
-        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
-        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
+        let userDefaults = UserDefaults(suiteName: "Preview")!
+        let manager = CVDProfileManager(userDefaults: userDefaults)
+
+        userDefaults.removeObject(forKey: "Test")
+//        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
+//        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .deutan, severity: 0.7))
         manager.activeProfile = CVDProfile.standardProfiles.first!
 
         return Group {
             ControlPanelView(cvd: .constant(.deutan),
-                             severity: .constant(0.95),
+                             severity: .constant(1),
                              show: .constant(true),
-                             orientation: .constant(.portrait))
+                             orientation: .constant(.portrait),
+                             enableFilter: .constant(true),
+                             showHelp: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewLayout(.sizeThatFits)
 
-//            ControlPanelView(cvd: .constant(.tritan),
-//                             severity: .constant(0.6),
-//                             show: .constant(true))
-//                .preferredColorScheme(.light)
-.previewInterfaceOrientation(.portraitUpsideDown)
-//                .previewLayout(.sizeThatFits)
-//                .environment(\.sizeCategory, .accessibilityLarge)
+            ControlPanelView(cvd: .constant(.tritan),
+                             severity: .constant(0.6),
+                             show: .constant(true),
+                             orientation: .constant(.portrait),
+                             enableFilter: .constant(false),
+                             showHelp: .constant(true))
+                .preferredColorScheme(.light)
+                .previewInterfaceOrientation(.portrait)
+                .previewLayout(.sizeThatFits)
+                .environment(\.sizeCategory, .accessibilityLarge)
         }
         .background(Color.gray)
         .environmentObject(manager)

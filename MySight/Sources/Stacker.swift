@@ -11,8 +11,8 @@ struct Stacker: ViewModifier {
     let spacing: Double
     let useVerticalAlignment: () -> Bool
 
-    init(spacing: Double = 0,
-         useVerticalAlignment: @autoclosure @escaping () -> Bool) {
+    init(spacing: Double,
+         useVerticalAlignment: @escaping () -> Bool) {
         self.spacing = spacing
         self.useVerticalAlignment = useVerticalAlignment
     }
@@ -29,5 +29,11 @@ struct Stacker: ViewModifier {
                 content
             }
         }
+    }
+}
+
+extension View {
+    func embedInStack(spacing: Double = 0, useVerticalAlignment: @autoclosure @escaping () -> Bool) -> some View {
+        modifier(Stacker(spacing: spacing, useVerticalAlignment: useVerticalAlignment))
     }
 }

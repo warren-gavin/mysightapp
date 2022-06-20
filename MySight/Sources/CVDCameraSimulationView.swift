@@ -30,7 +30,9 @@ struct CVDCameraSimulationView: View {
 extension CVDCameraSimulationView {
     func cameraView(frame: CGRect) -> some View {
 #if targetEnvironment(simulator)
-        SimulatorCameraView(cvd: cvd, severity: severity, orientation: $orientation)
+        SimulatorCameraView(cvd: cvd,
+                            severity: severity,
+                            orientation: $orientation)
 #else
         CameraView(frame: frame,
                    simulating: $cvd,

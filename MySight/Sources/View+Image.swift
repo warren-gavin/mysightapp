@@ -9,7 +9,7 @@ import SwiftUI
 
 extension View {
     func iconStyle() -> some View {
-        font(Font.title2.weight(.light))
+        font(Font.subheadline.weight(.light))
     }
 
     func imageStyle() -> some View {
@@ -21,5 +21,7 @@ extension View {
             .foregroundColor(.accentColor)
             .clipShape(Capsule())
             .iconStyle()
+            .frame(minWidth: 44, minHeight: 44)
+            .fixedSize(horizontal: true, vertical: true)
     }
 }

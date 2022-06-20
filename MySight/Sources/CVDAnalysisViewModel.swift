@@ -31,9 +31,9 @@ class CVDAnalysisViewModel: ObservableObject {
         model.probableCvdAndSeverity()
     }
 
-    var analysisComplete: Bool {
-        confusionLines.isEmpty
-    }
+//    var analysisComplete: Bool {
+//        confusionLines.isEmpty
+//    }
 
     init(profileManager: CVDProfileManager, userDefaults: UserDefaults = .standard) {
         self.profileManager = profileManager

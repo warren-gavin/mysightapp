@@ -21,6 +21,9 @@ struct ContentView: View {
 
     @State private var orientation = UIDevice.current.orientation
 
+    @State private var enableFilter = true
+    @State private var showHelp = false
+
     init() {
         profileManager = CVDProfileManager()
 
@@ -31,22 +34,26 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
-                if image == nil {
+                if let image = image {
+                    ImageView(image: image,
+                              cvd: $cvd,
+                              severity: enableFilter ? $severity : .constant(0)) {
+                        withAnimation {
+                            self.image = nil
+                        }
+                    }
+                    .transition(.move(edge: .bottom))
+                }
+                else {
                     CVDCameraSimulationView(cvd: $cvd,
-                                            severity: $severity,
+                                            severity: enableFilter ? $severity : .constant(0),
                                             orientation: $orientation)
                         .accessibilityIdentifier("camera view")
                         .ignoresSafeArea()
                 }
 
                 VStack(alignment: .trailing) {
-                    if let _ = image {
-                        ImageView(image: $image.animation(),
-                                  cvd: $cvd,
-                                  severity: $severity)
-                            .transition(.move(edge: .bottom))
-                    }
-                    else if showControls {
+                    if showControls, image == nil {
                         HStack {
                             Button {
                                 addNewProfile = true
@@ -55,7 +62,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("add new profile")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
 
                             Spacer()
 
@@ -66,7 +72,6 @@ struct ContentView: View {
                             }
                             .accessibilityIdentifier("select image")
                             .imageStyle()
-                            .fixedSize(horizontal: true, vertical: true)
                         }
                         .padding()
                         .fixedSize(horizontal: false, vertical: true)
@@ -78,7 +83,9 @@ struct ContentView: View {
                         ControlPanelView(cvd: $cvd,
                                          severity: $severity,
                                          show: $showControls,
-                                         orientation: $orientation)
+                                         orientation: $orientation,
+                                         enableFilter: $enableFilter,
+                                         showHelp: $showHelp)
                             .padding(.top, 8.0)
                             .padding(.bottom, showControls ? 20.0 : 8.0)
                             .background(.ultraThinMaterial,
@@ -103,6 +110,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $loadImage, onDismiss: nil) {
             ImagePicker(image: $image)
+        }
+        .sheet(isPresented: $showHelp, onDismiss: nil) {
+            TechnicalTermsHelpView()
         }
         .onRotate { newOrientation in
             orientation = newOrientation
