@@ -114,7 +114,7 @@ private enum SharingType: CaseIterable, Identifiable {
             return 500
 
         case .email:
-            return 500
+            return 750
 
         case .large:
             return 1000

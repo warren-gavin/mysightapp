@@ -80,10 +80,7 @@ struct ImageView: View {
                         } onSharingTypeSelected: { bounds in
                             sharing = false
                             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                                let scaledBounds = sharedImageSize(boundedTo: bounds)
-                                let snap = sharingView.snapshot(in: scaledBounds)
-                                
-                                self.item = ActivityItem(items: snap)
+                                share(image: image, boundedTo: bounds)
                             }
                         }
                     }
@@ -130,7 +127,65 @@ private extension ImageView {
 
         return Image(uiImage: filteredImage)
     }
+
+    func combined(images: UIImage..., texts: String..., boundedTo maxWidthOrHeight: Double) -> UIImage? {
+        let combinedSize = sharedImageSize(boundedTo: maxWidthOrHeight)
+
+        let scaledImageSize = CGSize(width: combinedSize.width / (useVerticalAlignment ? 1 : 2),
+                                     height: combinedSize.height / (useVerticalAlignment ? 2 : 1))
+
+        let image = UIGraphicsImageRenderer(size: combinedSize).image { _ in
+            images.enumerated().forEach { (idx, image) in
+                let xOffset = (useVerticalAlignment ? 0 : CGFloat(idx) * scaledImageSize.width)
+                let yOffset = (useVerticalAlignment ? CGFloat(idx) * scaledImageSize.height : 0)
+
+                let imageRect = CGRect(origin: CGPoint(x: xOffset, y: yOffset),
+                                       size: scaledImageSize)
+                image.draw(in: imageRect)
+                texts[safe: idx]?.draw(in: imageRect)
+            }
+        }
+
+        return image
+    }
+
+    func share(image: UIImage, boundedTo maxWidthOrHeight: Double) {
+        let profile = CVDProfile(name: "",
+                                 cvd: cvd,
+                                 severity: severity)
+
+        if let filteredImage = filteredImage,
+           let shareImage = combined(images: image, filteredImage,
+                                     texts: NSLocalizedString("Normal Colour Vision", comment: ""),
+                                            profile.description,
+                                     boundedTo: maxWidthOrHeight) {
+            item = ActivityItem(items: shareImage)
+        }
+    }
 }
+
+private extension String {
+    func draw(in rect: CGRect) {
+        let font = UIFont(name: "Arial", size: 12)!
+        let textFontAttributes = [
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.backgroundColor: UIColor.black
+        ]
+
+        let string = self as NSString
+        let size = string.size(withAttributes: textFontAttributes)
+        let textRect = CGRect(origin: rect.origin, size: size)
+
+        string.draw(in: textRect, withAttributes: textFontAttributes)
+    }
+}
+
+
+
+
+
+
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
