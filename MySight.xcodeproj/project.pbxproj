@@ -166,6 +166,7 @@
 		806F8EB02751647C00990F58 /* CVDProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDProfile.swift; sourceTree = "<group>"; };
 		806F8EB12751647C00990F58 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		806F8EB22751647C00990F58 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		80825ABA2860F3D30004F84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		80AC999C277A3869004AD7F9 /* View+DeviceRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DeviceRotation.swift"; sourceTree = "<group>"; };
 		80ACEB86279778FF0000F093 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		80AD89B127932AF2007B514D /* AppStoreScreenshots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreScreenshots.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +282,7 @@
 		8045D3B1275163700001DD01 /* MySight */ = {
 			isa = PBXGroup;
 			children = (
+				80825ABA2860F3D30004F84B /* Info.plist */,
 				80DBA3512767C513009528DA /* Localizable.strings */,
 				806F8E982751647C00990F58 /* ImageFilters */,
 				806F8E9B2751647C00990F58 /* Sources */,
@@ -925,6 +927,7 @@
 				DEVELOPMENT_TEAM = 8PKALBM6Q4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MySight/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera in order to show you live CVD simulations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -937,7 +940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.MySight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -958,6 +961,7 @@
 				DEVELOPMENT_TEAM = 8PKALBM6Q4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MySight/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera in order to show you live CVD simulations.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -970,7 +974,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apokrupto.MySight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
