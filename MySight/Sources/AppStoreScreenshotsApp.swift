@@ -20,6 +20,7 @@ extension AppStoreScreenshotsApp {
     var contentView: some View {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(named: "AccentColor")
         UserDefaults.standard.removeAllProfiles()
+        UserDefaults.standard.set(true, forKey: "com.apokrupto.cvd-analysis-intro-shown")
 
         return ContentView()
     }

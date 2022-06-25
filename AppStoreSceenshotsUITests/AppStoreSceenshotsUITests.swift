@@ -70,7 +70,7 @@ class AppStoreScreenshotsUITests: XCTestCase {
         XCUIDevice.shared.orientation = .portrait
 
         app/*@START_MENU_TOKEN@*/.buttons["select image"]/*[[".buttons[\"photo.on.rectangle.angled\"]",".buttons[\"select image\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app/*@START_MENU_TOKEN@*/.scrollViews.otherElements.images["Photo, January 13, 7:41 PM"]/*[[".otherElements[\"Photos\"].scrollViews.otherElements",".otherElements[\"Photo, January 13, 7:41 PM, Photo, March 30, 2018, 8:14 PM, Photo, August 08, 2012, 10:55 PM, Photo, August 08, 2012, 10:29 PM, Photo, August 08, 2012, 7:52 PM, Photo, October 09, 2009, 10:09 PM, Photo, March 13, 2011, 12:17 AM\"].images[\"Photo, January 13, 7:41 PM\"]",".images[\"Photo, January 13, 7:41 PM\"]",".scrollViews.otherElements"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app.scrollViews.otherElements.images.firstMatch.tap()
         app.buttons["Deutan"].tap()
         app.buttons["James"].tap()
         createScreenshot(6, "low-severity-image")
