@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TechnicalTermsHelpView: View {
+    private let conesViewHeight: CGFloat = 200
+    private let conesViewWidth = min(UIScreen.main.bounds.width * 0.8, 500)
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
@@ -24,9 +27,8 @@ struct TechnicalTermsHelpView: View {
                 HStack {
                     Spacer()
                     InteractiveConesView()
-                        .frame(width: 375, height: 200)
+                        .frame(width: conesViewWidth, height: conesViewHeight)
                         .padding(.bottom, 12)
-                        .layoutPriority(1)
                     Spacer()
                 }
             }
@@ -48,8 +50,7 @@ private extension TechnicalTermsHelpView {
             HStack {
                 Spacer()
                 StaticConesView()
-                    .frame(width: 375, height: 200)
-                    .layoutPriority(1)
+                    .frame(width: conesViewWidth, height: conesViewHeight)
                 Spacer()
             }
 
@@ -67,8 +68,7 @@ private extension TechnicalTermsHelpView {
             HStack {
                 Spacer()
                 StaticConesView(redScale: 0.4)
-                    .frame(width: 375, height: 200)
-                    .layoutPriority(1)
+                    .frame(width: conesViewWidth, height: conesViewHeight)
                 Spacer()
             }
 
@@ -80,8 +80,7 @@ private extension TechnicalTermsHelpView {
             HStack {
                 Spacer()
                 StaticConesView(greenScale: 0.0)
-                    .frame(width: 375, height: 200)
-                    .layoutPriority(1)
+                    .frame(width: conesViewWidth, height: conesViewHeight)
                 Spacer()
             }
 
