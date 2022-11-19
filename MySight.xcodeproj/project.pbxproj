@@ -12,6 +12,7 @@
 		80071C36275AA58C008CC16F /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */; };
 		800BAA08275544A50092A478 /* Stacker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BAA07275544A50092A478 /* Stacker.swift */; };
 		80157F05275CFC5900FCA090 /* CVDProfile+Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */; };
+		8017B74E2929645700DEA1F0 /* ConeGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8017B74D2929645700DEA1F0 /* ConeGraphView.swift */; };
 		801BA30728368F7D00ABEDAB /* BellCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30628368F7D00ABEDAB /* BellCurveView.swift */; };
 		801BA30828368F7D00ABEDAB /* BellCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA30628368F7D00ABEDAB /* BellCurveView.swift */; };
 		801BA30A2836ACF600ABEDAB /* MaskedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */; };
@@ -130,6 +131,7 @@
 		80071C35275AA58C008CC16F /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		800BAA07275544A50092A478 /* Stacker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stacker.swift; sourceTree = "<group>"; };
 		80157F04275CFC5900FCA090 /* CVDProfile+Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVDProfile+Strings.swift"; sourceTree = "<group>"; };
+		8017B74D2929645700DEA1F0 /* ConeGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeGraphView.swift; sourceTree = "<group>"; };
 		801BA30628368F7D00ABEDAB /* BellCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellCurveView.swift; sourceTree = "<group>"; };
 		801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskedGradientView.swift; sourceTree = "<group>"; };
 		801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveConesView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				801BA30628368F7D00ABEDAB /* BellCurveView.swift */,
+				8017B74D2929645700DEA1F0 /* ConeGraphView.swift */,
 				801BA30D2836AE9500ABEDAB /* InteractiveConesView.swift */,
 				801BA3092836ACF600ABEDAB /* MaskedGradientView.swift */,
 				80F26157284FB431000E1AB4 /* StaticConesView.swift */,
@@ -676,6 +679,7 @@
 				806F8ECB2751647C00990F58 /* ContentView.swift in Sources */,
 				80AC999D277A3869004AD7F9 /* View+DeviceRotation.swift in Sources */,
 				806F8EB62751647C00990F58 /* View+Image.swift in Sources */,
+				8017B74E2929645700DEA1F0 /* ConeGraphView.swift in Sources */,
 				800BAA08275544A50092A478 /* Stacker.swift in Sources */,
 				806F8EC12751647C00990F58 /* CVDProfileManager.swift in Sources */,
 				806F8EBF2751647C00990F58 /* CVDAnalysisView.swift in Sources */,

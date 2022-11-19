@@ -45,8 +45,7 @@ class CVDAnalysisViewModel: ObservableObject {
         objectWillChange.send()
     }
 
-    func loadNext(confusionLine: ConfusionLine?,
-                  severity: Float) -> ConfusionLine? {
+    func loadNext(confusionLine: ConfusionLine?, severity: Float) -> ConfusionLine? {
         let (next, remainder) = (confusionLines.first, Array(confusionLines.dropFirst()))
         confusionLines = remainder
 

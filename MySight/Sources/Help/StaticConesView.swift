@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct StaticConesView: View {
-    let blueScale: Double
     let redScale: Double
     let greenScale: Double
+    let blueScale: Double
 
-    init(blueScale: Double = 1,
-         redScale: Double = 1,
-         greenScale: Double = 1) {
-        self.blueScale = blueScale
+    init(redScale: Double = 1,
+         greenScale: Double = 1,
+         blueScale: Double = 1) {
         self.redScale = redScale
         self.greenScale = greenScale
+        self.blueScale = blueScale
     }
 
     var body: some View {
@@ -46,7 +46,7 @@ struct StaticConesView_Previews: PreviewProvider {
                 .previewLayout(.fixed(width: 500, height: 300))
                 .padding()
 
-            StaticConesView(blueScale: 0.3, redScale: 0.7, greenScale: 1)
+            StaticConesView(redScale: 0.7, greenScale: 1, blueScale: 0.3)
                 .previewLayout(.fixed(width: 500, height: 300))
                 .padding()
                 .preferredColorScheme(.dark)

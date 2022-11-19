@@ -24,11 +24,13 @@ struct ControlPanelView: View {
         VStack {
             HStack(spacing: 12) {
                 Toggle("", isOn: $enableFilter)
+                    .accessibilityHint("Turn colourblindness \(enableFilter ? "off" : "on")")
                     .tint(Color.accentColor.opacity(0.9))
                     .fixedSize()
                     .padding(.leading, -7)
                 Spacer()
                 Text(description)
+                    .accessibilityLabel(a11yDescription)
                     .condensible()
                 Button {
                     showHelp = true
@@ -36,6 +38,8 @@ struct ControlPanelView: View {
                     Image(systemName: "questionmark.circle")
                         .iconStyle()
                 }
+                .accessibilityLabel("Help")
+                .accessibilityHint("Learn what colourblindness is, and what the different terms mean")
             }
             .padding(.horizontal, show ? 20.0 : 8.0)
 
@@ -65,8 +69,15 @@ private extension ControlPanelView {
         return "\(Int(severity * 100))% \(cvd.anomalousTrichromatName.localized)"
     }
 
+    var a11yDescription: String {
+        "The camera is simulating \(description)"
+    }
+
     var actionControls: some View {
         Slider(value: $severity, in: 0.0 ... 1.0)
+            .accessibilityLabel("Severity")
+            .accessibilityHint("Control how severe the colourblindness should be")
+            .accessibilityValue(description)
             .accessibilityIdentifier("cvd severity")
             .padding(.top, -14)
     }
@@ -91,6 +102,7 @@ private extension ControlPanelView {
             if profileManager.savedProfilesExist {
                 HStack {
                     Text("DICHROMAT PROFILES")
+                        .accessibilityHidden(true)
                         .condensible(style: .caption)
                     Spacer()
                 }
@@ -108,6 +120,7 @@ private extension ControlPanelView {
                     .accessibilityIdentifier(profile.name)
                     .modifier(ProfileButton(profile: profile,
                                             activeProfile: profileManager.activeProfile))
+                    .accessibilityLabel("Show \(profile.description) colourblindness on screen")
 
                     if profile != profileManager.standardProfiles.last {
                         Spacer()
@@ -124,6 +137,7 @@ private extension ControlPanelView {
         VStack(spacing: 4) {
             HStack {
                 Text("SAVED PROFILES")
+                    .accessibilityHidden(true)
                     .condensible(style: .caption)
                 Spacer()
             }
@@ -145,6 +159,7 @@ private extension ControlPanelView {
                             .accessibilityIdentifier(profile.name)
                             .modifier(ProfileButton(profile: profile,
                                                     activeProfile: profileManager.activeProfile))
+                            .accessibilityLabel("Show \(profile.name) colourblindness on screen")
 
                             Button {
                                 deleteProfile = profile
@@ -152,6 +167,10 @@ private extension ControlPanelView {
                                 Image(systemName: "xmark.circle")
                                     .iconStyle()
                             }
+                            .accessibilityLabel("Delete \(profile.name)")
+                            .accessibilityHint(
+                                "This will remove the saved profile. To add it again you can select \"Add a new profile\""
+                            )
                             .accessibilityIdentifier("delete profile")
                             .alert(item: $deleteProfile) { profileToDelete in
                                 Alert(title: Text("Delete profile?"),
@@ -221,6 +240,7 @@ private struct ProfileButton: ViewModifier {
                     .stroke(Color.accentColor, lineWidth: 1)
             )
             .padding(1)
+            .accessibilityAddTraits(profile == activeProfile ? .isSelected : .isButton)
     }
 }
 

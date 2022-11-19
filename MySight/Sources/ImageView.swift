@@ -40,7 +40,7 @@ struct ImageView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
 
-                Text(CVDProfile(name: "", cvd: cvd, severity: severity).description)
+                Text(profile.description)
                     .font(.footnote)
                     .padding(4)
                     .background(Color.black)
@@ -48,6 +48,7 @@ struct ImageView: View {
             }
         }
         .embedInStack(useVerticalAlignment: useVerticalAlignment)
+        .accessibilityHidden(true)
     }
 
     var body: some View {
@@ -61,6 +62,9 @@ struct ImageView: View {
                     .resizable()
                     .ignoresSafeArea()
                     .aspectRatio(contentMode: .fit)
+                    .accessibilityLabel(
+                      "Image filtered to show what it would look like to someone with \(CVDProfile(name: "", cvd: cvd, severity: severity).description)"
+                    )
             }
             .ignoresSafeArea()
 
@@ -73,6 +77,7 @@ struct ImageView: View {
                     }
                     .accessibilityIdentifier("share")
                     .imageStyle()
+                    .accessibilityLabel("Share")
                     .activitySheet($item)
                     .popover(isPresented: $sharing) {
                         SmarterSharingView {
@@ -95,6 +100,7 @@ struct ImageView: View {
                     }
                     .accessibilityIdentifier("dismiss")
                     .imageStyle()
+                    .accessibilityLabel("Close")
                 }
                 .padding(.top, 8)
                 .padding(.horizontal, 20)
@@ -128,6 +134,10 @@ private extension ImageView {
         return Image(uiImage: filteredImage)
     }
 
+    var profile: CVDProfile {
+        CVDProfile(name: "", cvd: cvd, severity: severity)
+    }
+
     func combined(images: UIImage..., texts: String..., boundedTo maxWidthOrHeight: Double) -> UIImage? {
         let combinedSize = sharedImageSize(boundedTo: maxWidthOrHeight)
 
@@ -150,10 +160,6 @@ private extension ImageView {
     }
 
     func share(image: UIImage, boundedTo maxWidthOrHeight: Double) {
-        let profile = CVDProfile(name: "",
-                                 cvd: cvd,
-                                 severity: severity)
-
         if let filteredImage = filteredImage,
            let shareImage = combined(images: image, filteredImage,
                                      texts: NSLocalizedString("Normal Colour Vision", comment: ""),
@@ -180,12 +186,6 @@ private extension String {
         string.draw(in: textRect, withAttributes: textFontAttributes)
     }
 }
-
-
-
-
-
-
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {

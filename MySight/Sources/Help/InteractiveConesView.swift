@@ -25,6 +25,7 @@ struct InteractiveConesView: View {
                 }
 
             Text(simulationDescription)
+                .accessibilityHidden(true)
                 .frame(maxWidth: .infinity, alignment: .center)
         }
     }

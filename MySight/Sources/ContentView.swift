@@ -60,8 +60,10 @@ struct ContentView: View {
                             } label: {
                                 Image(systemName: "plus")
                             }
-                            .accessibilityIdentifier("add new profile")
                             .imageStyle()
+                            .accessibilityLabel("Add a new profile")
+                            .accessibilityHint("Create a short cut to the exact colourblindness of someone you know.")
+                            .accessibilityIdentifier("add new profile")
 
                             Spacer()
 
@@ -70,8 +72,10 @@ struct ContentView: View {
                             } label: {
                                 Image(systemName: "photo.on.rectangle.angled")
                             }
-                            .accessibilityIdentifier("select image")
                             .imageStyle()
+                            .accessibilityLabel("Open photo album")
+                            .accessibilityHint("See your photos in colourblind mode!")
+                            .accessibilityIdentifier("select image")
                         }
                         .padding()
                         .fixedSize(horizontal: false, vertical: true)

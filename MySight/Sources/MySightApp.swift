@@ -19,7 +19,6 @@ struct MySightApp: App {
 extension MySightApp {
     var contentView: some View {
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(named: "AccentColor")
-
         return ContentView()
     }
 }

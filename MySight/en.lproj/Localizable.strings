@@ -13,7 +13,7 @@
 "Normal Colour Vision" = "Normal Color Vision";
 
 // CVD Analysis
-"cvd.analysis.intro" = "Would you like to see what somone who has CVD sees? Ask them to complete the next few screens.
+"cvd.analysis.intro" = "Would you like to see what someone who has CVD sees? Ask them to complete the next few screens.
 
 You will be shown a series of colors like the one below.";
 
@@ -24,9 +24,13 @@ You will be shown a series of colors like the one below.";
 
 Any colour is a mix of three primary colours; blue, red and green. Colourblindness, or Colour Vision Deficiency (CVD), is the inability to correctly interpret one of those three colours.";
 
+"help.para.1.a11y" = "If you're wondering \"What's a Deutan?\", or something like that, then let's try to demystify what's going on.
 
+Any colour is a mix of three primary colours; blue, red, and green. Colourblindness, or Colour Vision Deficiency (CVD), is the inability to correctly interpret one of those three colours.";
 
 "help.para.2" = "Somebody with normal colour vision is a **trichromat**, while a person with CVD is either an **anomalous trichromat** (they can see a certain amount of the colour they have a problem with), or a **dichromat** (they can't see it at all.)";
+
+"help.para.2.a11y" = "Somebody with normal colour vision is a tri-chromat, while a person with CVD is either an anomalous tri-chromat (they can see a certain amount of the colour they have a problem with), or a di-chromat (they can't see it at all.)";
 
 "help.para.3" = "If a person with CVD has a problem seeing **blue**, they are a **Tritan**.
 
@@ -40,5 +44,12 @@ A Tritan with anomalous trichromacy has **Tritanomaly**, and a Tritan with dichr
 
 A Protan with anomalous trichromacy has **Protanomaly**, and a Protan with dichromacy has **Protanopia**.
 
-A Deutan with anomalous trichromacy has **Deuteranomaly**, and a Deutan with dichromacy has **Deuteranopia**.
-";
+A Deutan with anomalous trichromacy has **Deuteranomaly**, and a Deutan with dichromacy has **Deuteranopia**.";
+
+"help.para.3.a11y" = "If a person with CVD has a problem seeing blue, they are a try-tan.
+If a person with CVD has a problem seeing red, they are a protan.
+If a person with CVD has a problem seeing green, they are a deutan.
+If you want to be more precise you factor in if they have anomalous trichromacy or dichromacy.
+A Try-tan with anomalous trichromacy has tryt-anomaly, and a try-tan with dichromacy has try-tanopia.
+A Protan with anomalous trichromacy has prote-anomaly, and a protan with dichromacy has protanopia.
+A Deutan with anomalous trichromacy has deuter-anomaly, and a deutan with dichromacy has deuteranopia.";

@@ -8,86 +8,56 @@
 import SwiftUI
 
 struct TechnicalTermsHelpView: View {
-    private let conesViewHeight: CGFloat = 200
-    private let conesViewWidth = min(UIScreen.main.bounds.width * 0.8, 500)
-
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                intro
+                Text("What's all this?")
+                    .condensible(style: .title, weight: .black)
+                    .padding(.vertical, 12)
 
-                severityTerms
+                Text("help.para.1")
+                    .accessibilityLabel("help.para.1.a11y")
+                    .padding(.bottom, 12)
+
+                ConeGraphView(label: "Normal Colour Vision/Trichromat")
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(
+                        "Graph showing normal colour vision, where all three cones are at their maximum heights"
+                    )
+
+                Text("help.para.2")
+                    .accessibilityLabel("help.para.2.a11y")
+
+                ConeGraphView(label: "Anomalous trichromacy", redScale: 0.4)
+                    .accessibilityLabel(
+                        "Graph showing protanomaly, where the red cone works at only 40% of the normal value"
+                    )
+
+                ConeGraphView(label: "Dichromat", greenScale: 0.0)
+                    .accessibilityLabel(
+                        "Graph showing deuteranopia, where the green cone doesn't work at all"
+                    )
 
                 Text("What about the Deutans? I want to know about the Deutans!")
                     .condensible(style: .subheadline, weight: .black)
                     .padding(.vertical, 12)
 
                 Text("help.para.3")
+                    .accessibilityLabel("help.para.3.a11y")
 
                 HStack {
                     Spacer()
                     InteractiveConesView()
-                        .frame(width: conesViewWidth, height: conesViewHeight)
+                        .accessibilityLabel(
+                            "Animation showing the different types of colourblindness"
+                        )
+                        .frame(height: 200)
+                        .padding(.horizontal, 12)
                         .padding(.bottom, 12)
                     Spacer()
                 }
             }
             .padding(.horizontal, 12)
-        }
-    }
-}
-
-private extension TechnicalTermsHelpView {
-    var intro: some View {
-        Group {
-            Text("What's all this?")
-                .condensible(style: .title, weight: .black)
-                .padding(.vertical, 12)
-
-            Text("help.para.1")
-                .padding(.bottom, 12)
-
-            HStack {
-                Spacer()
-                StaticConesView()
-                    .frame(width: conesViewWidth, height: conesViewHeight)
-                Spacer()
-            }
-
-            Text("Normal Colour Vision/Trichromat")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 4)
-                .padding(.bottom, 12)
-        }
-    }
-
-    var severityTerms: some View {
-        Group {
-            Text("help.para.2")
-
-            HStack {
-                Spacer()
-                StaticConesView(redScale: 0.4)
-                    .frame(width: conesViewWidth, height: conesViewHeight)
-                Spacer()
-            }
-
-            Text("Anomalous trichromacy")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 4)
-                .padding(.bottom, 12)
-
-            HStack {
-                Spacer()
-                StaticConesView(greenScale: 0.0)
-                    .frame(width: conesViewWidth, height: conesViewHeight)
-                Spacer()
-            }
-
-            Text("Dichromat")
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.top, 4)
-                .padding(.bottom, 12)
         }
     }
 }

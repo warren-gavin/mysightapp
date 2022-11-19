@@ -6,44 +6,44 @@
 //
 
 import SwiftUI
-
-struct ImageSharingView: View {
-    let image: UIImage
-    let onScaleSelected: (Double) -> Void
-
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                Text("Share this image")
-                    .condensible(style: .title, weight: .bold)
-                    .padding(.vertical, 18)
-                    .padding(.horizontal, 18)
-
-                Spacer()
-
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.bottom, 12)
-                    .frame(minHeight: 400)
-
-                Spacer()
-
-                ForEach(SharingType.allCases) { sharingType in
-                    Button {
-                        onScaleSelected(sharingType.scale(for: image))
-                    } label: {
-                        Text(sharingType.description)
-                            .condensible()
-                    }
-                    .modifier(SharingButton())
-                }
-                .padding(.bottom, 24)
-            }
-            .frame(width: 450)
-        }
-    }
-}
+//
+//struct ImageSharingView: View {
+//    let image: UIImage
+//    let onScaleSelected: (Double) -> Void
+//
+//    var body: some View {
+//        ScrollView {
+//            VStack(spacing: 12) {
+//                Text("Share this image")
+//                    .condensible(style: .title, weight: .bold)
+//                    .padding(.vertical, 18)
+//                    .padding(.horizontal, 18)
+//
+//                Spacer()
+//
+//                Image(uiImage: image)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .padding(.bottom, 12)
+//                    .frame(minHeight: 400)
+//
+//                Spacer()
+//
+//                ForEach(SharingType.allCases) { sharingType in
+//                    Button {
+//                        onScaleSelected(sharingType.scale(for: image))
+//                    } label: {
+//                        Text(sharingType.description)
+//                            .condensible()
+//                    }
+//                    .modifier(SharingButton())
+//                }
+//                .padding(.bottom, 24)
+//            }
+//            .frame(width: 450)
+//        }
+//    }
+//}
 
 struct SmarterSharingView<Content: View>: View {
     let content: Content
@@ -66,7 +66,9 @@ struct SmarterSharingView<Content: View>: View {
                 Spacer()
 
                 content
+                    .accessibilityElement(children: .ignore)
                     .padding(.horizontal)
+                    .accessibilityLabel("Preview of the image that will be shared")
 
                 Spacer()
 
@@ -78,6 +80,8 @@ struct SmarterSharingView<Content: View>: View {
                             .condensible()
                     }
                     .modifier(SharingButton())
+                    .accessibilityLabel(sharingType.a11yLabel)
+                    .accessibilityHint(sharingType.a11yHint)
                 }
                 .padding(.bottom, 24)
             }
@@ -105,6 +109,32 @@ private enum SharingType: CaseIterable, Identifiable {
 
         case .large:
             return "Large (Many MBs)"
+        }
+    }
+
+    var a11yLabel: LocalizedStringKey {
+        switch self {
+        case .social:
+            return "Share a small scale version of this image"
+
+        case .email:
+            return "Share a medium sized version of this image"
+
+        case .large:
+            return "Share a large scale version of this image"
+        }
+    }
+
+    var a11yHint: LocalizedStringKey {
+        switch self {
+        case .social:
+            return " Good for social media"
+
+        case .email:
+            return "Good for email"
+
+        case .large:
+            return "Warning: This could be many megabytes"
         }
     }
 
@@ -165,13 +195,13 @@ private struct SharingButton: ViewModifier {
             .padding(.horizontal, 11)
     }
 }
-
-struct ImageSharingView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageSharingView(image: UIImage(named: "app-store-preview-1")!) { _ in }
-            .preferredColorScheme(.dark)
-    }
-}
+//
+//struct ImageSharingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ImageSharingView(image: UIImage(named: "app-store-preview-1")!) { _ in }
+//            .preferredColorScheme(.dark)
+//    }
+//}
 
 extension View {
     func snapshot(in bounds: CGSize) -> UIImage {

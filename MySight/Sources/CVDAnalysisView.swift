@@ -15,7 +15,9 @@ struct CVDAnalysisView: View {
     @State private var userEstimatedSeverity: Float = .userEstimateReset
     @State private var confusionLine: ConfusionLine?
     @State private var newProfileName = ""
-    @FocusState private var textFieldFocus: Bool
+
+    @AccessibilityFocusState private var a11yFocusOnSlider
+    @FocusState private var textFieldFocus
 
     @ObservedObject private var viewModel: CVDAnalysisViewModel
 
@@ -83,6 +85,7 @@ struct CVDAnalysisView: View {
                         self.confusionLine = viewModel.loadNext(confusionLine: confusionLine,
                                                                 severity: userEstimatedSeverity)
                         userEstimatedSeverity = .userEstimateReset
+                        a11yFocusOnSlider = true
                     } label: {
                         Text("Next")
                             .condensible()
@@ -145,12 +148,12 @@ private extension CVDAnalysisView {
 
     var instructionsView: some View {
         Group {
-            Text("Move the slider until you see a solid rectangle")
+            Text("cvd.analysis.instruction.1")
                 .condensible(style: .headline)
                 .padding(.bottom, 8)
                 .opacity(textOpacity)
 
-            Text("If you already see a rectangle, hit Next")
+            Text("cvd.analysis.instruction.2")
                 .condensible(style: .subheadline)
                 .opacity(textOpacity)
                 .padding(.bottom, 24)
@@ -161,9 +164,11 @@ private extension CVDAnalysisView {
         VStack {
             ConfusionLineView(confusionLine: confusionLine!,
                               severity: $userEstimatedSeverity)
+//            .accessibilityFocused(!$a11yFocusOnSlider)
             
             Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
                 .accessibilityIdentifier("severity analysis")
+                .accessibilityFocused($a11yFocusOnSlider)
                 .padding(.top)
                 .frame(maxWidth: 400)
         }
