@@ -160,7 +160,7 @@ private extension ImageView {
     }
 
     func share(image: UIImage, boundedTo maxWidthOrHeight: Double) {
-        if let filteredImage = filteredImage,
+        if let filteredImage,
            let shareImage = combined(images: image, filteredImage,
                                      texts: NSLocalizedString("Normal Colour Vision", comment: ""),
                                             profile.description,

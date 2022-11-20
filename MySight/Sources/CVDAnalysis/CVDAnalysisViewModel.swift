@@ -23,6 +23,8 @@ class CVDAnalysisViewModel: ObservableObject {
         .shuffled()
 #endif
 
+    private lazy var numberOfConfusionLines = confusionLines.count
+
     var showIntro: Bool {
         return !userDefaults.bool(forKey: .showIntroKey)
     }
@@ -31,9 +33,9 @@ class CVDAnalysisViewModel: ObservableObject {
         model.probableCvdAndSeverity()
     }
 
-//    var analysisComplete: Bool {
-//        confusionLines.isEmpty
-//    }
+    var completionProgress: Double {
+        Double(numberOfConfusionLines - confusionLines.count) / Double(numberOfConfusionLines + 1)
+    }
 
     init(profileManager: CVDProfileManager, userDefaults: UserDefaults = .standard) {
         self.profileManager = profileManager
@@ -49,7 +51,7 @@ class CVDAnalysisViewModel: ObservableObject {
         let (next, remainder) = (confusionLines.first, Array(confusionLines.dropFirst()))
         confusionLines = remainder
 
-        if let confusionLine = confusionLine {
+        if let confusionLine {
             model.update(confusionLine: confusionLine, score: severity)
         }
 

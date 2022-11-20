@@ -17,7 +17,6 @@ struct CVDAnalysisView: View {
     @State private var newProfileName = ""
 
     @AccessibilityFocusState private var a11yFocusOnSlider
-    @FocusState private var textFieldFocus
 
     @ObservedObject private var viewModel: CVDAnalysisViewModel
 
@@ -37,24 +36,20 @@ struct CVDAnalysisView: View {
                 .padding(.bottom, 16)
                 .condensible(style: .title, weight: .black)
 
-            if !viewModel.showIntro {
-                instructionsView
-            }
-
             Spacer()
 
-            HStack {
-                Spacer()
-                if viewModel.showIntro {
-                    introView
-                }
-                else if confusionLine != nil {
-                    analysisView
-                }
-                else {
-                    analysisResultView
-                }
-                Spacer()
+            if viewModel.showIntro {
+                CVDAnalysisIntroView(userEstimatedSeverity: $userEstimatedSeverity)
+            }
+            else if confusionLine != nil {
+                CVDAnalysisStepView(confusionLine: confusionLine!,
+                                    progress: viewModel.completionProgress,
+                                    userEstimatedSeverity: $userEstimatedSeverity)
+            }
+            else {
+                CVDAnalysisResultview(cvd: viewModel.probableCvdAndSeverity.0,
+                                      severity: viewModel.probableCvdAndSeverity.1,
+                                      newProfileName: $newProfileName)
             }
 
             Spacer()
@@ -111,112 +106,6 @@ struct CVDAnalysisView: View {
                 }
             }
             .padding(.vertical, 24)
-        }
-    }
-}
-
-private extension CVDAnalysisView {
-    var textOpacity: CGFloat {
-        confusionLine == nil ? 0.0 : 1.0
-    }
-
-    var introView: some View {
-        ScrollView {
-            VStack {
-                Text("cvd.analysis.intro")
-                    .condensible()
-
-                ConfusionLineView(confusionLine: .tritan_2, severity: .constant(0.0))
-                    .padding(.vertical, 24)
-
-                Text("cvd.analysis.explanation")
-                    .condensible()
-
-                VStack {
-                    ConfusionLineView(confusionLine: .tritan_2,
-                                      severity: $userEstimatedSeverity)
-                }
-                .padding(.vertical, 24)
-                .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true),
-                           value: userEstimatedSeverity)
-                .onAppear {
-                    userEstimatedSeverity = 1.0
-                }
-            }
-        }
-    }
-
-    var instructionsView: some View {
-        Group {
-            Text("cvd.analysis.instruction.1")
-                .condensible(style: .headline)
-                .padding(.bottom, 8)
-                .opacity(textOpacity)
-
-            Text("cvd.analysis.instruction.2")
-                .condensible(style: .subheadline)
-                .opacity(textOpacity)
-                .padding(.bottom, 24)
-        }
-    }
-
-    var analysisView: some View {
-        VStack {
-            ConfusionLineView(confusionLine: confusionLine!,
-                              severity: $userEstimatedSeverity)
-//            .accessibilityFocused(!$a11yFocusOnSlider)
-            
-            Slider(value: $userEstimatedSeverity, in: 0.0 ... 1.0)
-                .accessibilityIdentifier("severity analysis")
-                .accessibilityFocused($a11yFocusOnSlider)
-                .padding(.top)
-                .frame(maxWidth: 400)
-        }
-    }
-
-    var analysisResultView: some View {
-        let (cvd, severity) = viewModel.probableCvdAndSeverity
-        let diagnosis: LocalizedStringKey
-
-        switch severity {
-        case 1.0...:
-            diagnosis = cvd.dichromatName
-
-        case 0.09 ... 1.0:
-            diagnosis = cvd.anomalousTrichromatName
-
-        default:
-            diagnosis = "Normal Colour Vision"
-        }
-
-        return VStack {
-            Text(diagnosis)
-                .condensible(style: .largeTitle)
-
-            Text(severityEstimate(severity: severity))
-                .condensible()
-
-            TextField("Save as...", text: $newProfileName)
-                .accessibilityIdentifier("save as field")
-                .focused($textFieldFocus)
-                .padding(.top, 16)
-        }
-        .task {
-            textFieldFocus = true
-        }
-    }
-
-    func severityEstimate(severity: Float) -> String {
-        switch severity {
-        case 1.0...:
-            return String(format: NSLocalizedString("100%% dichromacy", comment: ""))
-
-        case 0.09 ... 1.0:
-            return String(format: NSLocalizedString("%lld%% anomalous trichromacy", comment: ""),
-                          Int(severity * 100))
-
-        default:
-            return " "
         }
     }
 }

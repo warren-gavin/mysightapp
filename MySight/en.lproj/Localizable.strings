@@ -19,6 +19,9 @@ You will be shown a series of colors like the one below.";
 
 "cvd.analysis.explanation" = "People with normal color vision see a gradient of colors, but people with CVD find it harder to see the gradient and may even see a solid rectangle, depending on the severity.";
 
+"cvd.analysis.instruction.1" = "Move the slider until you see a solid rectangle";
+"cvd.analysis.instruction.2" = "If you already see a rectangle, hit Next";
+
 // Help
 "help.para.1" = "If you're wondering \"What's a Deutan?\" or something like that then let's try to demystify what's going on.
 

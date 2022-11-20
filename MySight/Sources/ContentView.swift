@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let profileManager: CVDProfileManager
+    private let profileManager = CVDProfileManager()
 
     @State private var severity: Float
     @State private var cvd: CVD
@@ -25,8 +25,6 @@ struct ContentView: View {
     @State private var showHelp = false
 
     init() {
-        profileManager = CVDProfileManager()
-
         cvd = profileManager.activeProfile.cvd
         severity = profileManager.activeProfile.severity
     }
@@ -34,7 +32,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom) {
-                if let image = image {
+                if let image {
                     ImageView(image: image,
                               cvd: $cvd,
                               severity: enableFilter ? $severity : .constant(0)) {
