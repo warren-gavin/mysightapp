@@ -112,11 +112,7 @@ struct CVDAnalysisView: View {
 
 private extension Float {
     static var userEstimateReset: Float {
-        if Bundle.main.bundleIdentifier == "com.apokrupto.AppStoreScreenshots" {
-            return 1.0
-        }
-
-        return 0.0
+        Bundle.main.bundleIdentifier == "com.apokrupto.AppStoreScreenshots" ? 1.0 : 0.0
     }
 }
 

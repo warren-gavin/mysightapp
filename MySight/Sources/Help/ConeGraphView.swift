@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ConeGraphView: View {
-    let label: String
+    let label: LocalizedStringKey
     let redScale: Double
     let greenScale: Double
     let blueScale: Double
 
-    init(label: String,
+    init(label: LocalizedStringKey,
          redScale: Double = 1,
          greenScale: Double = 1,
          blueScale: Double = 1) {
