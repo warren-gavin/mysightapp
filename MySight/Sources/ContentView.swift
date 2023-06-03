@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let profileManager = CVDProfileManager()
+    private let profileManager: CVDProfileManager
 
     @State private var severity: Float
     @State private var cvd: CVD
@@ -24,7 +24,8 @@ struct ContentView: View {
     @State private var enableFilter = true
     @State private var showHelp = false
 
-    init() {
+    init(profileManager: CVDProfileManager = CVDProfileManager()) {
+        self.profileManager = profileManager
         cvd = profileManager.activeProfile.cvd
         severity = profileManager.activeProfile.severity
     }
@@ -75,29 +76,23 @@ struct ContentView: View {
                             .accessibilityHint("See your photos in colourblind mode!")
                             .accessibilityIdentifier("select image")
                         }
-                        .padding()
+//                        .padding()
                         .fixedSize(horizontal: false, vertical: true)
 
                         Spacer()
                     }
 
-                    HStack {
-                        ControlPanelView(cvd: $cvd,
-                                         severity: $severity,
-                                         show: $showControls,
-                                         orientation: $orientation,
-                                         enableFilter: $enableFilter,
-                                         showHelp: $showHelp)
-                            .padding(.top, 8.0)
-                            .padding(.bottom, showControls ? 20.0 : 8.0)
-                            .background(.ultraThinMaterial,
-                                        in: RoundedRectangle(cornerRadius: 24))
-                            .padding(.bottom, 8.0)
-                            .onTapGesture {}
-                    }
-                    .padding(.horizontal)
-                    .ignoresSafeArea()
+                    ControlPanelView(cvd: $cvd,
+                                     severity: $severity,
+                                     show: $showControls,
+                                     orientation: $orientation,
+                                     enableFilter: $enableFilter,
+                                     showHelp: $showHelp)
+                        .padding(.bottom, 14.0)
+                        .onTapGesture {}
                 }
+                .padding(.horizontal)
+                .ignoresSafeArea(edges: [.bottom])
             }
             .onTapGesture {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) {
@@ -126,17 +121,30 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let manager = CVDProfileManager()
-        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
-        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .protan, severity: 0.7))
+        let manager = CVDProfileManager(
+            userDefaults: UserDefaults(
+                suiteName: "com.apokrupto.preview.content-view"
+            )!
+        )
+//        manager.save(profile: CVDProfile(name: "Test", cvd: .deutan, severity: 0.7))
+//        manager.save(profile: CVDProfile(name: "Test with long name", cvd: .protan, severity: 0.7))
         manager.activeProfile = CVDProfile.standardProfiles.first!
 
-        return ContentView()
-            .environmentObject(manager)
-            .previewDevice(PreviewDevice.eight)
-            .previewDisplayName(PreviewDevice.eight.rawValue)
-//            .previewInterfaceOrientation(.landscapeLeft)
-            .environment(\.sizeCategory, .extraExtraExtraLarge)
+        let previewDevices = [
+            PreviewDevice.eight,
+            PreviewDevice.thirteenPro,
+            PreviewDevice.fourteenProMax
+        ]
 
+        let preview = Group {
+            ForEach(previewDevices, id: \.rawValue) { previewDevice in
+                ContentView(profileManager: manager)
+                    .previewDevice(previewDevice)
+                    .previewDisplayName(previewDevice.rawValue)
+                    .previewInterfaceOrientation(.portrait)
+            }
+        }
+
+        return preview
     }
 }

@@ -11,7 +11,7 @@ import simd
 import SwiftUI
 
 /// Transforms the colors of an image by applying a matrix to them to simulate Color Vision Deficiency
-class CVDFilter: BBMetalBaseFilter {
+final class CVDFilter: BBMetalBaseFilter {
     /// The type of color vision deficiency
     var cvd: CVD
     

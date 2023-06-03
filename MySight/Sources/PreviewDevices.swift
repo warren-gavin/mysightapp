@@ -21,6 +21,10 @@ extension PreviewDevice {
     static let thirteenPro = PreviewDevice(rawValue: "iPhone 13 Pro")
     static let thirteenProMax = PreviewDevice(rawValue: "iPhone 13 Pro Max")
     static let thirteenMini = PreviewDevice(rawValue: "iPhone 13 mini")
+    static let fourteen = PreviewDevice(rawValue: "iPhone 14")
+    static let fourteenPlus = PreviewDevice(rawValue: "iPhone 14 Plus")
+    static let fourteenPro = PreviewDevice(rawValue: "iPhone 14 Pro")
+    static let fourteenProMax = PreviewDevice(rawValue: "iPhone 14 Pro Max")
     static let se = PreviewDevice(rawValue: "iPhone SE (2nd generation)")
     static let touch = PreviewDevice(rawValue: "iPod Touch (7th generation)")
 
@@ -39,6 +43,10 @@ extension PreviewDevice {
             .thirteenPro,
             .thirteenProMax,
             .thirteenMini,
+            .fourteen,
+            .fourteenPro,
+            .fourteenPlus,
+            .fourteenProMax,
             .se,
             .touch
         ]

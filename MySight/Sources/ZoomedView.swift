@@ -42,7 +42,7 @@ struct ZoomedView<Content: View>: UIViewRepresentable {
 
     // MARK: - Coordinator
 
-    class Coordinator: NSObject, UIScrollViewDelegate {
+    final class Coordinator: NSObject, UIScrollViewDelegate {
         var hostingController: UIHostingController<Content>
 
         init(hostingController: UIHostingController<Content>) {

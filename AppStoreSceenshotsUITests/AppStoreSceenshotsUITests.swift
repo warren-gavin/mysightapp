@@ -18,40 +18,49 @@ extension XCUIApplication {
     }
 }
 
-class AppStoreScreenshotsUITests: XCTestCase {
+final class AppStoreScreenshotsUITests: XCTestCase {
     func testCreatingScreenshots() throws {
+        var snapshotIndex = 1
+
         // UI tests must launch the application that they test
         let app = XCUIApplication()
-        setupSnapshot(app)
+        setupSnapshot(app, waitForAnimations: false)
 
         app.launch()
 
-        XCUIDevice.shared.orientation = .landscapeLeft
-        XCUIDevice.shared.orientation = .portrait
-
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            XCUIDevice.shared.orientation = .landscapeLeft
-        }
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+            XCUIDevice.shared.orientation = .landscapeRight
+//        }
+//        else {
+//            XCUIDevice.shared.orientation = .portrait
+//        }
 
         app.buttons["Tritan"].tap()
 
         let cvdSeveritySlider = app.sliders["cvd severity"]
         cvdSeveritySlider.adjust(toNormalizedSliderPosition: 0.0)
-        createScreenshot(1, "normal-color-vision")
+        createScreenshot(snapshotIndex, "normal-color-vision")
+        snapshotIndex += 1
 
         cvdSeveritySlider.adjust(toNormalizedSliderPosition: 1.0)
-        createScreenshot(2, "Tritan")
+        createScreenshot(snapshotIndex, "Tritan")
+        snapshotIndex += 1
 
         if UIDevice.current.userInterfaceIdiom == .pad {
-            XCUIDevice.shared.orientation = .landscapeLeft
+            XCUIDevice.shared.orientation = .landscapeRight
+        }
+        else {
+            XCUIDevice.shared.orientation = .portrait
         }
 
+        print("--wg-- \(app.buttons)")
         app.buttons["add new profile"].tap()
 
         let severityAnalysisSlider = app.sliders["severity analysis"]
         severityAnalysisSlider.adjust(toNormalizedSliderPosition: 0.0)
 
-        app.snapshot(3, "next cvd analysis", in: \.buttons)
+        app.snapshot(snapshotIndex, "next cvd analysis", in: \.buttons)
+        snapshotIndex += 1
 
         app.buttons["next cvd analysis"].tap()
         app.buttons["next cvd analysis"].tap()
@@ -62,10 +71,15 @@ class AppStoreScreenshotsUITests: XCTestCase {
         }
 
         app.textFields["save as field"].typeText("James")
-        createScreenshot(4, "save-new-profile")
+        if app.buttons["Continue"].exists {
+            app.buttons["Continue"].tap()
+        }
+        createScreenshot(snapshotIndex, "save-new-profile")
+        snapshotIndex += 1
 
         app.buttons["save cvd profile"].tap()
-        createScreenshot(5, "new-profile-view")
+        createScreenshot(snapshotIndex, "new-profile-view")
+        snapshotIndex += 1
 
         XCUIDevice.shared.orientation = .portrait
 
@@ -73,10 +87,12 @@ class AppStoreScreenshotsUITests: XCTestCase {
         app.scrollViews.otherElements.images.firstMatch.tap()
         app.buttons["Deutan"].tap()
         app.buttons["James"].tap()
-        createScreenshot(6, "low-severity-image")
+        createScreenshot(snapshotIndex, "low-severity-image")
+        snapshotIndex += 1
 
         cvdSeveritySlider.adjust(toNormalizedSliderPosition: 1.0)
-        createScreenshot(7, "high-severity-image")
+        createScreenshot(snapshotIndex, "high-severity-image")
+        snapshotIndex += 1
 
         app/*@START_MENU_TOKEN@*/.buttons["dismiss"]/*[[".buttons[\"Close\"]",".buttons[\"dismiss\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }

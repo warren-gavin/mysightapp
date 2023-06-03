@@ -3,28 +3,26 @@ default_platform(:ios)
 platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
-    # When updating to new simulators they will need to be
-    # populated with the prayer flags image. Open all the
-    # required simulators and run
-    #
-    #   xcrun simctl addmedia <simulator> fastlane/prayerflags.jpg
-    #
-    # This command will fail if the simulator is not running
     capture_screenshots(workspace: "MySight.xcworkspace",
                         scheme: "AppStoreScreenshots",
-                        dark_mode: false,
-                        number_of_retries: 2)
+                        dark_mode: true,
+                        number_of_retries: 2,
+                        erase_simulator: true)
+  end
 
-    # When updating to new Xcode versions etc it might be
-    # necessary to first run
-    #
-    #   fastlane frameit download_frames
-    frame_screenshots
+  lane :framed do
+      # When updating to new Xcode versions etc it might be
+      # necessary to first run
+      #
+      #   fastlane frameit download_frames
+      frame_screenshots
+  end
 
-    # This will result in a 2FA pass, keep an eye on the phone!
-    deliver(username: ENV['APPSTORECONNECT_USER'],
-            overwrite_screenshots: true,
-            force: true,
-            precheck_include_in_app_purchases: false)
+  lane :push do
+      # This will result in a 2FA pass, keep an eye on the phone!
+      deliver(username: ENV['APPSTORECONNECT_USER'],
+              overwrite_screenshots: true,
+              force: true,
+              precheck_include_in_app_purchases: false)
   end
 end

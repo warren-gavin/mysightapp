@@ -8,21 +8,33 @@
 import Foundation
 
 struct CVDAnalysisModel {
-    private var scores: [CVD: Float] = [
+    private var severities: [CVD: Float] = [
         .deutan: 0.0,
         .protan: 0.0,
         .tritan: 0.0
     ]
 
-    mutating func update(confusionLine: ConfusionLine, score: Float) {
-        scores[confusionLine.cvd]! += 1.0 - score
+    mutating func update(cvd: CVD, score closenessToNormal: Float) {
+        severities[cvd]! += 1.0 - closenessToNormal
     }
 
-    func probableCvdAndSeverity() -> (CVD, Float) {
-        let probable = scores.sorted {
-            $0.1 > $1.1
-        }.first!
+    var probableCvd: CVD {
+        severities
+            .sorted { $0.1 > $1.1 }
+            .map { $0.key }
+            .first ?? .deutan
+    }
 
-        return (probable.key, probable.value / Float(ConfusionLine.allTritans.count))
+    var probableSeverity: Float {
+        let probableSeverity = severities
+            .sorted { $0.1 > $1.1 }
+            .map { $0.value }
+            .first ?? 0.0
+
+        return probableSeverity / Float(ConfusionLine.allTritans.count)
+    }
+
+    var eliminatedCvd: CVD? {
+        .tritan
     }
 }

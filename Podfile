@@ -2,8 +2,11 @@ platform :ios, '15.0'
 
 target 'MySight' do
   use_frameworks!
+  pod 'BBMetalImage'
+end
 
-  # Pods for IceCreamShop
+target 'AppStoreScreenshots' do
+  use_frameworks!
   pod 'BBMetalImage'
 end
 

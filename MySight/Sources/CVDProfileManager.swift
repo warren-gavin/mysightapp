@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class CVDProfileManager: ObservableObject {
+final class CVDProfileManager: ObservableObject {
     private let userDefaults: UserDefaults
 
     init(userDefaults: UserDefaults = .standard) {

@@ -47,8 +47,8 @@ struct CVDAnalysisView: View {
                                     userEstimatedSeverity: $userEstimatedSeverity)
             }
             else {
-                CVDAnalysisResultview(cvd: viewModel.probableCvdAndSeverity.0,
-                                      severity: viewModel.probableCvdAndSeverity.1,
+                CVDAnalysisResultview(cvd: viewModel.probableCvd,
+                                      severity: viewModel.probableSeverity,
                                       newProfileName: $newProfileName)
             }
 
@@ -89,9 +89,9 @@ struct CVDAnalysisView: View {
                 }
                 else {
                     Button {
-                        let (cvd, severity) = viewModel.probableCvdAndSeverity
+                        let severity = viewModel.probableSeverity
                         viewModel.save(profile: CVDProfile(name: newProfileName,
-                                                           cvd: cvd,
+                                                           cvd: viewModel.probableCvd,
                                                            severity: severity)) {
                             activeSeverity = severity
                         }

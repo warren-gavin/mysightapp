@@ -37,12 +37,20 @@ private extension ConfusionLineArrayView {
 
 struct ConfusionLineArrayView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ConfusionLineArrayView(cvd: .deutan, severity: .constant(0.0))
-            ConfusionLineArrayView(cvd: .protan, severity: .constant(0.0))
-            ConfusionLineArrayView(cvd: .tritan, severity: .constant(0.0))
+        VStack(spacing: 24) {
+            HStack(spacing: 24) {
+                ConfusionLineArrayView(cvd: .deutan, severity: .constant(0.0))
+                ConfusionLineArrayView(cvd: .protan, severity: .constant(0.0))
+                ConfusionLineArrayView(cvd: .tritan, severity: .constant(0.0))
+            }
+            HStack(spacing: 24) {
+                ConfusionLineArrayView(cvd: .deutan, severity: .constant(1.0))
+                ConfusionLineArrayView(cvd: .protan, severity: .constant(1.0))
+                ConfusionLineArrayView(cvd: .tritan, severity: .constant(1.0))
+            }
         }
         .padding(24)
+        .background(Color(hex: 0x343837, alpha: 1.0))
         .previewLayout(.sizeThatFits)
     }
 }

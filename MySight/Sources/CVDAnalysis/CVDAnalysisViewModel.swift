@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CVDAnalysisViewModel: ObservableObject {
+final class CVDAnalysisViewModel: ObservableObject {
     private let profileManager: CVDProfileManager
     private let userDefaults: UserDefaults
 
@@ -19,9 +19,6 @@ class CVDAnalysisViewModel: ObservableObject {
         .deutan_4, .protan_4, .tritan_4,
         .deutan_5, .protan_5, .tritan_5,
     ]
-#if !targetEnvironment(simulator)
-        .shuffled()
-#endif
 
     private lazy var numberOfConfusionLines = confusionLines.count
 
@@ -29,8 +26,12 @@ class CVDAnalysisViewModel: ObservableObject {
         return !userDefaults.bool(forKey: .showIntroKey)
     }
 
-    var probableCvdAndSeverity: (CVD, Float) {
-        model.probableCvdAndSeverity()
+    var probableCvd: CVD {
+        model.probableCvd
+    }
+
+    var probableSeverity: Float {
+        model.probableSeverity
     }
 
     var completionProgress: Double {
@@ -40,6 +41,10 @@ class CVDAnalysisViewModel: ObservableObject {
     init(profileManager: CVDProfileManager, userDefaults: UserDefaults = .standard) {
         self.profileManager = profileManager
         self.userDefaults = userDefaults
+
+#if !targetEnvironment(simulator)
+        self.confusionLines.shuffle()
+#endif
     }
 
     func introWasRead() {
@@ -52,7 +57,7 @@ class CVDAnalysisViewModel: ObservableObject {
         confusionLines = remainder
 
         if let confusionLine {
-            model.update(confusionLine: confusionLine, score: severity)
+            model.update(cvd: confusionLine.cvd, score: severity)
         }
 
         return next

@@ -18,9 +18,12 @@ struct AppStoreScreenshotsApp: App {
 
 extension AppStoreScreenshotsApp {
     var contentView: some View {
-        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(named: "AccentColor")
+        UIView.setAnimationsEnabled(false)
         UserDefaults.standard.removeAllProfiles()
         UserDefaults.standard.set(true, forKey: "com.apokrupto.cvd-analysis-intro-shown")
+        UIView
+            .appearance(whenContainedInInstancesOf: [UIAlertController.self])
+            .tintColor = UIColor(named: "AccentColor")
 
         return ContentView()
     }

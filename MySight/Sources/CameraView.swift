@@ -60,7 +60,7 @@ struct CameraView: UIViewRepresentable {
 /// CameraView using UIRepresentable. When updateUIView is called on CameraView this
 /// class updates the filter with the new filtering parameters, which allows realtime updates
 /// of the CVD simulation
-private class CVDCameraUIView: UIView {
+private final class CVDCameraUIView: UIView {
     // We must persist the camera for the lifetime of this view
     private let camera: BBMetalCamera
     private let metalView: BBMetalView

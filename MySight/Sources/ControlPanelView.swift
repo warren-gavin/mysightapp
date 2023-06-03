@@ -52,6 +52,10 @@ struct ControlPanelView: View {
                 }.opacity(show ? 1 : 0)
             }
         }
+        .padding(.top, 8.0)
+        .padding(.bottom, show ? 20.0 : 8.0)
+        .background(.ultraThinMaterial,
+                    in: RoundedRectangle(cornerRadius: 24))
         .fixedSize(horizontal: shouldFixHorizontal, vertical: true)
     }
 }

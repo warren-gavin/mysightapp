@@ -21,29 +21,32 @@ struct SimulatorCameraView: View {
 
 extension SimulatorCameraView {
     var image: UIImage {
-        let orientationString = (orientation == .portrait || orientation == .portraitUpsideDown ? "portrait" : "landscape")
+        var aspectRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
 
         if UIDevice.current.userInterfaceIdiom == .pad {
-            return UIImage(named: "ipad-pro-3-12.9.\(orientationString)")!
+            return UIImage(named: "ipad-pro-3-12.9.\(orientationString(aspectRatio))")!
         }
-
-        var aspectRatio = UIScreen.main.bounds.height / UIScreen.main.bounds.width
 
         if orientation == .portraitUpsideDown {
             aspectRatio = 1 / aspectRatio
         }
 
         if aspectRatio < 2.0 {
-            return UIImage(named: "iphone-5.5.\(orientationString)")!
+            return UIImage(named: "iphone-5.5.\(orientationString(aspectRatio))")!
         }
 
-        return UIImage(named: "iphone-6.5.\(orientationString)")!
+        return UIImage(named: "iphone-6.5.\(orientationString(aspectRatio))")!
+    }
+
+    private func orientationString(_ aspectRatio: CGFloat) -> String {
+        return (aspectRatio > 1 ? "portrait" : "landscape")
     }
 }
 
 struct SimulatorCameraView_Previews: PreviewProvider {
     static var previews: some View {
         SimulatorCameraView(cvd: .deutan, severity: 1.0, orientation: .constant(.portrait))
+            .ignoresSafeArea()
     }
 }
 #endif
